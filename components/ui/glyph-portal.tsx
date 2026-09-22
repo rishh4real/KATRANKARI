@@ -423,7 +423,7 @@ export default function GlyphPortal({
         {front && <div data-gp-front>{front}</div>}
         <span data-gp-fallback aria-hidden="true" style={{ fontFamily, fontWeight: weight }}>{text}</span>
         <div data-gp-caption>
-          <span data-gp-hint aria-hidden="true">{interactive ? "Scroll to enter." : annotations ? "A passage through type" : ""}</span>
+          <span data-gp-hint aria-hidden="true">{interactive ? "Scroll for a closer look ↓" : annotations ? "A passage through type" : ""}</span>
           <a data-gp-enter href={`#${uid}-content`}>{enterLabel}<span aria-hidden="true">↘</span></a>
         </div>
       </div>

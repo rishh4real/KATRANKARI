@@ -61,6 +61,7 @@ export default function Demo(props: Partial<typeof settings>) {
   const [face, setFace] = useState<string | null>(null);
   const [activeStory, setActiveStory] = useState(0);
   const [entered, setEntered] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   useEffect(() => {
     if (window.location.hash) window.history.replaceState(null, "", window.location.pathname);
   }, []);
@@ -78,7 +79,7 @@ export default function Demo(props: Partial<typeof settings>) {
     return () => { settled = true; clearTimeout(timeout); };
   }, []);
   const mainSite = (
-    <main data-katrankaari-site id="site">
+    <main data-katrankaari-site id="site" data-katrankaari-menu-state={mobileMenuOpen ? "open" : "closed"}>
       <div data-katrankaari-topbar>
         <span>Free shipping on orders above ₹999</span>
         <span>Textile waste finds a better tomorrow</span>
@@ -91,6 +92,11 @@ export default function Demo(props: Partial<typeof settings>) {
           <button type="button" onClick={() => setActiveStory(0)}>Impact</button>
         </div>
         <a data-katrankaari-nav-logo href="#site"><strong>KATRANKAARI</strong><small>Re-imagining textile waste</small></a>
+        <button data-katrankaari-menu-toggle={mobileMenuOpen ? "open" : "closed"} type="button" aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen((open) => !open)}>
+          <span />
+          <span />
+          <span />
+        </button>
         <div data-katrankaari-nav-right>
           <button type="button" onClick={() => setActiveStory(3)}>Corporate Gifting</button>
           <span data-katrankaari-nav-divider aria-hidden="true" />
@@ -116,6 +122,22 @@ export default function Demo(props: Partial<typeof settings>) {
           </button>
         </div>
       </nav>
+      <div data-katrankaari-mobile-menu={mobileMenuOpen ? "open" : "closed"}>
+        <div data-katrankaari-mobile-menu-head>
+          <a data-katrankaari-mobile-logo href="#site" onClick={() => setMobileMenuOpen(false)}><strong>KATRANKAARI</strong></a>
+        </div>
+        <div data-katrankaari-mobile-menu-links>
+          <button type="button" onClick={() => { setActiveStory(2); setMobileMenuOpen(false); }}>Shop</button>
+          <button type="button" onClick={() => { setActiveStory(1); setMobileMenuOpen(false); }}>Our Story</button>
+          <button type="button" onClick={() => { setActiveStory(0); setMobileMenuOpen(false); }}>Impact</button>
+          <button type="button" onClick={() => { setActiveStory(3); setMobileMenuOpen(false); }}>Corporate Gifting</button>
+        </div>
+        <div data-katrankaari-mobile-menu-actions>
+          <button type="button">Search</button>
+          <button type="button">Account</button>
+          <button type="button">Cart 0</button>
+        </div>
+      </div>
       <section data-katrankaari-hero aria-label="Featured KatranKaari products">
         {heroCards.map((card) => (
           <button data-katrankaari-hero-panel={card.featured ? "main" : ""} type="button" onClick={() => setActiveStory(card.story)} key={card.title}>
@@ -234,8 +256,8 @@ export default function Demo(props: Partial<typeof settings>) {
     <div ref={containerRef} data-demo-scroll data-slipstream-demo tabIndex={0} role="region" aria-label="KATRANKAARI. Scroll to step inside."
       style={{ width: "100%", height: "100svh", overflowY: "auto", background: "#fff", containerType: "inline-size", fontFamily: face ?? "Arial, sans-serif" }}>
       <style>{`
-        [data-slipstream-demo] [data-gp-caption]{inset:calc(var(--gp-word-bottom,50%) + 58px) 24px auto;justify-content:center;text-align:center;}
-        [data-slipstream-demo] [data-gp-hint]{display:none;}
+        [data-slipstream-demo] [data-gp-caption]{inset:calc(var(--gp-word-bottom,50%) + 48px) 24px auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;}
+        [data-slipstream-demo] [data-gp-hint]{display:block;color:#7c837d;font-size:1.06rem;font-weight:500;letter-spacing:0;text-transform:none;}
         [data-slipstream-demo] [data-gp-enter]{min-height:36px;padding:0 14px;gap:14px;background:#000;border:1px solid #000;border-radius:7px;color:#fff;font-size:12px;font-weight:500;box-shadow:0 1px 2px #00000024;transition:background .18s,box-shadow .18s;}
         [data-slipstream-demo] [data-gp-enter]:hover{background:#1a1a1a;box-shadow:0 3px 8px #00000024;}
         [data-slipstream-demo] [data-gp-enter]:focus-visible{outline:2px solid #000;outline-offset:4px;}
@@ -253,6 +275,7 @@ export default function Demo(props: Partial<typeof settings>) {
         [data-katrankaari-media-shade]{position:absolute;inset:0;background:rgba(255,255,255,.02);}
         @keyframes katran-mosaic-drift{0%{transform:translate(-52%,-50%) rotate(-1deg);}100%{transform:translate(-48%,-50%) rotate(-1deg);}}
         [data-katrankaari-site]{min-height:100svh;background:#fff;color:#111;}
+        [data-katrankaari-site] > *{transition:transform .42s cubic-bezier(.22,.68,.18,1),filter .42s ease,opacity .42s ease;}
         [data-katrankaari-topbar]{height:28px;display:grid;grid-template-columns:repeat(3,1fr);align-items:center;padding:0 clamp(18px,3.5vw,54px);border-bottom:1px solid rgba(0,0,0,.1);font-size:9px;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:#555;}
         [data-katrankaari-topbar] span:nth-child(2){text-align:center;}
         [data-katrankaari-topbar] span:nth-child(3){text-align:right;}
@@ -267,6 +290,7 @@ export default function Demo(props: Partial<typeof settings>) {
         [data-katrankaari-nav-divider]{width:1px;height:32px;background:#bcbcbc;}
         [data-katrankaari-icon]{width:30px;height:30px;display:inline-grid;place-items:center;flex:0 0 30px;color:#111;text-decoration:none!important;}
         [data-katrankaari-icon] svg{width:24px;height:24px;display:block;overflow:visible;}
+        [data-katrankaari-menu-toggle],[data-katrankaari-mobile-menu]{display:none;}
         [data-katrankaari-hero]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));min-height:clamp(520px,68svh,760px);overflow:hidden;border-bottom:1px solid #111;background:#111;}
         [data-katrankaari-hero-panel]{position:relative;appearance:none;border:0;border-right:1px solid #fff;background:#222;padding:0;overflow:hidden;cursor:pointer;text-align:left;}
         [data-katrankaari-hero-panel]:last-child{border-right:0;}
@@ -324,13 +348,37 @@ export default function Demo(props: Partial<typeof settings>) {
         [data-katrankaari-newsletter] button{width:42px;height:42px;border:1px solid rgba(255,255,255,.7);border-left:0;background:#fff;color:#111;vertical-align:top;cursor:pointer;}
         [data-katrankaari-copyright]{grid-column:1/-1;position:relative;z-index:2;display:flex!important;justify-content:space-between;gap:1rem;margin:28px calc(clamp(20px,4vw,72px) * -1) -28px;padding:16px clamp(20px,4vw,72px);border-top:1px solid rgba(255,255,255,.22);font-size:9px;font-weight:750;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.84);}
         @container(max-width:850px){
-          [data-katrankaari-topbar]{height:24px;display:flex;justify-content:center;padding:0 16px;font-size:7px;letter-spacing:.22em;white-space:nowrap;overflow:hidden;}
-          [data-katrankaari-topbar] span:not(:nth-child(2)){display:none;}
-          [data-katrankaari-nav]{height:auto;grid-template-columns:1fr;justify-items:center;gap:12px;padding:14px 16px 12px;}
-          [data-katrankaari-nav-logo]{grid-row:1;justify-self:center;}
-          [data-katrankaari-nav-links]{grid-row:2;justify-content:center;width:100%;gap:clamp(.9rem,5vw,1.6rem);font-size:9px;letter-spacing:.14em;overflow-x:auto;padding-bottom:2px;}
-          [data-katrankaari-nav-right]{grid-row:3;justify-content:center;width:100%;gap:clamp(1rem,6vw,1.8rem);font-size:9px;letter-spacing:.14em;}
-          [data-katrankaari-nav-right] button[aria-label]{font-size:18px;}
+          [data-slipstream-demo] [data-gp-caption]{top:calc(var(--gp-word-bottom,50%) + 38px);gap:14px;}
+          [data-slipstream-demo] [data-gp-hint]{font-size:.96rem;}
+          [data-katrankaari-topbar]{display:none;}
+          [data-katrankaari-nav]{height:74px;grid-template-columns:auto 1fr auto;justify-items:stretch;gap:0;padding:0 14px;}
+          [data-katrankaari-nav-logo]{grid-column:1;justify-self:start;transform:none;}
+          [data-katrankaari-nav-logo] strong{font-size:1rem;padding:.34rem .5rem .3rem;}
+          [data-katrankaari-nav-logo] small{display:none;}
+          [data-katrankaari-nav-links],[data-katrankaari-nav-right]{display:none;}
+          [data-katrankaari-site][data-katrankaari-menu-state="open"] [data-katrankaari-nav]{z-index:80;background:transparent;border-bottom-color:transparent;backdrop-filter:none;pointer-events:none;}
+          [data-katrankaari-site][data-katrankaari-menu-state="open"] > :not([data-katrankaari-nav]):not([data-katrankaari-mobile-menu]){transform:translateX(-27vw);filter:brightness(.42);}
+          [data-katrankaari-menu-toggle]{grid-column:3;justify-self:end;position:relative;z-index:72;width:58px;height:58px;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;appearance:none;border:0;background:transparent;color:#111;padding:0;cursor:pointer;}
+          [data-katrankaari-menu-toggle] span{display:block;height:3px;background:#111;border-radius:99px;transition:width .24s ease,transform .32s cubic-bezier(.22,.68,.18,1),opacity .2s ease,background .2s ease;}
+          [data-katrankaari-menu-toggle] span:nth-child(1){width:24px;margin-left:8px;}
+          [data-katrankaari-menu-toggle] span:nth-child(2){width:32px;}
+          [data-katrankaari-menu-toggle] span:nth-child(3){width:42px;}
+          [data-katrankaari-menu-toggle="open"]{position:fixed;right:18px;top:10px;z-index:82;color:#fff;pointer-events:auto;}
+          [data-katrankaari-menu-toggle="open"] span{background:#fff;margin-left:0!important;}
+          [data-katrankaari-menu-toggle="open"] span:nth-child(1){width:40px;transform:translateY(11px) rotate(45deg);}
+          [data-katrankaari-menu-toggle="open"] span:nth-child(2){opacity:0;transform:scaleX(.2);}
+          [data-katrankaari-menu-toggle="open"] span:nth-child(3){width:40px;transform:translateY(-11px) rotate(-45deg);}
+          [data-katrankaari-mobile-menu]{position:fixed;inset:0 0 0 auto;z-index:60;width:73vw;max-width:420px;display:grid;grid-template-rows:auto 1fr auto;gap:28px;background:#050505;color:#fff;padding:26px 28px 28px;transform:translateX(100%);transition:transform .42s cubic-bezier(.22,.68,.18,1);pointer-events:none;box-shadow:-28px 0 46px rgba(0,0,0,.38);}
+          [data-katrankaari-mobile-menu="open"]{transform:translateX(0);pointer-events:auto;}
+          [data-katrankaari-mobile-menu-head]{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;}
+          [data-katrankaari-mobile-logo]{display:inline-flex;background:#fff;border:2px solid #111;color:#111;text-decoration:none;line-height:1;padding:.5rem .66rem .42rem;}
+          [data-katrankaari-mobile-logo] strong{font-size:1.08rem;font-weight:900;letter-spacing:.09em;}
+          [data-katrankaari-mobile-menu-links]{display:flex;flex-direction:column;justify-content:center;gap:24px;padding-bottom:5svh;}
+          [data-katrankaari-mobile-menu-links] button{appearance:none;border:0;background:transparent;color:#eee;padding:0;text-align:left;font-family:Georgia,serif;font-size:clamp(2.45rem,12.8vw,5rem);font-weight:400;line-height:1;letter-spacing:0;cursor:pointer;}
+          [data-katrankaari-mobile-menu-links] button:first-child{color:#fff;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:8px;}
+          [data-katrankaari-mobile-menu-links] button::after{content:"";display:block;width:min(55vw,230px);height:1px;margin-top:8px;background:rgba(255,255,255,.26);}
+          [data-katrankaari-mobile-menu-actions]{display:flex;flex-wrap:wrap;gap:10px;border-top:1px solid rgba(255,255,255,.28);padding-top:18px;}
+          [data-katrankaari-mobile-menu-actions] button{appearance:none;border:1px solid rgba(255,255,255,.55);background:transparent;color:#fff;min-height:38px;padding:0 14px;font-size:10px;font-weight:850;letter-spacing:.18em;text-transform:uppercase;}
           [data-katrankaari-hero]{display:flex;min-height:0;height:min(520px,58svh);overflow-x:auto;scroll-snap-type:x mandatory;border-bottom:1px solid #111;}
           [data-katrankaari-hero-panel]{flex:0 0 78vw;height:100%;border-right:1px solid #fff;scroll-snap-align:start;}
           [data-katrankaari-hero-panel] span{opacity:1;transform:none;font-size:9px;}
