@@ -357,6 +357,7 @@ export default function Demo(props: Partial<typeof settings>) {
           [data-katrankaari-nav-logo] small{display:none;}
           [data-katrankaari-nav-links],[data-katrankaari-nav-right]{display:none;}
           [data-katrankaari-site][data-katrankaari-menu-state="open"] [data-katrankaari-nav]{z-index:80;background:transparent;border-bottom-color:transparent;backdrop-filter:none;pointer-events:none;}
+          [data-katrankaari-site][data-katrankaari-menu-state="open"] [data-katrankaari-nav-logo]{opacity:0;visibility:hidden;}
           [data-katrankaari-site][data-katrankaari-menu-state="open"] > :not([data-katrankaari-nav]):not([data-katrankaari-mobile-menu]){transform:translateX(-27vw);filter:brightness(.42);}
           [data-katrankaari-menu-toggle]{grid-column:3;justify-self:end;position:relative;z-index:72;width:58px;height:58px;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;appearance:none;border:0;background:transparent;color:#111;padding:0;cursor:pointer;}
           [data-katrankaari-menu-toggle] span{display:block;height:3px;background:#111;border-radius:99px;transition:width .24s ease,transform .32s cubic-bezier(.22,.68,.18,1),opacity .2s ease,background .2s ease;}
