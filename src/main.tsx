@@ -1,11 +1,2 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import Demo from "../demo";
-
-import "./styles.css";
-
-createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <Demo />
-  </React.StrictMode>,
-);
+// Archived Vite entry point. The production application now starts in src/app.
+export {};

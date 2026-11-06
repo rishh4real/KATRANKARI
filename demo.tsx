@@ -146,10 +146,6 @@ export default function Demo(props: Partial<typeof settings>) {
           </button>
         ))}
       </section>
-      <section data-katrankaari-home-intro>
-        <h1>Textile waste, reimagined for everyday life.</h1>
-        <button data-katrankaari-shop-all type="button" onClick={() => setActiveStory(2)}>Shop all <span aria-hidden="true">→</span></button>
-      </section>
       <section data-katrankaari-purpose>
         <img src="/katrankaari/fabric-closeup.png" alt="" />
         <div data-katrankaari-purpose-copy>
@@ -299,10 +295,6 @@ export default function Demo(props: Partial<typeof settings>) {
         [data-katrankaari-hero-panel]:hover img{transform:scale(1.045);filter:saturate(1.08) contrast(1.06);}
         [data-katrankaari-hero-panel] span{position:absolute;left:18px;bottom:16px;background:#fff;border:1px solid #111;padding:.48rem .62rem;color:#111;font-size:10px;font-weight:850;letter-spacing:.18em;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease;}
         [data-katrankaari-hero-panel]:hover span{opacity:1;transform:translateY(0);}
-        [data-katrankaari-home-intro]{padding:22px clamp(20px,4vw,72px) 28px;text-align:center;border-bottom:1px solid rgba(0,0,0,.12);}
-        [data-katrankaari-home-intro] h1{margin:0;font-family:Georgia,serif;font-size:clamp(1.45rem,2.15vw,2.35rem);font-weight:400;line-height:1.2;letter-spacing:0;}
-        [data-katrankaari-shop-all]{margin-top:16px;min-height:34px;padding:0 1.4rem;border:1px solid #111;background:#fff;color:#111;font-size:10px;font-weight:850;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;}
-        [data-katrankaari-shop-all]:hover{background:#111;color:#fff;}
         [data-katrankaari-purpose]{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(340px,.72fr) minmax(220px,.42fr);border-bottom:1px solid #111;background:#fff;}
         [data-katrankaari-purpose]>img{width:100%;height:100%;min-height:330px;object-fit:cover;}
         [data-katrankaari-purpose-copy]{padding:clamp(32px,4vw,58px);display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(0,0,0,.16);}
@@ -383,8 +375,6 @@ export default function Demo(props: Partial<typeof settings>) {
           [data-katrankaari-hero]{display:flex;min-height:0;height:min(520px,58svh);overflow-x:auto;scroll-snap-type:x mandatory;border-bottom:1px solid #111;}
           [data-katrankaari-hero-panel]{flex:0 0 78vw;height:100%;border-right:1px solid #fff;scroll-snap-align:start;}
           [data-katrankaari-hero-panel] span{opacity:1;transform:none;font-size:9px;}
-          [data-katrankaari-home-intro]{padding:20px 18px 24px;}
-          [data-katrankaari-home-intro] h1{font-size:clamp(1.45rem,7vw,2.2rem);}
           [data-katrankaari-purpose],[data-katrankaari-people],[data-katrankaari-footer]{grid-template-columns:1fr;}
           [data-katrankaari-purpose]>img,[data-katrankaari-people]>img{min-height:260px;max-height:360px;}
           [data-katrankaari-purpose-copy],[data-katrankaari-people]>div{border-right:0;padding:28px 20px;}
