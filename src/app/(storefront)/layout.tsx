@@ -1,6 +1,7 @@
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { SiteHelpChat } from "@/components/layout/SiteHelpChat";
 
 export default function StorefrontLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,6 +11,7 @@ export default function StorefrontLayout({ children }: { children: React.ReactNo
       <Header />
       <main id="main-content" className="flex-1">{children}</main>
       <Footer />
+      <SiteHelpChat />
     </div>
   );
 }
