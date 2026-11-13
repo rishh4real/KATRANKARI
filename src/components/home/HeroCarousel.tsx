@@ -10,7 +10,7 @@ const slides = [
   {
     image: "/katrankaari/hero-weekender-bag-pink.jpg",
     alt: "KatranKaari patterned weekender bag displayed against a pink textile backdrop",
-    imageClassName: "object-[58%_center] md:object-center",
+    imageClassName: "object-[58%_top] md:object-top",
   },
   {
     image: "/katrankaari/hero-weekender-bag.png",
