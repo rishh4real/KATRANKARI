@@ -14,7 +14,7 @@ type ChatMessage = {
 
 const starterMessage: ChatMessage = {
   role: "assistant",
-  body: "Hi! I can help you explore products, materials, gifting, collaborations, education, orders and contact details.",
+  body: "Hi! I can help you explore products, materials, gifting, collaborations, textile waste insights, orders and contact details.",
 };
 
 const suggestions = ["Shop products", "Track an order", "Corporate gifting", "What are the products made from?"];
@@ -26,7 +26,7 @@ function answerQuestion(question: string): Omit<ChatMessage, "role"> {
     return { body: "Hello! What would you like to know about KatranKaari?" };
   }
   if (/(material|made from|textile waste|upcycl|sustainab|fabric)/.test(text)) {
-    return { body: "KatranKaari is built around thoughtfully designed, functional products made from upcycled textile waste. Explore our process and material stories for the fuller picture.", href: "/education", label: "Explore education" };
+    return { body: "KatranKaari is built around thoughtfully designed, functional products made from upcycled textile waste. Explore our process, facts and material stories for the fuller picture.", href: "/education", label: "Explore textile waste insights" };
   }
   if (/(corporate|bulk|custom|gift|gifting)/.test(text)) {
     return { body: "We have a dedicated route for corporate gifting and custom-order enquiries. Tell us about your brief, quantity and timing there.", href: "/corporate-gifting", label: "Explore corporate gifting" };
@@ -44,7 +44,7 @@ function answerQuestion(question: string): Omit<ChatMessage, "role"> {
     return { body: "You can browse the current product and collection preview in the shop. Prices and availability are development values until the Shopify catalogue is connected.", href: "/shop", label: "Visit the shop" };
   }
   if (/(education|report|learn|landfill|women|impact)/.test(text)) {
-    return { body: "Our education area shares material stories and developing resources around textile waste, circularity and the people behind the work.", href: "/education", label: "Visit education" };
+    return { body: "Our insights area shares developing facts, reports and material stories about textile waste in India, circularity and the people behind the work.", href: "/education", label: "Visit textile waste insights" };
   }
   if (/(contact|email|phone|address|instagram)/.test(text)) {
     return { body: `You can reach KatranKaari at ${siteConfig.contact.email}, call ${siteConfig.contact.phoneDisplay}, or use the contact form.`, href: "/contact", label: "Open contact page" };
@@ -53,7 +53,7 @@ function answerQuestion(question: string): Omit<ChatMessage, "role"> {
     return { body: "Checkout and payments are not connected in this development storefront, so no real purchases are processed here yet.", href: "/faq", label: "View FAQs" };
   }
 
-  return { body: "I can help with shopping, products, materials, gifting, collaborations, education, policies, orders or contact details. For anything more specific, the KatranKaari team can help directly.", href: "/contact", label: "Contact KatranKaari" };
+  return { body: "I can help with shopping, products, materials, gifting, collaborations, textile waste insights, policies, orders or contact details. For anything more specific, the KatranKaari team can help directly.", href: "/contact", label: "Contact KatranKaari" };
 }
 
 export function SiteHelpChat() {

@@ -4,8 +4,6 @@ export const primaryNavigation = [
   { label: "Shop", href: "/shop" },
   { label: "Corporate Gifting & Custom Orders", href: "/corporate-gifting" },
   { label: "Our Impact", href: "/impact" },
-  { label: "Education", href: "/education" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const footerNavigation = [
@@ -15,7 +13,7 @@ export const footerNavigation = [
       { label: "Shop", href: "/shop" },
       { label: "About KatranKaari", href: "/about" },
       { label: "Our Impact", href: "/impact" },
-      { label: "Education", href: "/education" },
+      { label: "Textile Waste Insights", href: "/education" },
     ],
   },
   {
@@ -25,7 +23,6 @@ export const footerNavigation = [
       { label: "Contact", href: "/contact" },
       { label: "FAQs", href: "/faq" },
       { label: "Track Order", href: "/track-order" },
-      { label: "Wishlist", href: "/wishlist" },
     ],
   },
 ];

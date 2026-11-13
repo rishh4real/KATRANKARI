@@ -23,7 +23,6 @@ const navigation = [
   { label: "Corporate Gifting", href: "/corporate-gifting" },
   { label: "Our Story", href: "/about" },
   { label: "Impact", href: "/impact" },
-  { label: "Education", href: "/education" },
 ];
 
 function navigationClass(inverse: boolean, active: boolean) {
@@ -51,7 +50,7 @@ export function DesktopNavigation({ pathname, inverse = false, shopOpen, onShopO
       <ul className="flex items-center gap-4 xl:gap-6">
         <li onMouseEnter={openShopMenu} onMouseLeave={closeShopMenu} onFocus={openShopMenu} onBlur={closeShopMenu}>
           <Link className={navigationClass(inverse, shopActive)} aria-current={shopActive ? "page" : undefined} href="/shop">Shop</Link>
-          <div className={`fixed inset-x-0 top-20 z-50 border-t border-black/10 bg-[#F8F7F2] px-10 py-9 text-foreground shadow-[0_20px_42px_rgba(0,0,0,0.14)] transition duration-200 xl:px-16 ${shopOpen ? "visible opacity-100" : "invisible pointer-events-none opacity-0"}`} onMouseEnter={openShopMenu} onMouseLeave={closeShopMenu}>
+          <div className={`fixed inset-x-0 top-[84px] z-50 border-t border-black/10 bg-background px-10 py-9 text-foreground shadow-[0_20px_42px_rgba(0,0,0,0.14)] transition duration-200 xl:px-16 ${shopOpen ? "visible opacity-100" : "invisible pointer-events-none opacity-0"}`} onMouseEnter={openShopMenu} onMouseLeave={closeShopMenu}>
             <div className="mx-auto grid max-w-site grid-cols-[repeat(3,minmax(0,1fr))_minmax(230px,0.85fr)] gap-8 xl:gap-10">
               {shopColumns.map((column) => (
                 <section key={column.title} aria-label={column.title}>

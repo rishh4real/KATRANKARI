@@ -35,7 +35,7 @@ export function EducationLibraryPreview() {
           <div>
             <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.16em] text-[#F2E2D7]">
               <BookOpen aria-hidden="true" size={20} strokeWidth={1.8} />
-              <span>Education & insights</span>
+              <span>Textile Waste Insights</span>
               <span className="h-px w-12 bg-[#D6B8A7]/75" />
             </div>
             <h2 id="education-preview-title" className="mt-5 max-w-lg font-sans text-[clamp(2.15rem,3vw,3.25rem)] font-normal leading-[1.02] text-[#F8EBDC]">
@@ -45,7 +45,7 @@ export function EducationLibraryPreview() {
               Research, reports and stories on textile waste, material transformation, and the people reshaping the future of fashion.
             </p>
             <Link href="/education" className="group mt-6 inline-flex min-h-10 items-center gap-2 rounded-[6px] bg-[#F5E7D6] px-4 py-2 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-[#58111D] transition-colors hover:bg-[#EBD7C0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F8EBDC] focus-visible:ring-offset-2 focus-visible:ring-offset-[#580716]">
-              Explore all reports <ArrowUpRight aria-hidden="true" size={17} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              Explore insights <ArrowUpRight aria-hidden="true" size={17} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </div>
 

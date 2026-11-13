@@ -5,7 +5,7 @@ import { Container } from "@/components/layout/Container";
 import { mockArticles } from "@/data/mock-content";
 import { createMetadata } from "@/lib/seo";
 
-export const metadata = createMetadata("Education", "A library structure for approved reports and stories about textile waste, circularity and material transformation.", "/education");
+export const metadata = createMetadata("Textile Waste Insights", "Facts, reports and stories about textile waste in India, circularity and material transformation.", "/education");
 
 const focusAreas = [
   "Textile waste",
@@ -20,7 +20,7 @@ export default function EducationPage() {
 
   return (
     <main>
-      <section className="relative isolate overflow-hidden border-b border-[#D8D5CD] bg-[#FBFAF7]">
+      <section className="relative isolate overflow-hidden border-b border-border bg-background">
         <Image
           src="/katrankaari/featured-textile-pattern.png"
           alt=""
@@ -30,13 +30,13 @@ export default function EducationPage() {
           className="pointer-events-none z-0 object-cover opacity-[0.1]"
         />
         <Container className="relative z-10 py-16 sm:py-20 lg:py-24">
-          <p className="eyebrow mb-5 text-[#7C2831]">Education / Field notes</p>
+          <p className="eyebrow mb-5 text-[#7C2831]">Textile Waste Insights</p>
           <div className="grid items-end gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.52fr)] lg:gap-16">
             <h1 className="max-w-4xl font-display text-[clamp(3.4rem,6.4vw,6.25rem)] leading-[0.84] text-[#251017]">
-              Knowledge that keeps materials moving.
+              Facts that make textile waste visible.
             </h1>
             <p className="max-w-md text-base leading-7 text-[#625D58] sm:text-lg">
-              A considered library for approved reports, field stories, and material notes on textile waste, circular making, and the people behind it.
+              A growing library of approved reports, facts and field stories about textile waste in India, circular making and the people behind it.
             </p>
           </div>
         </Container>

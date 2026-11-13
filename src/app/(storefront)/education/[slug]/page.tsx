@@ -22,10 +22,10 @@ export default async function ArticlePage({ params }: Props) {
   if (!article) notFound();
   return (
     <Container className="page-section max-w-4xl">
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Education", href: "/education" }, { label: article.title }]} />
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Textile Waste Insights", href: "/education" }, { label: article.title }]} />
       <Badge>Sample content · not for publication</Badge><h1 className="mt-5 font-display text-5xl leading-tight md:text-7xl">{article.title}</h1><p className="mt-6 text-lg leading-8 text-muted">{article.excerpt}</p>
       <div className="mt-12 space-y-10">{article.sections.map((section) => <section key={section.heading}><h2 className="font-display text-3xl">{section.heading}</h2><p className="mt-4 leading-8 text-muted">{section.body}</p></section>)}</div>
-      <Link className={`${buttonClassName("secondary")} mt-12`} href="/education">Back to education</Link>
+      <Link className={`${buttonClassName("secondary")} mt-12`} href="/education">Back to insights</Link>
     </Container>
   );
 }

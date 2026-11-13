@@ -60,7 +60,6 @@ The original Vite prototype files remain in the repository for reference but are
 - `/contact`
 - `/faq`
 - `/account`
-- `/wishlist`
 - `/cart`
 - `/track-order`
 - `/robots.txt`
@@ -78,7 +77,7 @@ Unknown product, collection and article handles render the Not Found state.
 - INR formatting
 - Contact and corporate enquiry validation without transmission
 - Responsive navigation covering all six main sections and utility routes
-- Clear account, wishlist and order-tracking states pending Shopify integration
+- Clear account and order-tracking states pending Shopify integration
 - Product review-and-rating placement without fabricated customer claims
 
 All catalogue prices, inventory, descriptions, variants and groupings are development values. Forms do not send or store data. No impact metrics, business contacts, legal policies, promotions, testimonials or review claims are invented.

@@ -39,21 +39,16 @@ export function HandwritingSvg({
   ease = "easeInOut",
   onReady,
 }: HandwritingSvgProps) {
-  const [path, setPath] = useState<string | null>(pathProp ?? null);
-  const [viewBox, setViewBox] = useState(`0 0 ${width} ${height}`);
-  const [loading, setLoading] = useState(Boolean(text && !pathProp));
+  const sourceKey = `${fontUrl}:${fontSize}:${text ?? ""}`;
+  const [generated, setGenerated] = useState<{ key: string; path: string; viewBox: string } | null>(null);
 
   useEffect(() => {
     if (!text || pathProp) {
-      setPath(pathProp ?? null);
-      setViewBox(`0 0 ${width} ${height}`);
-      setLoading(false);
       if (pathProp) onReady?.();
       return;
     }
 
     let cancelled = false;
-    setLoading(true);
 
     fetch(fontUrl)
       .then((response) => response.arrayBuffer())
@@ -69,21 +64,20 @@ export function HandwritingSvg({
         const viewWidth = Math.ceil(bounds.x2 - bounds.x1) + padding * 2;
         const viewHeight = Math.ceil(bounds.y2 - bounds.y1) + padding * 2;
 
-        setViewBox(`${x} ${y} ${viewWidth} ${viewHeight}`);
-        setPath(glyphPath.toPathData(2));
+        setGenerated({ key: sourceKey, path: glyphPath.toPathData(2), viewBox: `${x} ${y} ${viewWidth} ${viewHeight}` });
         onReady?.();
       })
       .catch(() => {
-        if (!cancelled) setPath(null);
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
+        if (!cancelled) setGenerated({ key: sourceKey, path: "", viewBox: `0 0 ${width} ${height}` });
       });
 
     return () => {
       cancelled = true;
     };
-  }, [fontSize, fontUrl, height, onReady, pathProp, text, width]);
+  }, [fontSize, fontUrl, height, onReady, pathProp, sourceKey, text, width]);
+
+  const generatedForCurrentText = generated?.key === sourceKey ? generated : null;
+  const loading = Boolean(text && !pathProp && !generatedForCurrentText);
 
   if (loading) {
     return (
@@ -94,7 +88,7 @@ export function HandwritingSvg({
     );
   }
 
-  const drawing = path ?? "";
+  const drawing = pathProp ?? generatedForCurrentText?.path ?? "";
   if (!drawing) {
     return (
       <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} className={cn("text-muted-foreground", className)} aria-hidden>
@@ -104,7 +98,7 @@ export function HandwritingSvg({
   }
 
   return (
-    <svg width={width} height={height} viewBox={pathProp ? `0 0 ${width} ${height}` : viewBox} className={cn(className || "text-rose-500")} aria-hidden>
+    <svg width={width} height={height} viewBox={pathProp ? `0 0 ${width} ${height}` : generatedForCurrentText?.viewBox ?? `0 0 ${width} ${height}`} className={cn(className || "text-rose-500")} aria-hidden>
       <title>Handwriting</title>
       <motion.path
         d={drawing}
