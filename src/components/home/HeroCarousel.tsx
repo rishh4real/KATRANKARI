@@ -12,6 +12,21 @@ const slides = [
     alt: "KatranKaari patterned weekender bag displayed against a pink textile backdrop",
     imageClassName: "object-[58%_center] md:object-center",
   },
+  {
+    image: "/katrankaari/hero-weekender-bag.png",
+    alt: "KatranKaari patterned textile weekender bag",
+    imageClassName: "object-[54%_center] md:object-center",
+  },
+  {
+    image: "/katrankaari/hero-tote-bags.png",
+    alt: "KatranKaari patchwork tote bags",
+    imageClassName: "object-[55%_center] md:object-center",
+  },
+  {
+    image: "/katrankaari/hero-open-tote-bag.png",
+    alt: "KatranKaari open patterned tote bag",
+    imageClassName: "object-[55%_center] md:object-center",
+  },
 ];
 
 export function HeroCarousel() {
