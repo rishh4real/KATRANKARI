@@ -53,13 +53,13 @@ export function Header() {
     : `absolute inset-x-0 top-0 z-40 transition-colors duration-300 ${headerHovered ? "bg-background text-[#171717] shadow-[0_1px_0_rgba(0,0,0,0.08)]" : "bg-transparent text-white"}`;
   return (
     <header className={isHome ? homeHeaderClass : "sticky top-0 z-40 border-b border-black/15 bg-background/95 text-foreground"} onMouseEnter={() => isHome && setHeaderHovered(true)} onMouseLeave={() => isHome && setHeaderHovered(false)}>
-      <div className="mx-auto flex h-[72px] max-w-site items-center gap-4 px-4 lg:h-[84px] lg:gap-7 lg:px-10 xl:px-16">
-        <Link className="inline-flex w-max flex-none flex-col items-start no-underline" href="/" aria-label="KatranKaari home">
-          <strong className={hasLightHeader ? "border-2 border-foreground px-2 pb-1 pt-1.5 text-[0.9rem] font-black leading-none tracking-[0.04em] sm:text-base lg:text-[1.05rem]" : "border border-white px-2 py-1.5 text-[0.78rem] font-black leading-none tracking-[0.06em] sm:text-[0.9rem] lg:px-3 lg:py-2 lg:text-[1rem]"}>KatranKaari</strong>
-          <small className={`mt-1 pl-0.5 font-display text-[0.56rem] italic leading-none sm:text-[0.64rem] ${hasLightHeader ? "text-muted" : "text-white/85"}`}>Re-imagining textile waste</small>
+      <div className="flex h-[72px] w-full items-center gap-4 px-3 sm:px-5 lg:h-[92px] lg:gap-6 lg:px-6 xl:px-8">
+        <Link className="inline-flex w-max flex-none flex-col items-center no-underline" href="/" aria-label="KatranKaari home">
+          <strong className={hasLightHeader ? "border-2 border-foreground px-3 pb-1.5 pt-2 text-base font-black leading-none tracking-[0.04em] sm:text-[1.05rem] lg:px-4 lg:py-2.5 lg:text-[1.22rem]" : "border border-white px-3 pb-1.5 pt-2 text-sm font-black leading-none tracking-[0.06em] sm:text-base lg:px-4 lg:py-2.5 lg:text-[1.22rem]"}>KatranKaari</strong>
+          <small className={`mt-1.5 w-full text-center font-display text-[0.6rem] italic leading-none sm:text-[0.66rem] lg:text-[0.7rem] ${hasLightHeader ? "text-muted" : "text-white/85"}`}>Re-imagining textile waste</small>
         </Link>
-        <div className="hidden min-w-0 flex-1 justify-center lg:flex"><DesktopNavigation pathname={pathname} inverse={!hasLightHeader} shopOpen={shopMenuOpen} onShopOpenChange={setShopMenuOpen} /></div>
-        <div className="ml-auto hidden items-center gap-1 lg:flex xl:gap-2">
+        <div className="ml-auto hidden min-w-0 justify-end lg:flex"><DesktopNavigation pathname={pathname} inverse={!hasLightHeader} shopOpen={shopMenuOpen} onShopOpenChange={setShopMenuOpen} /></div>
+        <div className="hidden items-center gap-1 lg:flex xl:ml-2 xl:gap-2">
           <Link className={`icon-button ${!hasLightHeader ? "hover:!bg-white/10" : ""}`} href="/shop#catalog-controls" aria-label="Search products"><Search aria-hidden="true" size={23} strokeWidth={1.5} /></Link>
           <Link className={`icon-button ${!hasLightHeader ? "hover:!bg-white/10" : ""}`} href="/account" aria-label="Account"><UserRound aria-hidden="true" size={23} strokeWidth={1.5} /></Link>
           <Link className={`icon-button relative ${!hasLightHeader ? "hover:!bg-white/10" : ""}`} href="/cart" aria-label={`Cart with ${ready ? cart.totalQuantity : 0} items`}>
