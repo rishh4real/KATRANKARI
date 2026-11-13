@@ -13,6 +13,11 @@ const slides = [
     imageClassName: "object-[58%_top] md:object-top",
   },
   {
+    image: "/katrankaari/hero-llama-pouch-pink.jpg",
+    alt: "KatranKaari quilted llama and cactus pouch displayed against a pink textile backdrop",
+    imageClassName: "object-center",
+  },
+  {
     image: "/katrankaari/hero-weekender-bag.png",
     alt: "KatranKaari patterned textile weekender bag",
     imageClassName: "object-[54%_center] md:object-center",
