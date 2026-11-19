@@ -51,12 +51,13 @@ export default function AboutPage() {
             </h1>
             <div className="mt-5 h-px w-16 bg-[#e9b49f]/70" aria-hidden="true" />
             <p className="mt-4 max-w-sm text-sm leading-6 text-[#f8e8dc]/85 sm:text-[0.95rem]">Transforming textile waste into meaningful products and opportunities.</p>
+            <p className="mt-4 inline-flex rounded-full border border-[#f4c8b6]/30 px-3 py-1.5 text-[0.58rem] font-bold uppercase tracking-[0.16em] text-[#f4c8b6]">Jamnagar · Project Swachh Halar</p>
           </div>
 
-          <figure className="relative aspect-[16/9] overflow-hidden rounded-[1.5rem] border border-[#f6d6c5]/20 bg-[#4f0f1a] shadow-[0_24px_58px_rgba(28,0,6,0.32)] lg:h-[360px] lg:aspect-auto">
-            <Image src="/katrankaari/artisan-maker.png" alt="KatranKaari woman artisan holding a finished textile piece beside her sewing machine" fill priority className="object-cover object-[45%_30%]" sizes="(min-width: 1024px) 59vw, 100vw" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_62%,rgba(47,3,11,0.34))]" aria-hidden="true" />
-            <figcaption className="absolute bottom-4 right-5 text-[0.62rem] font-bold uppercase tracking-[0.2em] text-[#fff8ed]/75">Crafted in Jamnagar</figcaption>
+          <figure className="relative aspect-[16/9] overflow-hidden rounded-[1.4rem] border-[6px] border-[#f3dfcf] bg-[#4f0f1a] shadow-[0_24px_58px_rgba(28,0,6,0.36)] lg:h-[350px] lg:aspect-auto">
+            <Image src="/katrankaari/artisan-maker.png" alt="KatranKaari woman artisan holding a finished textile piece beside her sewing machine" fill priority className="object-cover object-[38%_27%]" style={{ filter: "sepia(0.12) saturate(0.82) contrast(1.03)" }} sizes="(min-width: 1024px) 59vw, 100vw" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(77,9,21,0.18),transparent_42%,rgba(77,9,21,0.05)),linear-gradient(180deg,transparent_66%,rgba(47,3,11,0.28))] mix-blend-multiply" aria-hidden="true" />
+            <figcaption className="absolute bottom-3 right-4 rounded-full bg-[#5b1320]/70 px-3 py-1.5 text-[0.58rem] font-bold uppercase tracking-[0.18em] text-[#fff8ed]/90 backdrop-blur-sm">Crafted in Jamnagar</figcaption>
           </figure>
         </Container>
         <StitchPath className="pointer-events-none absolute -bottom-10 left-[18%] hidden w-[31rem] text-[#f3bda5]/35 lg:block" />
