@@ -65,7 +65,7 @@ export default function AboutPage() {
       <section className="relative border-b border-[#d9c3ae] py-8 sm:py-9 lg:py-10">
         <Container className="grid items-center gap-7 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
           <div className="relative aspect-[16/9] overflow-hidden rounded-[1.2rem] bg-[#ead9c7] shadow-[0_18px_42px_rgba(89,30,26,0.12)]">
-            <Image src="/katrankaari/fabric-closeup.png" alt="Recovered printed textiles gathered for reuse" fill className="object-cover" sizes="(min-width: 1024px) 42vw, 100vw" />
+            <Image src="/katrankaari/journey-artisans.webp" alt="Women sorting colourful recovered textiles as part of the KatranKaari journey" fill className="object-cover object-center" sizes="(min-width: 1024px) 42vw, 100vw" />
           </div>
           <div className="relative">
             <p className="mb-3 text-[0.68rem] font-extrabold uppercase tracking-[0.26em] text-[#721a27]">How it all started</p>
