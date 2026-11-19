@@ -175,6 +175,28 @@ a {
   }
 }
 
+@keyframes about-hero-glow {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(0.97);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.025);
+  }
+}
+
+@keyframes about-process-icon-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-0.5deg);
+  }
+  50% {
+    transform: translate3d(0, -0.28rem, 0) rotate(0.75deg);
+  }
+}
+
 .hero-image-drift {
   animation: hero-image-drift 8s ease-out both;
   will-change: transform;
@@ -199,6 +221,16 @@ a {
 
 .education-card-live:nth-child(3) {
   animation-delay: 1.7s;
+}
+
+.about-hero-glow {
+  animation: about-hero-glow 6.8s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+.about-process-icon {
+  animation: about-process-icon-float 5.2s ease-in-out infinite;
+  will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -60,7 +60,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,218,191,0.1),transparent_34%),linear-gradient(120deg,rgba(43,0,8,0.22),transparent_58%)]" aria-hidden="true" />
         <div className="absolute inset-0 opacity-[0.18] mix-blend-soft-light" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.48'/%3E%3C/svg%3E")` }} aria-hidden="true" />
         <Container className="relative z-10 grid items-center gap-6 lg:grid-cols-[0.64fr_1.36fr] lg:gap-0">
-          <div className="relative z-10 max-w-md py-2 lg:py-4">
+          <div className="hero-content-reveal relative z-10 max-w-md py-2 lg:py-4">
             <p className="mb-4 flex items-center gap-4 text-[0.68rem] font-extrabold uppercase tracking-[0.28em] text-[#f4c8b6]">Our Story <span className="h-px w-14 bg-[#efc7b5]/75" aria-hidden="true" /></p>
             <h1 className="font-display text-[clamp(2.75rem,4.4vw,4.3rem)] font-semibold leading-[0.92] tracking-[-0.035em] text-[#fff8ed]">
               Every scrap
@@ -69,8 +69,8 @@ export default function AboutPage() {
             <p className="mt-4 max-w-sm text-sm leading-6 text-[#f8e8dc]/85 sm:text-[0.95rem]">Transforming textile waste into meaningful products and opportunities.</p>
           </div>
 
-          <div className="relative h-[18rem] sm:h-[22rem] lg:h-[350px] lg:w-full lg:justify-self-end" aria-label="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine">
-            <div className="absolute inset-x-[5%] bottom-[-2%] top-[8%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(244,178,126,0.2),rgba(244,178,126,0.06)_48%,transparent_72%)] blur-2xl" aria-hidden="true" />
+          <div className="hero-content-reveal relative h-[18rem] sm:h-[22rem] lg:h-[350px] lg:w-full lg:justify-self-end" style={{ animationDelay: "220ms" }} aria-label="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine">
+            <div className="about-hero-glow absolute inset-x-[5%] bottom-[-2%] top-[8%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(244,178,126,0.2),rgba(244,178,126,0.06)_48%,transparent_72%)] blur-2xl" aria-hidden="true" />
             <Image src="/katrankaari/about-hero-cutout.webp" alt="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine" fill priority className="object-contain object-right-bottom drop-shadow-[0_18px_22px_rgba(35,0,7,0.28)] lg:translate-y-10 lg:scale-[1.18] lg:origin-bottom-right" sizes="(min-width: 1024px) 64vw, 100vw" />
           </div>
         </Container>
@@ -79,8 +79,8 @@ export default function AboutPage() {
 
       <section className="relative overflow-hidden border-b border-[#d9c3ae] py-6 sm:py-7 lg:py-8">
         <Container className="relative z-10 grid items-center gap-6 lg:grid-cols-[0.58fr_1.42fr] lg:gap-8">
-          <div className="relative aspect-[1368/1498] w-full max-w-[21rem] justify-self-center overflow-hidden rounded-[1.2rem] bg-[#ead9c7] shadow-[0_18px_42px_rgba(89,30,26,0.12)]">
-            <Image src="/katrankaari/journey-artisans-burgundy-final.webp" alt="Women sorting colourful recovered textiles as part of the KatranKaari journey" fill className="object-cover object-center" sizes="(min-width: 1024px) 336px, 85vw" />
+          <div className="group relative aspect-[1368/1498] w-full max-w-[21rem] justify-self-center overflow-hidden rounded-[1.2rem] bg-[#ead9c7] shadow-[0_18px_42px_rgba(89,30,26,0.12)]">
+            <Image src="/katrankaari/journey-artisans-burgundy-final.webp" alt="Women sorting colourful recovered textiles as part of the KatranKaari journey" fill className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.018] motion-reduce:transition-none" sizes="(min-width: 1024px) 336px, 85vw" />
           </div>
           <div className="relative">
             <p className="mb-3 text-[0.68rem] font-extrabold uppercase tracking-[0.26em] text-[#721a27]">How it all started</p>
@@ -137,12 +137,12 @@ export default function AboutPage() {
           </div>
           <div className="relative mx-auto max-w-5xl">
             <svg className="pointer-events-none absolute left-[12%] top-8 hidden h-12 w-[76%] sm:block" viewBox="0 0 900 80" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M0 40 C75 2 150 2 225 40 S375 78 450 40 S600 2 675 40 S825 78 900 40" fill="none" stroke="#b98478" strokeLinecap="round" strokeWidth="2" strokeDasharray="8 10" />
+              <path className="process-thread" d="M0 40 C75 2 150 2 225 40 S375 78 450 40 S600 2 675 40 S825 78 900 40" fill="none" stroke="#b98478" strokeLinecap="round" strokeWidth="2" strokeDasharray="8 10" />
             </svg>
             <ol className="relative grid grid-cols-3 gap-2 sm:gap-6">
-            {processSteps.map((step) => (
+            {processSteps.map((step, index) => (
               <li key={step.title} className="relative z-10 text-center">
-                <div className="relative mx-auto h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24">
+                <div className="about-process-icon relative mx-auto h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24" style={{ animationDelay: `${index * 700}ms` }}>
                   <Image src={step.image} alt={step.alt} fill className="object-contain" sizes="96px" />
                 </div>
                 <span className="mt-2 block text-[0.58rem] font-bold tracking-[0.2em] text-[#9b695c] sm:text-[0.65rem]">{step.number}</span>
