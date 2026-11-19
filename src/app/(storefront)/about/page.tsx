@@ -39,8 +39,9 @@ function StitchPath({ className = "" }: { className?: string }) {
 
 function HeroStitchPath({ className = "" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 1000 350" fill="none" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 334C182 329 258 279 427 286C596 293 681 257 770 184C856 114 920 57 1000 18" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="11 16" vectorEffect="non-scaling-stroke" />
+    <svg className={className} viewBox="0 0 1600 350" fill="none" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 339C188 338 260 299 420 300C585 301 648 278 715 228C765 191 798 165 844 149" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="11 16" vectorEffect="non-scaling-stroke" />
+      <path d="M1035 122C1132 162 1204 119 1286 76C1380 27 1500 51 1600 105" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="11 16" vectorEffect="non-scaling-stroke" />
     </svg>
   );
 }
@@ -48,25 +49,25 @@ function HeroStitchPath({ className = "" }: { className?: string }) {
 export default function AboutPage() {
   return (
     <main className="overflow-hidden bg-[linear-gradient(135deg,#fff8ef_0%,#f8ecdd_100%)] text-[#2a1b19]">
-      <section className="relative isolate overflow-hidden border-b border-[#4b0d17] bg-[#651421] py-5 text-[#fff8ed] shadow-[inset_0_-1px_rgba(20,0,4,0.28)] sm:py-6 lg:pb-0 lg:pt-6">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,218,191,0.11),transparent_32%),linear-gradient(120deg,rgba(43,0,8,0.2),transparent_58%)]" aria-hidden="true" />
-        <Container className="relative z-10 grid items-center gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:gap-9">
-          <div className="relative z-10 max-w-lg py-2 lg:py-4">
-            <p className="mb-4 text-[0.68rem] font-extrabold uppercase tracking-[0.28em] text-[#f4c8b6]">Our Story</p>
-            <h1 className="font-sans text-[clamp(2.5rem,4vw,3.85rem)] font-medium leading-[1.04] tracking-[-0.035em] text-[#fff8ed]">
+      <section className="relative isolate overflow-hidden border-b border-[#4b0d17] bg-[#651421] py-5 text-[#fff8ed] shadow-[inset_0_-1px_rgba(20,0,4,0.28)] sm:py-6 lg:pb-0 lg:pt-4">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,218,191,0.1),transparent_34%),linear-gradient(120deg,rgba(43,0,8,0.22),transparent_58%)]" aria-hidden="true" />
+        <div className="absolute inset-0 opacity-[0.18] mix-blend-soft-light" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.48'/%3E%3C/svg%3E")` }} aria-hidden="true" />
+        <Container className="relative z-10 grid items-center gap-6 lg:grid-cols-[0.64fr_1.36fr] lg:gap-0">
+          <div className="relative z-10 max-w-md py-2 lg:py-4">
+            <p className="mb-4 flex items-center gap-4 text-[0.68rem] font-extrabold uppercase tracking-[0.28em] text-[#f4c8b6]">Our Story <span className="h-px w-14 bg-[#efc7b5]/75" aria-hidden="true" /></p>
+            <h1 className="font-display text-[clamp(2.75rem,4.4vw,4.3rem)] font-semibold leading-[0.92] tracking-[-0.035em] text-[#fff8ed]">
               Every scrap
               <span className="block">has a story.</span>
             </h1>
-            <div className="mt-5 h-px w-16 bg-[#e9b49f]/70" aria-hidden="true" />
             <p className="mt-4 max-w-sm text-sm leading-6 text-[#f8e8dc]/85 sm:text-[0.95rem]">Transforming textile waste into meaningful products and opportunities.</p>
           </div>
 
           <div className="relative h-[18rem] sm:h-[22rem] lg:h-[350px] lg:w-full lg:justify-self-end" aria-label="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine">
             <div className="absolute inset-x-[5%] bottom-[-2%] top-[8%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(244,178,126,0.2),rgba(244,178,126,0.06)_48%,transparent_72%)] blur-2xl" aria-hidden="true" />
-            <Image src="/katrankaari/about-hero-cutout.webp" alt="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine" fill priority className="object-contain object-right-bottom drop-shadow-[0_18px_22px_rgba(35,0,7,0.28)] lg:translate-y-3 lg:scale-[1.08] lg:origin-bottom-right" sizes="(min-width: 1024px) 59vw, 100vw" />
+            <Image src="/katrankaari/about-hero-cutout.webp" alt="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine" fill priority className="object-contain object-right-bottom drop-shadow-[0_18px_22px_rgba(35,0,7,0.28)] lg:translate-y-10 lg:scale-[1.18] lg:origin-bottom-right" sizes="(min-width: 1024px) 64vw, 100vw" />
           </div>
         </Container>
-        <HeroStitchPath className="pointer-events-none absolute inset-y-0 left-0 z-0 hidden h-full w-[54%] text-[#f3bda5]/45 lg:block" />
+        <HeroStitchPath className="pointer-events-none absolute inset-0 z-0 hidden h-full w-full text-[#f3bda5]/55 lg:block" />
       </section>
 
       <section className="relative overflow-hidden border-b border-[#d9c3ae] py-6 sm:py-7 lg:py-8">
@@ -143,6 +144,25 @@ export default function AboutPage() {
               </li>
             ))}
             </ol>
+          </div>
+        </Container>
+      </section>
+
+      <section className="relative isolate overflow-hidden border-t border-[#4b0d17] bg-[#651421] px-4 py-10 text-center text-[#fff8ed] sm:py-12">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(255,214,184,0.12),transparent_42%),linear-gradient(110deg,rgba(49,0,8,0.28),transparent_48%,rgba(49,0,8,0.2))]" aria-hidden="true" />
+        <div className="absolute inset-0 opacity-[0.2] mix-blend-soft-light" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.48'/%3E%3C/svg%3E")` }} aria-hidden="true" />
+        <div className="absolute -bottom-20 -left-14 h-48 w-80 rotate-[16deg] rounded-[55%_45%_12%_18%] border border-[#d27f78]/20 bg-[linear-gradient(145deg,#8a2837,#5a0e1a_58%,#35050d)] opacity-80 shadow-[0_-18px_45px_rgba(32,0,7,0.35)]" aria-hidden="true" />
+        <div className="absolute -bottom-24 -right-12 h-56 w-96 -rotate-[14deg] rounded-[45%_55%_16%_12%] border border-[#d27f78]/20 bg-[linear-gradient(215deg,#8a2837,#5a0e1a_58%,#35050d)] opacity-80 shadow-[0_-18px_45px_rgba(32,0,7,0.35)]" aria-hidden="true" />
+        <Container className="relative z-10 translate-y-8">
+          <h2 className="font-display text-4xl font-semibold leading-none tracking-[-0.03em] sm:text-5xl">Be Part of Our Story</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#f8e8dc]/85 sm:text-base">Choose products that create impact for people and the planet.</p>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-5">
+            <Link href="/shop" className="inline-flex min-h-11 min-w-52 items-center justify-center gap-4 rounded-button bg-[#fff4e5] px-6 py-3 text-sm font-bold text-[#651421] transition hover:-translate-y-0.5 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
+              Explore Our Products <span aria-hidden="true">→</span>
+            </Link>
+            <Link href="/impact" className="inline-flex min-h-11 min-w-52 items-center justify-center rounded-button border border-[#fff4e5]/75 px-6 py-3 text-sm font-bold text-[#fff8ed] transition hover:-translate-y-0.5 hover:bg-[#fff4e5] hover:text-[#651421] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
+              See Our Impact
+            </Link>
           </div>
         </Container>
       </section>
