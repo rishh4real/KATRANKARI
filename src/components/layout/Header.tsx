@@ -11,6 +11,8 @@ import { MobileNavigation } from "./MobileNavigation";
 export function Header() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const hasOverlayHero = isHome || pathname === "/about";
+  const heroId = isHome ? "home-hero" : "about-hero";
   const [menuOpen, setMenuOpen] = useState(false);
   const [headerHovered, setHeaderHovered] = useState(false);
   const [shopMenuOpen, setShopMenuOpen] = useState(false);
@@ -20,13 +22,13 @@ export function Header() {
   const { cart, ready } = useCart();
 
   useEffect(() => {
-    if (!isHome) return;
+    if (!hasOverlayHero) return;
 
     let previousScrollY = window.scrollY;
     let upwardScrollDistance = 0;
     const updateHeader = () => {
       const currentScrollY = window.scrollY;
-      const hero = document.getElementById("home-hero");
+      const hero = document.getElementById(heroId);
       const isPastHero = hero ? hero.getBoundingClientRect().bottom <= -48 : currentScrollY >= window.innerHeight + 48;
       const scrollDistance = currentScrollY - previousScrollY;
       setPastHero(isPastHero);
@@ -45,14 +47,14 @@ export function Header() {
     updateHeader();
     window.addEventListener("scroll", updateHeader, { passive: true });
     return () => window.removeEventListener("scroll", updateHeader);
-  }, [isHome]);
+  }, [hasOverlayHero, heroId]);
 
-  const hasLightHeader = !isHome || shopMenuOpen || (!pastHero && headerHovered) || (pastHero && showScrolledHeader);
-  const homeHeaderClass = pastHero
+  const hasLightHeader = !hasOverlayHero || shopMenuOpen || (!pastHero && headerHovered) || (pastHero && showScrolledHeader);
+  const overlayHeaderClass = pastHero
     ? `fixed inset-x-0 top-0 z-40 bg-background text-[#171717] shadow-[0_1px_0_rgba(0,0,0,0.08)] transition-transform duration-300 ${showScrolledHeader ? "translate-y-0" : "-translate-y-full"}`
     : `absolute inset-x-0 top-0 z-40 transition-colors duration-300 ${headerHovered ? "bg-background text-[#171717] shadow-[0_1px_0_rgba(0,0,0,0.08)]" : "bg-transparent text-white"}`;
   return (
-    <header className={isHome ? homeHeaderClass : "sticky top-0 z-40 border-b border-black/15 bg-background/95 text-foreground"} onMouseEnter={() => isHome && setHeaderHovered(true)} onMouseLeave={() => isHome && setHeaderHovered(false)}>
+    <header className={hasOverlayHero ? overlayHeaderClass : "sticky top-0 z-40 border-b border-black/15 bg-background/95 text-foreground"} onMouseEnter={() => hasOverlayHero && setHeaderHovered(true)} onMouseLeave={() => hasOverlayHero && setHeaderHovered(false)}>
       <div className="flex h-[72px] w-full items-center gap-4 px-3 sm:px-5 lg:h-[92px] lg:gap-6 lg:px-6 xl:px-8">
         <Link className="inline-flex w-max flex-none flex-col items-center no-underline" href="/" aria-label="KatranKaari home">
           <strong className={hasLightHeader ? "border-2 border-foreground px-3 pb-1.5 pt-2 text-base font-black leading-none tracking-[0.04em] sm:text-[1.05rem] lg:px-4 lg:py-2.5 lg:text-[1.22rem]" : "border border-white px-3 pb-1.5 pt-2 text-sm font-black leading-none tracking-[0.06em] sm:text-base lg:px-4 lg:py-2.5 lg:text-[1.22rem]"}>KatranKaari</strong>

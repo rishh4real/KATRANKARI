@@ -40,8 +40,15 @@ function StitchPath({ className = "" }: { className?: string }) {
 function HeroStitchPath({ className = "" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 1600 350" fill="none" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 339C188 338 260 299 420 300C585 301 648 278 715 228C765 191 798 165 844 149" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="11 16" vectorEffect="non-scaling-stroke" />
-      <path d="M1035 122C1132 162 1204 119 1286 76C1380 27 1500 51 1600 105" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="11 16" vectorEffect="non-scaling-stroke" />
+      <path d="M0 339C188 338 260 299 420 300C585 301 648 278 715 228C765 191 798 165 844 149C909 126 969 108 1035 122C1132 162 1204 119 1286 76C1380 27 1500 51 1600 105" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="11 16" vectorEffect="non-scaling-stroke" />
+    </svg>
+  );
+}
+
+function ArtisanStitchPath({ className = "" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 1600 520" fill="none" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M430 520C505 467 553 438 632 435C748 431 815 499 920 479C1017 460 1070 432 1154 449C1260 470 1318 507 1410 473C1502 439 1540 353 1600 302" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="10 15" vectorEffect="non-scaling-stroke" />
     </svg>
   );
 }
@@ -49,7 +56,7 @@ function HeroStitchPath({ className = "" }: { className?: string }) {
 export default function AboutPage() {
   return (
     <main className="overflow-hidden bg-[linear-gradient(135deg,#fff8ef_0%,#f8ecdd_100%)] text-[#2a1b19]">
-      <section className="relative isolate overflow-hidden border-b border-[#4b0d17] bg-[#651421] py-5 text-[#fff8ed] shadow-[inset_0_-1px_rgba(20,0,4,0.28)] sm:py-6 lg:pb-0 lg:pt-4">
+      <section id="about-hero" className="relative isolate overflow-hidden border-b border-[#4b0d17] bg-[#651421] pb-5 pt-[92px] text-[#fff8ed] shadow-[inset_0_-1px_rgba(20,0,4,0.28)] sm:pb-6 sm:pt-[96px] lg:pb-0 lg:pt-[108px]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,218,191,0.1),transparent_34%),linear-gradient(120deg,rgba(43,0,8,0.22),transparent_58%)]" aria-hidden="true" />
         <div className="absolute inset-0 opacity-[0.18] mix-blend-soft-light" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.48'/%3E%3C/svg%3E")` }} aria-hidden="true" />
         <Container className="relative z-10 grid items-center gap-6 lg:grid-cols-[0.64fr_1.36fr] lg:gap-0">
@@ -107,7 +114,7 @@ export default function AboutPage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-3 items-center gap-2 py-3 sm:gap-4 lg:gap-5">
+          <div className="grid grid-cols-3 items-center gap-2 py-3 sm:gap-4 lg:gap-6">
             <figure className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] border border-[#f5d4c5]/20 bg-[#7a2431] shadow-[0_20px_48px_rgba(27,0,5,0.28)] -rotate-3">
               <div role="img" aria-label="Reserved for a new artisan portrait" className="absolute inset-2 rounded-[0.95rem] border border-dashed border-[#f5d4c5]/25 bg-[radial-gradient(circle_at_35%_25%,rgba(255,240,226,0.08),transparent_35%)] sm:inset-3" />
             </figure>
@@ -119,7 +126,7 @@ export default function AboutPage() {
             </figure>
           </div>
         </Container>
-        <StitchPath className="pointer-events-none absolute -bottom-16 left-[26%] z-0 w-[34rem] rotate-[-5deg] text-[#f3bda5]/50" />
+        <ArtisanStitchPath className="pointer-events-none absolute inset-0 z-0 h-full w-full text-[#f3bda5]/50" />
       </section>
 
       <section className="py-7 sm:py-8 lg:py-9">
