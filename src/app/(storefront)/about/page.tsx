@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Ruler, Scissors, ShoppingBag, Spool } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { createMetadata } from "@/lib/seo";
 
@@ -39,34 +40,19 @@ function StitchPath({ className = "" }: { className?: string }) {
 
 function HeroStitchPath({ className = "" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 820 180" fill="none" aria-hidden="true">
-      <path d="M8 146C112 91 203 93 292 122C382 151 455 139 526 96C590 57 650 51 714 92" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="10 16" />
-      <path d="M714 92L774 48" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-      <ellipse cx="768" cy="52" rx="7" ry="3.5" transform="rotate(-36 768 52)" stroke="currentColor" strokeWidth="2" />
+    <svg className={className} viewBox="0 0 1000 180" fill="none" aria-hidden="true">
+      <path d="M0 154C168 153 218 106 365 111C520 116 600 145 720 120C842 94 924 67 1000 27" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="11 16" />
     </svg>
   );
 }
 
 function JourneyDoodles() {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden text-[#9a6d5c]/10" aria-hidden="true">
-      <svg className="absolute -left-14 top-5 w-72 -rotate-12" viewBox="0 0 260 220" fill="none">
-        <path d="M67 75H190L207 199H49L67 75Z" stroke="currentColor" strokeWidth="3" />
-        <path d="M94 78C95 33 163 31 164 78" stroke="currentColor" strokeWidth="3" strokeDasharray="8 8" />
-        <path d="M70 98H187M59 171H198" stroke="currentColor" strokeWidth="2" strokeDasharray="7 9" />
-      </svg>
-      <svg className="absolute -bottom-16 left-[34%] w-64 rotate-6" viewBox="0 0 260 180" fill="none">
-        <path d="M64 42H181L165 139H81L64 42Z" stroke="currentColor" strokeWidth="3" />
-        <path d="M64 42C94 60 151 60 181 42M81 139C105 123 141 123 165 139" stroke="currentColor" strokeWidth="3" />
-        <path d="M50 31H195M50 151H195" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-        <path d="M122 50V130" stroke="currentColor" strokeWidth="2" strokeDasharray="6 8" />
-      </svg>
-      <svg className="absolute -right-12 bottom-0 w-80 -rotate-6" viewBox="0 0 320 250" fill="none">
-        <circle cx="79" cy="170" r="37" stroke="currentColor" strokeWidth="3" />
-        <circle cx="141" cy="190" r="37" stroke="currentColor" strokeWidth="3" />
-        <path d="M104 151L267 40M161 164L277 213M267 40L278 29M277 213L289 222" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-        <circle cx="139" cy="157" r="8" stroke="currentColor" strokeWidth="3" />
-      </svg>
+    <div className="pointer-events-none absolute inset-0 overflow-hidden text-[#936a5b]/12" aria-hidden="true">
+      <ShoppingBag className="absolute -left-12 top-3 h-72 w-72 -rotate-12 stroke-[0.8]" />
+      <Ruler className="absolute -right-12 top-0 h-64 w-64 rotate-[22deg] stroke-[0.8]" />
+      <Spool className="absolute -bottom-20 left-[31%] h-56 w-56 rotate-6 stroke-[0.8]" />
+      <Scissors className="absolute -bottom-24 -right-12 h-80 w-80 -rotate-12 stroke-[0.8]" />
     </div>
   );
 }
@@ -92,7 +78,7 @@ export default function AboutPage() {
             <Image src="/katrankaari/about-hero-cutout.webp" alt="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine" fill priority className="object-contain object-right-bottom drop-shadow-[0_18px_22px_rgba(35,0,7,0.28)] lg:translate-y-3 lg:scale-[1.08] lg:origin-bottom-right" sizes="(min-width: 1024px) 59vw, 100vw" />
           </div>
         </Container>
-        <HeroStitchPath className="pointer-events-none absolute bottom-0 left-[17%] z-20 hidden w-[29rem] origin-bottom scale-y-[1.35] text-[#f3bda5]/45 lg:block" />
+        <HeroStitchPath className="pointer-events-none absolute bottom-0 left-0 z-0 hidden w-[54%] text-[#f3bda5]/45 lg:block" />
       </section>
 
       <section className="relative overflow-hidden border-b border-[#d9c3ae] py-6 sm:py-7 lg:py-8">
