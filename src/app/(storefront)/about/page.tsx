@@ -37,12 +37,46 @@ function StitchPath({ className = "" }: { className?: string }) {
   );
 }
 
+function HeroStitchPath({ className = "" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 820 180" fill="none" aria-hidden="true">
+      <path d="M8 146C112 91 203 93 292 122C382 151 455 139 526 96C590 57 650 51 714 92" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="10 16" />
+      <path d="M714 92L774 48" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      <ellipse cx="768" cy="52" rx="7" ry="3.5" transform="rotate(-36 768 52)" stroke="currentColor" strokeWidth="2" />
+    </svg>
+  );
+}
+
+function JourneyDoodles() {
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden text-[#9a6d5c]/10" aria-hidden="true">
+      <svg className="absolute -left-14 top-5 w-72 -rotate-12" viewBox="0 0 260 220" fill="none">
+        <path d="M67 75H190L207 199H49L67 75Z" stroke="currentColor" strokeWidth="3" />
+        <path d="M94 78C95 33 163 31 164 78" stroke="currentColor" strokeWidth="3" strokeDasharray="8 8" />
+        <path d="M70 98H187M59 171H198" stroke="currentColor" strokeWidth="2" strokeDasharray="7 9" />
+      </svg>
+      <svg className="absolute -bottom-16 left-[34%] w-64 rotate-6" viewBox="0 0 260 180" fill="none">
+        <path d="M64 42H181L165 139H81L64 42Z" stroke="currentColor" strokeWidth="3" />
+        <path d="M64 42C94 60 151 60 181 42M81 139C105 123 141 123 165 139" stroke="currentColor" strokeWidth="3" />
+        <path d="M50 31H195M50 151H195" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+        <path d="M122 50V130" stroke="currentColor" strokeWidth="2" strokeDasharray="6 8" />
+      </svg>
+      <svg className="absolute -right-12 bottom-0 w-80 -rotate-6" viewBox="0 0 320 250" fill="none">
+        <circle cx="79" cy="170" r="37" stroke="currentColor" strokeWidth="3" />
+        <circle cx="141" cy="190" r="37" stroke="currentColor" strokeWidth="3" />
+        <path d="M104 151L267 40M161 164L277 213M267 40L278 29M277 213L289 222" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+        <circle cx="139" cy="157" r="8" stroke="currentColor" strokeWidth="3" />
+      </svg>
+    </div>
+  );
+}
+
 export default function AboutPage() {
   return (
     <main className="overflow-hidden bg-[linear-gradient(135deg,#fff8ef_0%,#f8ecdd_100%)] text-[#2a1b19]">
       <section className="relative isolate overflow-hidden border-b border-[#4b0d17] bg-[#651421] py-5 text-[#fff8ed] shadow-[inset_0_-1px_rgba(20,0,4,0.28)] sm:py-6 lg:pb-0 lg:pt-6">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,218,191,0.11),transparent_32%),linear-gradient(120deg,rgba(43,0,8,0.2),transparent_58%)]" aria-hidden="true" />
-        <Container className="relative grid items-center gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:gap-9">
+        <Container className="relative z-10 grid items-center gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:gap-9">
           <div className="relative z-10 max-w-lg py-2 lg:py-4">
             <p className="mb-4 text-[0.68rem] font-extrabold uppercase tracking-[0.28em] text-[#f4c8b6]">Our Story</p>
             <h1 className="font-sans text-[clamp(2.5rem,4vw,3.85rem)] font-medium leading-[1.04] tracking-[-0.035em] text-[#fff8ed]">
@@ -53,16 +87,17 @@ export default function AboutPage() {
             <p className="mt-4 max-w-sm text-sm leading-6 text-[#f8e8dc]/85 sm:text-[0.95rem]">Transforming textile waste into meaningful products and opportunities.</p>
           </div>
 
-          <div className="relative h-[18rem] sm:h-[22rem] lg:h-[390px] lg:w-full lg:justify-self-end" aria-label="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine">
-            <div className="absolute inset-x-[8%] bottom-[4%] top-[14%] rounded-full bg-[#f3cbb3]/10 blur-3xl" aria-hidden="true" />
-            <Image src="/katrankaari/about-hero-cutout.webp" alt="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine" fill priority className="object-contain object-right-bottom lg:translate-y-3 lg:scale-[1.08] lg:origin-bottom-right" sizes="(min-width: 1024px) 59vw, 100vw" />
+          <div className="relative h-[18rem] sm:h-[22rem] lg:h-[350px] lg:w-full lg:justify-self-end" aria-label="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine">
+            <div className="absolute inset-x-[5%] bottom-[-2%] top-[8%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(244,178,126,0.2),rgba(244,178,126,0.06)_48%,transparent_72%)] blur-2xl" aria-hidden="true" />
+            <Image src="/katrankaari/about-hero-cutout.webp" alt="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine" fill priority className="object-contain object-right-bottom drop-shadow-[0_18px_22px_rgba(35,0,7,0.28)] lg:translate-y-3 lg:scale-[1.08] lg:origin-bottom-right" sizes="(min-width: 1024px) 59vw, 100vw" />
           </div>
         </Container>
-        <StitchPath className="pointer-events-none absolute -bottom-10 left-[18%] hidden w-[31rem] text-[#f3bda5]/35 lg:block" />
+        <HeroStitchPath className="pointer-events-none absolute bottom-0 left-[17%] z-20 hidden w-[29rem] origin-bottom scale-y-[1.35] text-[#f3bda5]/45 lg:block" />
       </section>
 
-      <section className="relative border-b border-[#d9c3ae] py-6 sm:py-7 lg:py-8">
-        <Container className="grid items-center gap-6 lg:grid-cols-[0.58fr_1.42fr] lg:gap-8">
+      <section className="relative overflow-hidden border-b border-[#d9c3ae] py-6 sm:py-7 lg:py-8">
+        <JourneyDoodles />
+        <Container className="relative z-10 grid items-center gap-6 lg:grid-cols-[0.58fr_1.42fr] lg:gap-8">
           <div className="relative aspect-[1368/1498] w-full max-w-[21rem] justify-self-center overflow-hidden rounded-[1.2rem] bg-[#ead9c7] shadow-[0_18px_42px_rgba(89,30,26,0.12)]">
             <Image src="/katrankaari/journey-artisans-burgundy-final.webp" alt="Women sorting colourful recovered textiles as part of the KatranKaari journey" fill className="object-cover object-center" sizes="(min-width: 1024px) 336px, 85vw" />
           </div>
