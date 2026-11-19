@@ -10,22 +10,22 @@ const processSteps = [
     number: "01",
     title: "Recover",
     copy: "Discarded textiles are collected and sorted so their useful life can continue.",
-    image: "/katrankaari/fabric-waste.png",
-    alt: "Discarded textile pieces ready to be sorted",
+    image: "/katrankaari/process-collect.png",
+    alt: "Stitched patch showing collected textile pieces",
   },
   {
     number: "02",
     title: "Reimagine",
     copy: "Colours, prints and offcuts are composed into practical new forms.",
-    image: "/katrankaari/patchwork-stitching.png",
-    alt: "Colourful textile offcuts being stitched into patchwork",
+    image: "/katrankaari/process-design-craft.png",
+    alt: "Stitched patch showing tailoring scissors",
   },
   {
     number: "03",
     title: "Remake",
     copy: "Women artisans bring every design to life with skill, care and precision.",
-    image: "/katrankaari/stitching-closeup.png",
-    alt: "Close-up of a KatranKaari piece being sewn",
+    image: "/katrankaari/process-produce.png",
+    alt: "Stitched patch showing a finished textile bag",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function AboutPage() {
 
       <section id="artisan-stories" className="relative overflow-hidden bg-[#651421] py-9 text-[#fff8ed] shadow-[inset_0_1px_rgba(255,255,255,0.06),inset_0_-1px_rgba(20,0,4,0.25)] sm:py-10 lg:py-12">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_15%,rgba(255,255,255,0.08),transparent_35%),linear-gradient(120deg,transparent_0%,rgba(45,0,9,0.2)_100%)]" aria-hidden="true" />
-        <Container className="relative grid items-center gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-10">
+        <Container className="relative z-10 grid items-center gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-10">
           <div className="max-w-xl">
             <p className="mb-3 text-[0.68rem] font-extrabold uppercase tracking-[0.26em] text-[#f4c8b6]">The hands behind every stitch</p>
             <h2 className="font-display text-4xl font-semibold leading-[0.94] tracking-[-0.03em] sm:text-5xl">Meet Our Artisans</h2>
@@ -101,28 +101,31 @@ export default function AboutPage() {
             </figure>
           </div>
         </Container>
-        <StitchPath className="pointer-events-none absolute -bottom-16 left-[26%] w-[34rem] rotate-[-5deg] text-[#f3bda5]/50" />
+        <StitchPath className="pointer-events-none absolute -bottom-16 left-[26%] z-0 w-[34rem] rotate-[-5deg] text-[#f3bda5]/50" />
       </section>
 
-      <section className="py-9 sm:py-10 lg:py-12">
+      <section className="py-7 sm:py-8 lg:py-9">
         <Container>
-          <div className="mx-auto mb-6 max-w-3xl text-center sm:mb-7">
+          <div className="mx-auto mb-5 max-w-3xl text-center">
             <p className="mb-3 text-[0.68rem] font-extrabold uppercase tracking-[0.26em] text-[#721a27]">Our process</p>
-            <h2 className="font-display text-4xl font-semibold leading-[0.96] tracking-[-0.03em] text-[#4e111c] sm:text-5xl">From discarded textile to useful object.</h2>
+            <h2 className="font-sans text-2xl font-medium leading-tight tracking-[-0.025em] text-[#4e111c] sm:text-3xl lg:text-4xl">From discarded textile to useful object.</h2>
           </div>
-          <div className="grid gap-4 lg:grid-cols-3">
+          <div className="relative mx-auto max-w-5xl">
+            <svg className="pointer-events-none absolute left-[12%] top-8 hidden h-12 w-[76%] sm:block" viewBox="0 0 900 80" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 40 C75 2 150 2 225 40 S375 78 450 40 S600 2 675 40 S825 78 900 40" fill="none" stroke="#b98478" strokeLinecap="round" strokeWidth="2" strokeDasharray="8 10" />
+            </svg>
+            <ol className="relative grid grid-cols-3 gap-2 sm:gap-6">
             {processSteps.map((step) => (
-              <article key={step.title} className="overflow-hidden rounded-[1.15rem] border border-[#ddc7b3] bg-[#fff9f1] shadow-[0_10px_28px_rgba(89,30,26,0.06)]">
-                <div className="relative aspect-[16/9] overflow-hidden bg-[#ead9c7]">
-                  <Image src={step.image} alt={step.alt} fill className="object-cover transition duration-500 hover:scale-[1.03]" sizes="(min-width: 1024px) 31vw, 100vw" />
+              <li key={step.title} className="relative z-10 text-center">
+                <div className="relative mx-auto h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24">
+                  <Image src={step.image} alt={step.alt} fill className="object-contain" sizes="96px" />
                 </div>
-                <div className="p-5">
-                  <span className="text-[0.68rem] font-bold tracking-[0.2em] text-[#9b695c]">{step.number}</span>
-                  <h3 className="mt-2 font-display text-3xl font-semibold text-[#55131e]">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#5c4d47]">{step.copy}</p>
-                </div>
-              </article>
+                <span className="mt-2 block text-[0.58rem] font-bold tracking-[0.2em] text-[#9b695c] sm:text-[0.65rem]">{step.number}</span>
+                <h3 className="mt-1 font-sans text-base font-semibold text-[#55131e] sm:text-lg">{step.title}</h3>
+                <p className="mx-auto mt-1 max-w-[14rem] text-[0.68rem] leading-4 text-[#5c4d47] sm:text-xs sm:leading-5">{step.copy}</p>
+              </li>
             ))}
+            </ol>
           </div>
         </Container>
       </section>
