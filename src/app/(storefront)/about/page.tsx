@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata = createMetadata("Our Story", "The KatranKaari journey, the women behind the craft and the transformation of textile waste.", "/about");
@@ -27,6 +28,12 @@ const processSteps = [
     image: "/katrankaari/process-produce.png",
     alt: "Stitched patch showing a finished textile bag",
   },
+];
+
+const impactStats = [
+  { value: "3.8 MT", copy: "textile waste diverted from landfill" },
+  { value: "13,000+", copy: "products created and sold" },
+  { value: "94", suffix: "*", copy: "women empowered through skills and jobs" },
 ];
 
 function StitchPath({ className = "" }: { className?: string }) {
@@ -77,6 +84,7 @@ export default function AboutPage() {
         <HeroStitchPath className="pointer-events-none absolute inset-0 z-0 hidden h-full w-full text-[#f3bda5]/55 lg:block" />
       </section>
 
+      <ScrollReveal>
       <section className="relative overflow-hidden border-b border-[#d9c3ae] py-6 sm:py-7 lg:py-8">
         <Container className="relative z-10 grid items-center gap-6 lg:grid-cols-[0.58fr_1.42fr] lg:gap-8">
           <div className="group relative aspect-[1368/1498] w-full max-w-[21rem] justify-self-center overflow-hidden rounded-[1.2rem] bg-[#ead9c7] shadow-[0_18px_42px_rgba(89,30,26,0.12)]">
@@ -101,7 +109,9 @@ export default function AboutPage() {
         </Container>
         <StitchPath className="pointer-events-none absolute -bottom-14 right-[-5rem] hidden w-[28rem] rotate-[8deg] text-[#b96d63]/45 lg:block" />
       </section>
+      </ScrollReveal>
 
+      <ScrollReveal>
       <section id="artisan-stories" className="relative overflow-hidden bg-[#651421] py-9 text-[#fff8ed] shadow-[inset_0_1px_rgba(255,255,255,0.06),inset_0_-1px_rgba(20,0,4,0.25)] sm:py-10 lg:py-12">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_15%,rgba(255,255,255,0.08),transparent_35%),linear-gradient(120deg,transparent_0%,rgba(45,0,9,0.2)_100%)]" aria-hidden="true" />
         <Container className="relative z-10 grid items-center gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-10">
@@ -128,6 +138,7 @@ export default function AboutPage() {
         </Container>
         <ArtisanStitchPath className="pointer-events-none absolute inset-0 z-20 h-full w-full text-[#f3bda5]/45" />
       </section>
+      </ScrollReveal>
 
       <section className="py-7 sm:py-8 lg:py-9">
         <Container>
@@ -155,6 +166,30 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      <ScrollReveal>
+        <section className="border-y border-[#d9c3ae] bg-[#fff8ef] py-5 sm:py-6">
+          <Container>
+            <div className="flex flex-col gap-4 lg:grid lg:grid-cols-[0.7fr_2.3fr] lg:items-center lg:gap-8">
+              <div>
+                <p className="text-[0.64rem] font-extrabold uppercase tracking-[0.25em] text-[#8f3b46]">Our impact so far</p>
+                <p className="mt-1 font-display text-2xl font-semibold leading-none text-[#4e111c]">Progress made tangible.</p>
+              </div>
+              <dl className="grid grid-cols-3 divide-x divide-[#d7bcae] border-y border-[#d7bcae] py-3 lg:border-y-0 lg:py-0">
+                {impactStats.map((stat) => (
+                  <div key={stat.value} className="min-w-0 px-3 text-center sm:px-5">
+                    <dt className="font-display text-[clamp(1.5rem,2.6vw,2.35rem)] font-semibold leading-none text-[#681521]">
+                      {stat.value}{stat.suffix ? <sup className="ml-0.5 align-top text-[0.45em]">{stat.suffix}</sup> : null}
+                    </dt>
+                    <dd className="mx-auto mt-1 max-w-44 text-[0.58rem] leading-3.5 text-[#66524c] sm:text-[0.68rem] sm:leading-4">{stat.copy}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </Container>
+        </section>
+      </ScrollReveal>
+
+      <ScrollReveal>
       <section className="relative isolate overflow-hidden border-t border-[#4b0d17] bg-[#651421] px-4 py-10 text-center text-[#fff8ed] sm:py-12">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(255,214,184,0.12),transparent_42%),linear-gradient(110deg,rgba(49,0,8,0.28),transparent_48%,rgba(49,0,8,0.2))]" aria-hidden="true" />
         <div className="absolute inset-0 opacity-[0.2] mix-blend-soft-light" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.48'/%3E%3C/svg%3E")` }} aria-hidden="true" />
@@ -173,6 +208,7 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
+      </ScrollReveal>
     </main>
   );
 }
