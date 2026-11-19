@@ -48,7 +48,7 @@ function HeroStitchPath({ className = "" }: { className?: string }) {
 function ArtisanStitchPath({ className = "" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 1600 520" fill="none" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M430 520C538 430 696 365 858 274C900 250 917 214 924 177C930 145 934 120 938 101C946 145 947 246 1031 314C1110 378 1182 414 1219 382C1240 364 1244 321 1244 276C1245 228 1252 184 1264 151C1276 195 1300 258 1374 262C1468 267 1534 169 1600 103" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="9 15" vectorEffect="non-scaling-stroke" />
+      <path d="M430 485C548 401 646 337 754 354C866 372 911 441 1012 428C1120 414 1154 319 1260 315C1382 311 1451 389 1600 276" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="9 15" vectorEffect="non-scaling-stroke" />
     </svg>
   );
 }
@@ -126,7 +126,7 @@ export default function AboutPage() {
             </figure>
           </div>
         </Container>
-        <ArtisanStitchPath className="pointer-events-none absolute inset-0 z-0 h-full w-full text-[#f3bda5]/50" />
+        <ArtisanStitchPath className="pointer-events-none absolute inset-0 z-20 h-full w-full text-[#f3bda5]/45" />
       </section>
 
       <section className="py-7 sm:py-8 lg:py-9">
