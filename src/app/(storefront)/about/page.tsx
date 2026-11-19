@@ -40,7 +40,7 @@ function StitchPath({ className = "" }: { className?: string }) {
 export default function AboutPage() {
   return (
     <main className="overflow-hidden bg-[linear-gradient(135deg,#fff8ef_0%,#f8ecdd_100%)] text-[#2a1b19]">
-      <section className="relative isolate overflow-hidden border-b border-[#4b0d17] bg-[#651421] py-5 text-[#fff8ed] shadow-[inset_0_-1px_rgba(20,0,4,0.28)] sm:py-6 lg:py-8">
+      <section className="relative isolate overflow-hidden border-b border-[#4b0d17] bg-[#651421] py-5 text-[#fff8ed] shadow-[inset_0_-1px_rgba(20,0,4,0.28)] sm:py-6 lg:pb-0 lg:pt-6">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,218,191,0.11),transparent_32%),linear-gradient(120deg,rgba(43,0,8,0.2),transparent_58%)]" aria-hidden="true" />
         <Container className="relative grid items-center gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:gap-9">
           <div className="relative z-10 max-w-lg py-2 lg:py-4">
@@ -53,9 +53,9 @@ export default function AboutPage() {
             <p className="mt-4 max-w-sm text-sm leading-6 text-[#f8e8dc]/85 sm:text-[0.95rem]">Transforming textile waste into meaningful products and opportunities.</p>
           </div>
 
-          <div className="relative h-[18rem] sm:h-[22rem] lg:h-[390px]" aria-label="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine">
+          <div className="relative h-[18rem] sm:h-[22rem] lg:h-[390px] lg:w-full lg:justify-self-end" aria-label="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine">
             <div className="absolute inset-x-[8%] bottom-[4%] top-[14%] rounded-full bg-[#f3cbb3]/10 blur-3xl" aria-hidden="true" />
-            <Image src="/katrankaari/about-hero-cutout.webp" alt="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine" fill priority className="object-contain object-bottom lg:scale-[1.06] lg:origin-bottom" sizes="(min-width: 1024px) 59vw, 100vw" />
+            <Image src="/katrankaari/about-hero-cutout.webp" alt="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine" fill priority className="object-contain object-right-bottom lg:scale-[1.08] lg:origin-bottom-right" sizes="(min-width: 1024px) 59vw, 100vw" />
           </div>
         </Container>
         <StitchPath className="pointer-events-none absolute -bottom-10 left-[18%] hidden w-[31rem] text-[#f3bda5]/35 lg:block" />
