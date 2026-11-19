@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Ruler, Scissors, ShoppingBag, Spool } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { createMetadata } from "@/lib/seo";
 
@@ -40,20 +39,9 @@ function StitchPath({ className = "" }: { className?: string }) {
 
 function HeroStitchPath({ className = "" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 1000 180" fill="none" aria-hidden="true">
-      <path d="M0 154C168 153 218 106 365 111C520 116 600 145 720 120C842 94 924 67 1000 27" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="11 16" />
+    <svg className={className} viewBox="0 0 1000 350" fill="none" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 334C182 329 258 279 427 286C596 293 681 257 770 184C856 114 920 57 1000 18" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="11 16" vectorEffect="non-scaling-stroke" />
     </svg>
-  );
-}
-
-function JourneyDoodles() {
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden text-[#936a5b]/12" aria-hidden="true">
-      <ShoppingBag className="absolute -left-12 top-3 h-72 w-72 -rotate-12 stroke-[0.8]" />
-      <Ruler className="absolute -right-12 top-0 h-64 w-64 rotate-[22deg] stroke-[0.8]" />
-      <Spool className="absolute -bottom-20 left-[31%] h-56 w-56 rotate-6 stroke-[0.8]" />
-      <Scissors className="absolute -bottom-24 -right-12 h-80 w-80 -rotate-12 stroke-[0.8]" />
-    </div>
   );
 }
 
@@ -78,11 +66,10 @@ export default function AboutPage() {
             <Image src="/katrankaari/about-hero-cutout.webp" alt="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine" fill priority className="object-contain object-right-bottom drop-shadow-[0_18px_22px_rgba(35,0,7,0.28)] lg:translate-y-3 lg:scale-[1.08] lg:origin-bottom-right" sizes="(min-width: 1024px) 59vw, 100vw" />
           </div>
         </Container>
-        <HeroStitchPath className="pointer-events-none absolute bottom-0 left-0 z-0 hidden w-[54%] text-[#f3bda5]/45 lg:block" />
+        <HeroStitchPath className="pointer-events-none absolute inset-y-0 left-0 z-0 hidden h-full w-[54%] text-[#f3bda5]/45 lg:block" />
       </section>
 
       <section className="relative overflow-hidden border-b border-[#d9c3ae] py-6 sm:py-7 lg:py-8">
-        <JourneyDoodles />
         <Container className="relative z-10 grid items-center gap-6 lg:grid-cols-[0.58fr_1.42fr] lg:gap-8">
           <div className="relative aspect-[1368/1498] w-full max-w-[21rem] justify-self-center overflow-hidden rounded-[1.2rem] bg-[#ead9c7] shadow-[0_18px_42px_rgba(89,30,26,0.12)]">
             <Image src="/katrankaari/journey-artisans-burgundy-final.webp" alt="Women sorting colourful recovered textiles as part of the KatranKaari journey" fill className="object-cover object-center" sizes="(min-width: 1024px) 336px, 85vw" />
