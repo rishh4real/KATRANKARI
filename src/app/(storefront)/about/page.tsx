@@ -55,7 +55,7 @@ export default function AboutPage() {
 
           <div className="relative h-[18rem] sm:h-[22rem] lg:h-[390px] lg:w-full lg:justify-self-end" aria-label="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine">
             <div className="absolute inset-x-[8%] bottom-[4%] top-[14%] rounded-full bg-[#f3cbb3]/10 blur-3xl" aria-hidden="true" />
-            <Image src="/katrankaari/about-hero-cutout.webp" alt="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine" fill priority className="object-contain object-right-bottom lg:scale-[1.08] lg:origin-bottom-right" sizes="(min-width: 1024px) 59vw, 100vw" />
+            <Image src="/katrankaari/about-hero-cutout.webp" alt="KatranKaari woman artisan holding a finished textile piece beside an unbranded sewing machine" fill priority className="object-contain object-right-bottom lg:translate-y-3 lg:scale-[1.08] lg:origin-bottom-right" sizes="(min-width: 1024px) 59vw, 100vw" />
           </div>
         </Container>
         <StitchPath className="pointer-events-none absolute -bottom-10 left-[18%] hidden w-[31rem] text-[#f3bda5]/35 lg:block" />
