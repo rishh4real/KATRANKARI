@@ -62,17 +62,17 @@ export default function AboutPage() {
         <StitchPath className="pointer-events-none absolute -bottom-10 left-[18%] hidden w-[31rem] text-[#f3bda5]/35 lg:block" />
       </section>
 
-      <section className="relative border-b border-[#d9c3ae] py-8 sm:py-9 lg:py-10">
-        <Container className="grid items-center gap-7 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[1.2rem] bg-[#ead9c7] shadow-[0_18px_42px_rgba(89,30,26,0.12)]">
-            <Image src="/katrankaari/journey-artisans-burgundy-final.webp" alt="Women sorting colourful recovered textiles as part of the KatranKaari journey" fill className="object-contain object-center" sizes="(min-width: 1024px) 42vw, 100vw" />
+      <section className="relative border-b border-[#d9c3ae] py-6 sm:py-7 lg:py-8">
+        <Container className="grid items-center gap-6 lg:grid-cols-[0.58fr_1.42fr] lg:gap-8">
+          <div className="relative aspect-[1368/1498] w-full max-w-[21rem] justify-self-center overflow-hidden rounded-[1.2rem] bg-[#ead9c7] shadow-[0_18px_42px_rgba(89,30,26,0.12)]">
+            <Image src="/katrankaari/journey-artisans-burgundy-final.webp" alt="Women sorting colourful recovered textiles as part of the KatranKaari journey" fill className="object-cover object-center" sizes="(min-width: 1024px) 336px, 85vw" />
           </div>
           <div className="relative">
             <p className="mb-3 text-[0.68rem] font-extrabold uppercase tracking-[0.26em] text-[#721a27]">How it all started</p>
-            <h2 className="max-w-2xl font-display text-4xl font-semibold leading-[0.96] tracking-[-0.03em] text-[#4e111c] sm:text-5xl">The KatranKaari Journey</h2>
-            <p className="mt-4 max-w-2xl text-[0.95rem] leading-6 text-[#554943]">Every piece of fabric has a story, and at KatranKaari, we believe that its story should not end when it is discarded.</p>
-            <p className="mt-3 max-w-2xl text-[0.9rem] leading-6 text-[#554943]">Rooted in Jamnagar, Gujarat, KatranKaari emerged under Project Swachh Halar, a CSR initiative of Nayara Energy Limited, in collaboration with the CSR Trust for SDGs in India. Built on responsible waste management, circularity and community empowerment, the initiative reimagines discarded textiles as a resource filled with possibilities.</p>
-            <details className="group mt-4 max-w-2xl border-t border-[#d8bbaa] pt-3 text-[#554943]">
+            <h2 className="max-w-4xl font-display text-4xl font-semibold leading-[0.96] tracking-[-0.03em] text-[#4e111c] sm:text-5xl">The KatranKaari Journey</h2>
+            <p className="mt-4 max-w-4xl text-[0.95rem] leading-6 text-[#554943]">Every piece of fabric has a story, and at KatranKaari, we believe that its story should not end when it is discarded.</p>
+            <p className="mt-3 max-w-4xl text-[0.9rem] leading-6 text-[#554943]">Rooted in Jamnagar, Gujarat, KatranKaari emerged under Project Swachh Halar, a CSR initiative of Nayara Energy Limited, in collaboration with the CSR Trust for SDGs in India. Built on responsible waste management, circularity and community empowerment, the initiative reimagines discarded textiles as a resource filled with possibilities.</p>
+            <details className="group mt-4 max-w-4xl border-t border-[#d8bbaa] pt-3 text-[#554943]">
               <summary className="cursor-pointer list-none text-[0.68rem] font-extrabold uppercase tracking-[0.16em] text-[#721a27] marker:content-none">Read the full journey <span className="ml-1 inline-block transition-transform group-open:rotate-45" aria-hidden="true">+</span></summary>
               <div className="mt-3 space-y-3 text-[0.88rem] leading-6">
                 <p>Through dedicated skill development and hands-on training, women from local communities transform recovered fabrics into thoughtfully designed bags, accessories, home essentials and everyday products. From collecting and sorting discarded textiles to carefully designing and stitching each creation, every step reflects creativity, craftsmanship and conscious consumption.</p>
