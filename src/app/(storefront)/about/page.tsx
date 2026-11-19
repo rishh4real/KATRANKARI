@@ -40,26 +40,26 @@ function StitchPath({ className = "" }: { className?: string }) {
 export default function AboutPage() {
   return (
     <main className="overflow-hidden bg-[linear-gradient(135deg,#fff8ef_0%,#f8ecdd_100%)] text-[#2a1b19]">
-      <section className="relative isolate overflow-hidden border-b border-[#4b0d17] bg-[#651421] text-[#fff8ed] shadow-[inset_0_-1px_rgba(20,0,4,0.28)]">
-        <div className="grid min-h-[32rem] sm:min-h-[36rem] lg:min-h-[480px] lg:grid-cols-[0.82fr_1.18fr]">
-          <div className="relative z-10 flex items-center px-5 py-12 sm:px-8 sm:py-14 lg:pl-[max(2.5rem,calc((100vw-90rem)/2+2.5rem))] lg:pr-10">
-            <div className="max-w-xl">
-              <p className="mb-4 text-[0.68rem] font-extrabold uppercase tracking-[0.26em] text-[#f4c8b6]">Our Story</p>
-              <h1 className="font-display text-[clamp(3.4rem,6vw,5.8rem)] font-semibold leading-[0.86] tracking-[-0.04em] text-[#fff8ed]">
-                Every scrap
-                <span className="block">has a story.</span>
-              </h1>
-              <p className="mt-5 max-w-md text-[0.95rem] leading-7 text-[#f8e8dc]/85 sm:text-base">Transforming textile waste into meaningful products and opportunities.</p>
-            </div>
+      <section className="relative isolate overflow-hidden border-b border-[#4b0d17] bg-[#651421] py-8 text-[#fff8ed] shadow-[inset_0_-1px_rgba(20,0,4,0.28)] sm:py-10 lg:py-12">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,218,191,0.11),transparent_32%),linear-gradient(120deg,rgba(43,0,8,0.2),transparent_58%)]" aria-hidden="true" />
+        <Container className="relative grid items-center gap-8 lg:min-h-[430px] lg:grid-cols-[0.72fr_1.28fr] lg:gap-12">
+          <div className="relative z-10 max-w-lg py-3 lg:py-8">
+            <p className="mb-4 text-[0.68rem] font-extrabold uppercase tracking-[0.28em] text-[#f4c8b6]">Our Story</p>
+            <h1 className="font-sans text-[clamp(2.75rem,4.8vw,4.35rem)] font-medium leading-[1.04] tracking-[-0.035em] text-[#fff8ed]">
+              Every scrap
+              <span className="block">has a story.</span>
+            </h1>
+            <div className="mt-6 h-px w-20 bg-[#e9b49f]/70" aria-hidden="true" />
+            <p className="mt-5 max-w-sm text-[0.95rem] leading-7 text-[#f8e8dc]/85 sm:text-base">Transforming textile waste into meaningful products and opportunities.</p>
           </div>
 
-          <div className="relative min-h-[22rem] overflow-hidden lg:min-h-full">
-            <Image src="/katrankaari/artisan-maker.png" alt="KatranKaari woman artisan holding a finished textile piece beside her sewing machine" fill priority className="object-cover object-[42%_center]" sizes="(min-width: 1024px) 59vw, 100vw" />
-            <div className="absolute inset-y-0 left-0 hidden w-28 bg-gradient-to-r from-[#651421] to-transparent lg:block" aria-hidden="true" />
-            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#5d1420]/25 to-transparent" aria-hidden="true" />
-          </div>
-        </div>
-        <StitchPath className="pointer-events-none absolute left-[31%] top-[4%] hidden w-[34rem] text-[#f3bda5]/55 lg:block" />
+          <figure className="relative aspect-[16/10] overflow-hidden rounded-[1.75rem] border border-[#f6d6c5]/20 bg-[#4f0f1a] shadow-[0_28px_70px_rgba(28,0,6,0.35)] lg:aspect-[1.62/1]">
+            <Image src="/katrankaari/artisan-maker.png" alt="KatranKaari woman artisan holding a finished textile piece beside her sewing machine" fill priority className="object-cover object-[45%_center]" sizes="(min-width: 1024px) 59vw, 100vw" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_62%,rgba(47,3,11,0.34))]" aria-hidden="true" />
+            <figcaption className="absolute bottom-4 right-5 text-[0.62rem] font-bold uppercase tracking-[0.2em] text-[#fff8ed]/75">Crafted in Jamnagar</figcaption>
+          </figure>
+        </Container>
+        <StitchPath className="pointer-events-none absolute -bottom-10 left-[18%] hidden w-[31rem] text-[#f3bda5]/35 lg:block" />
       </section>
 
       <section className="relative border-b border-[#d9c3ae] py-10 sm:py-12 lg:py-14">
@@ -90,14 +90,14 @@ export default function AboutPage() {
           </div>
 
           <div className="grid min-h-[24rem] grid-cols-12 grid-rows-12 gap-3 sm:min-h-[28rem]">
-            <figure className="relative col-span-8 row-span-10 overflow-hidden rounded-[1.5rem] bg-[#f0d8c3] shadow-[0_20px_48px_rgba(27,0,5,0.28)] sm:col-span-7 lg:-rotate-2">
-              <Image src="/katrankaari/artisan-maker.png" alt="KatranKaari woman artisan with her sewing machine and a finished product" fill className="object-cover object-[30%_center]" sizes="(min-width: 1024px) 36vw, 65vw" />
+            <figure className="relative col-span-8 row-span-10 overflow-hidden rounded-[1.5rem] border border-[#f5d4c5]/20 bg-[#7a2431] shadow-[0_20px_48px_rgba(27,0,5,0.28)] sm:col-span-7 lg:-rotate-2">
+              <div role="img" aria-label="Reserved for a new artisan portrait" className="absolute inset-3 rounded-[1.1rem] border border-dashed border-[#f5d4c5]/25 bg-[radial-gradient(circle_at_35%_25%,rgba(255,240,226,0.08),transparent_35%)]" />
             </figure>
-            <figure className="relative col-span-5 col-start-8 row-span-5 row-start-2 overflow-hidden rounded-[1.35rem] bg-[#ecd4bf] shadow-[0_16px_36px_rgba(27,0,5,0.22)] sm:col-start-8 lg:rotate-3">
-              <Image src="/katrankaari/patchwork-stitching.png" alt="Artisan hands guiding colourful patchwork through a sewing machine" fill className="object-cover" sizes="(min-width: 1024px) 24vw, 42vw" />
+            <figure className="relative col-span-5 col-start-8 row-span-5 row-start-2 overflow-hidden rounded-[1.35rem] border border-[#f5d4c5]/20 bg-[#7a2431] shadow-[0_16px_36px_rgba(27,0,5,0.22)] sm:col-start-8 lg:rotate-3">
+              <div role="img" aria-label="Reserved for a new artisan photograph" className="absolute inset-3 rounded-[0.95rem] border border-dashed border-[#f5d4c5]/25 bg-[radial-gradient(circle_at_35%_25%,rgba(255,240,226,0.08),transparent_35%)]" />
             </figure>
-            <figure className="relative col-span-6 col-start-7 row-span-5 row-start-7 overflow-hidden rounded-[1.35rem] bg-[#ecd4bf] shadow-[0_16px_36px_rgba(27,0,5,0.22)] sm:col-span-5 sm:col-start-8 lg:rotate-2">
-              <Image src="/katrankaari/stitching-closeup.png" alt="Close-up of careful stitching on a textile product" fill className="object-cover" sizes="(min-width: 1024px) 24vw, 42vw" />
+            <figure className="relative col-span-6 col-start-7 row-span-5 row-start-7 overflow-hidden rounded-[1.35rem] border border-[#f5d4c5]/20 bg-[#7a2431] shadow-[0_16px_36px_rgba(27,0,5,0.22)] sm:col-span-5 sm:col-start-8 lg:rotate-2">
+              <div role="img" aria-label="Reserved for a new artisan photograph" className="absolute inset-3 rounded-[0.95rem] border border-dashed border-[#f5d4c5]/25 bg-[radial-gradient(circle_at_35%_25%,rgba(255,240,226,0.08),transparent_35%)]" />
             </figure>
           </div>
         </Container>
