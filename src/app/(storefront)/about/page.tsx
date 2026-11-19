@@ -31,9 +31,10 @@ const processSteps = [
 ];
 
 const impactStats = [
-  { value: "3.8 MT", copy: "textile waste diverted from landfill" },
-  { value: "13,000+", copy: "products created and sold" },
-  { value: "94", suffix: "*", copy: "women empowered through skills and jobs" },
+  { value: "75", copy: "women trained in textile upcycling" },
+  { value: "1 MT", copy: "textile waste turned into upcycled products" },
+  { value: "75", copy: "women who started home-based businesses" },
+  { value: "₹3,000", copy: "approximate additional monthly income per woman" },
 ];
 
 function StitchPath({ className = "" }: { className?: string }) {
@@ -171,19 +172,20 @@ export default function AboutPage() {
           <Container>
             <div className="flex flex-col gap-4 lg:grid lg:grid-cols-[0.7fr_2.3fr] lg:items-center lg:gap-8">
               <div>
-                <p className="text-[0.64rem] font-extrabold uppercase tracking-[0.25em] text-[#8f3b46]">Our impact so far</p>
-                <p className="mt-1 font-display text-2xl font-semibold leading-none text-[#4e111c]">Progress made tangible.</p>
+                <p className="text-[0.64rem] font-extrabold uppercase tracking-[0.25em] text-[#8f3b46]">Historical programme impact</p>
+                <p className="mt-1 font-display text-2xl font-semibold leading-none text-[#4e111c]">Small scraps. Meaningful change.</p>
               </div>
-              <dl className="grid grid-cols-3 divide-x divide-[#d7bcae] border-y border-[#d7bcae] py-3 lg:border-y-0 lg:py-0">
-                {impactStats.map((stat) => (
-                  <div key={stat.value} className="min-w-0 px-3 text-center sm:px-5">
-                    <dt className="font-display text-[clamp(1.5rem,2.6vw,2.35rem)] font-semibold leading-none text-[#681521]">
-                      {stat.value}{stat.suffix ? <sup className="ml-0.5 align-top text-[0.45em]">{stat.suffix}</sup> : null}
-                    </dt>
-                    <dd className="mx-auto mt-1 max-w-44 text-[0.58rem] leading-3.5 text-[#66524c] sm:text-[0.68rem] sm:leading-4">{stat.copy}</dd>
-                  </div>
-                ))}
-              </dl>
+              <div>
+                <dl className="grid grid-cols-2 gap-px overflow-hidden border-y border-[#d7bcae] bg-[#d7bcae] lg:grid-cols-4 lg:border-y-0">
+                  {impactStats.map((stat) => (
+                    <div key={`${stat.value}-${stat.copy}`} className="min-w-0 bg-[#fff8ef] px-3 py-3 text-center sm:px-4 lg:py-1">
+                      <dt className="font-display text-[clamp(1.45rem,2.3vw,2.15rem)] font-semibold leading-none text-[#681521]">{stat.value}</dt>
+                      <dd className="mx-auto mt-1 max-w-44 text-[0.58rem] leading-3.5 text-[#66524c] sm:text-[0.66rem] sm:leading-4">{stat.copy}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <p className="mt-2 text-center text-[0.56rem] uppercase tracking-[0.12em] text-[#8f7167]">Project Swachh Halar · historical figures reported in 2023–24</p>
+              </div>
             </div>
           </Container>
         </section>
