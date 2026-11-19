@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { StoryFoundation, type FoundationItem } from "@/components/about/StoryFoundation";
+import { StoryTimeline, type JourneyMilestone } from "@/components/about/StoryTimeline";
 import { Container } from "@/components/layout/Container";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { createMetadata } from "@/lib/seo";
@@ -30,11 +32,18 @@ const processSteps = [
   },
 ];
 
-const impactStats = [
-  { value: "75", copy: "women trained in textile upcycling" },
-  { value: "1 MT", copy: "textile waste turned into upcycled products" },
-  { value: "75", copy: "women who started home-based businesses" },
-  { value: "₹3,000", copy: "approximate additional monthly income per woman" },
+const foundationItems: FoundationItem[] = [
+  { number: "01", title: "Project Swachh Halar", role: "Our Foundation", description: "A community-driven initiative promoting responsible waste management, resource recovery and circularity.", icon: "sustainability" },
+  { number: "02", title: "Nayara Energy", role: "CSR Initiative", description: "Supporting sustainable development and community empowerment through Project Swachh Halar.", icon: "collaboration" },
+  { number: "03", title: "CSR Trust for SDGs in India", role: "Implementation Partner", description: "Working towards sustainable development through community-led environmental and social initiatives.", icon: "community" },
+  { number: "04", title: "Jamnagar, Gujarat", role: "Our Roots", description: "The community where discarded textiles are reimagined through craftsmanship and livelihood opportunities.", icon: "location" },
+];
+
+const journeyMilestones: JourneyMilestone[] = [
+  { number: "01", title: "The Foundation", description: "Project Swachh Halar introduces a community-driven approach to responsible waste management." },
+  { number: "02", title: "The Beginning", description: "The textile upcycling incubation centre in Jamnagar introduces vocational training and upcycling opportunities for local women." },
+  { number: "03", title: "Creating Opportunities", description: "Women develop new skills and explore independent livelihood opportunities through textile craftsmanship." },
+  { number: "04", title: "The KatranKaari Identity", description: "Discarded textiles are transformed into thoughtfully crafted, functional everyday products." },
 ];
 
 function StitchPath({ className = "" }: { className?: string }) {
@@ -112,6 +121,10 @@ export default function AboutPage() {
       </section>
       </ScrollReveal>
 
+      <StoryFoundation eyebrow="The foundation behind us" heading="Rooted in Purpose. Built for Change." description="KatranKaari is rooted in a collective vision of responsible waste management, circularity and community empowerment. Its journey brings together organisations, communities and women artisans to reimagine the possibilities of discarded textiles." items={foundationItems} />
+
+      <StoryTimeline eyebrow="Threads of our journey" heading="From an Initiative to a Purpose." milestones={journeyMilestones} />
+
       <ScrollReveal>
       <section id="artisan-stories" className="relative overflow-hidden bg-[#651421] py-9 text-[#fff8ed] shadow-[inset_0_1px_rgba(255,255,255,0.06),inset_0_-1px_rgba(20,0,4,0.25)] sm:py-10 lg:py-12">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_15%,rgba(255,255,255,0.08),transparent_35%),linear-gradient(120deg,transparent_0%,rgba(45,0,9,0.2)_100%)]" aria-hidden="true" />
@@ -166,30 +179,6 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
-
-      <ScrollReveal>
-        <section className="border-y border-[#d9c3ae] bg-[#fff8ef] py-5 sm:py-6">
-          <Container>
-            <div className="flex flex-col gap-4 lg:grid lg:grid-cols-[0.7fr_2.3fr] lg:items-center lg:gap-8">
-              <div>
-                <p className="text-[0.64rem] font-extrabold uppercase tracking-[0.25em] text-[#8f3b46]">Historical programme impact</p>
-                <p className="mt-1 font-display text-2xl font-semibold leading-none text-[#4e111c]">Small scraps. Meaningful change.</p>
-              </div>
-              <div>
-                <dl className="grid grid-cols-2 gap-px overflow-hidden border-y border-[#d7bcae] bg-[#d7bcae] lg:grid-cols-4 lg:border-y-0">
-                  {impactStats.map((stat) => (
-                    <div key={`${stat.value}-${stat.copy}`} className="min-w-0 bg-[#fff8ef] px-3 py-3 text-center sm:px-4 lg:py-1">
-                      <dt className="font-display text-[clamp(1.45rem,2.3vw,2.15rem)] font-semibold leading-none text-[#681521]">{stat.value}</dt>
-                      <dd className="mx-auto mt-1 max-w-44 text-[0.58rem] leading-3.5 text-[#66524c] sm:text-[0.66rem] sm:leading-4">{stat.copy}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <p className="mt-2 text-center text-[0.56rem] uppercase tracking-[0.12em] text-[#8f7167]">Project Swachh Halar · historical figures reported in 2023–24</p>
-              </div>
-            </div>
-          </Container>
-        </section>
-      </ScrollReveal>
 
       <ScrollReveal>
       <section className="relative isolate overflow-hidden border-t border-[#4b0d17] bg-[#651421] px-4 py-10 text-center text-[#fff8ed] sm:py-12">
