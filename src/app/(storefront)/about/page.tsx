@@ -48,7 +48,7 @@ function HeroStitchPath({ className = "" }: { className?: string }) {
 function ArtisanStitchPath({ className = "" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 1600 520" fill="none" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M430 520C505 467 553 438 632 435C748 431 815 499 920 479C1017 460 1070 432 1154 449C1260 470 1318 507 1410 473C1502 439 1540 353 1600 302" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="10 15" vectorEffect="non-scaling-stroke" />
+      <path d="M430 520C538 430 696 365 858 274C900 250 917 214 924 177C930 145 934 120 938 101C946 145 947 246 1031 314C1110 378 1182 414 1219 382C1240 364 1244 321 1244 276C1245 228 1252 184 1264 151C1276 195 1300 258 1374 262C1468 267 1534 169 1600 103" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="9 15" vectorEffect="non-scaling-stroke" />
     </svg>
   );
 }
@@ -114,7 +114,7 @@ export default function AboutPage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-3 items-center gap-2 py-3 sm:gap-4 lg:gap-6">
+          <div className="grid grid-cols-3 items-center gap-2 py-3 sm:gap-5 lg:gap-8">
             <figure className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] border border-[#f5d4c5]/20 bg-[#7a2431] shadow-[0_20px_48px_rgba(27,0,5,0.28)] -rotate-3">
               <div role="img" aria-label="Reserved for a new artisan portrait" className="absolute inset-2 rounded-[0.95rem] border border-dashed border-[#f5d4c5]/25 bg-[radial-gradient(circle_at_35%_25%,rgba(255,240,226,0.08),transparent_35%)] sm:inset-3" />
             </figure>
