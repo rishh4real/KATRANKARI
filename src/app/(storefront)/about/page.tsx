@@ -148,13 +148,13 @@ export default function AboutPage() {
             <h2 className="font-sans text-2xl font-medium leading-tight tracking-[-0.025em] text-[#4e111c] sm:text-3xl lg:text-4xl">From discarded textile to useful object.</h2>
           </div>
           <div className="relative mx-auto max-w-5xl">
-            <svg className="pointer-events-none absolute left-[12%] top-8 hidden h-12 w-[76%] sm:block" viewBox="0 0 900 80" preserveAspectRatio="none" aria-hidden="true">
+            <svg className="pointer-events-none absolute left-[12%] top-8 z-0 hidden h-12 w-[76%] sm:block" viewBox="0 0 900 80" preserveAspectRatio="none" aria-hidden="true">
               <path className="process-thread" d="M0 40 C75 2 150 2 225 40 S375 78 450 40 S600 2 675 40 S825 78 900 40" fill="none" stroke="#b98478" strokeLinecap="round" strokeWidth="2" strokeDasharray="8 10" />
             </svg>
-            <ol className="relative grid grid-cols-3 gap-2 sm:gap-6">
+            <ol className="relative z-10 grid grid-cols-3 gap-2 sm:gap-6">
             {processSteps.map((step, index) => (
               <li key={step.title} className="relative z-10 text-center">
-                <div className="about-process-icon relative mx-auto h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24" style={{ animationDelay: `${index * 700}ms` }}>
+                <div className="about-process-icon relative isolate mx-auto h-16 w-16 rounded-full bg-[#fff8ef] sm:h-20 sm:w-20 lg:h-24 lg:w-24" style={{ animationDelay: `${index * 700}ms` }}>
                   <Image src={step.image} alt={step.alt} fill className="object-contain" sizes="96px" />
                 </div>
                 <span className="mt-2 block text-[0.58rem] font-bold tracking-[0.2em] text-[#9b695c] sm:text-[0.65rem]">{step.number}</span>
