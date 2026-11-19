@@ -25,10 +25,10 @@ export function StoryTimeline({ eyebrow, heading, milestones }: StoryTimelinePro
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden border-b border-[#4D101D] bg-[#681426] py-12 text-[#FAF4E9] sm:py-14 lg:py-16"
+      className="relative overflow-hidden border-b border-[#EADAC7] bg-[#FAF4E9] py-12 text-[#4D101D] sm:py-14 lg:py-16"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_12%,rgba(234,218,199,0.08),transparent_32%),linear-gradient(120deg,rgba(77,16,29,0.28),transparent_62%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_12%,rgba(183,130,125,0.08),transparent_32%),linear-gradient(120deg,rgba(234,218,199,0.2),transparent_62%)]"
         aria-hidden="true"
       />
       <Container className="relative z-10">
@@ -38,7 +38,7 @@ export function StoryTimeline({ eyebrow, heading, milestones }: StoryTimelinePro
           animate={draw ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.26em] text-[#EADAC7]">
+          <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.26em] text-[#681426]">
             {eyebrow}
           </p>
           <h2 className="mt-3 font-display text-4xl font-semibold leading-[0.98] tracking-[-0.03em] sm:text-5xl">
@@ -103,14 +103,14 @@ export function StoryTimeline({ eyebrow, heading, milestones }: StoryTimelinePro
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-[#EADAC7]/55 bg-[#681426] text-[0.58rem] font-extrabold tracking-[0.12em] text-[#FAF4E9] shadow-[0_0_0_6px_#681426] lg:mx-auto">
+                <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full border border-[#B7827D]/65 bg-[#FAF4E9] text-[0.58rem] font-extrabold tracking-[0.12em] text-[#681426] shadow-[0_0_0_6px_#FAF4E9] lg:mx-auto">
                   {milestone.number}
                 </span>
                 <div className="lg:mt-7 lg:text-center">
-                  <h3 className="font-display text-2xl font-semibold leading-none text-[#FAF4E9]">
+                  <h3 className="font-display text-2xl font-semibold leading-none text-[#4D101D]">
                     {milestone.title}
                   </h3>
-                  <p className="mt-3 text-[0.8rem] leading-5 text-[#EADAC7]/85">
+                  <p className="mt-3 text-[0.8rem] leading-5 text-[#493D37]/85">
                     {milestone.description}
                   </p>
                 </div>
