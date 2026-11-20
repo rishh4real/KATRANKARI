@@ -53,17 +53,38 @@ const materialSteps = [
   },
 ];
 
+const artisanStories = [
+  {
+    number: "01",
+    title: "Learning the rhythm",
+    copy: "Training in cutting, stitching and finishing becomes the beginning of a skill that can travel from the centre into everyday life and home-based work.",
+    quote: "A first stitch can become a new way forward.",
+  },
+  {
+    number: "02",
+    title: "A craft of her own",
+    copy: "With practice, unfamiliar tools become part of a confident making process—opening space to contribute ideas, refine products and take ownership of the work.",
+    quote: "Confidence grows each time a piece is completed.",
+  },
+  {
+    number: "03",
+    title: "Making room to grow",
+    copy: "Flexible textile work can create another route to income while allowing women to build experience, relationships and ambitions at their own pace.",
+    quote: "The work is useful, but the possibility is larger.",
+  },
+];
+
 export default function ImpactPage() {
   return (
     <main className="overflow-hidden bg-[#FAF4E9] text-[#493D37]">
-      <section id="impact-hero" className="relative overflow-hidden border-b border-[#4D101D] bg-[#681426] pb-4 pt-[84px] text-[#FAF4E9] sm:pb-5 sm:pt-[88px] lg:pb-6 lg:pt-[96px]">
+      <section id="impact-hero" className="relative overflow-hidden border-b border-[#4D101D] bg-[#681426] pb-5 pt-[88px] text-[#FAF4E9] sm:pb-6 sm:pt-[94px] lg:pb-7 lg:pt-[102px]">
         <div className="pointer-events-none absolute -left-20 top-24 h-72 w-72 rounded-full bg-[#B7827D]/25 blur-3xl" aria-hidden="true" />
         <Container className="relative grid items-center gap-5 lg:grid-cols-[0.76fr_1.24fr] lg:gap-8">
           <div className="relative z-10 max-w-xl">
             <p className="flex items-center gap-4 text-[0.68rem] font-extrabold uppercase tracking-[0.28em] text-[#E7BDB2]">
               Our impact <span className="h-px w-16 bg-[#E7BDB2]/75" aria-hidden="true" />
             </p>
-            <h1 className="mt-3 font-sans text-[clamp(2.25rem,3.7vw,3.8rem)] font-normal leading-[0.94] tracking-[-0.045em] text-[#FFF8ED]">
+            <h1 className="mt-3 font-sans text-[clamp(2.4rem,4vw,4.2rem)] font-normal leading-[0.94] tracking-[-0.045em] text-[#FFF8ED]">
               What remains
               <span className="block italic text-[#E7BDB2]">becomes possibility.</span>
             </h1>
@@ -94,10 +115,10 @@ export default function ImpactPage() {
             </div>
           </ScrollReveal>
 
-          <dl className="grid sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="grid gap-x-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-7">
             {historicalImpact.map((item, index) => (
               <ScrollReveal className="h-full" delay={index * 110} key={item.label}>
-                <div className="flex h-full flex-col border-b border-[#B7827D]/35 py-5 sm:border-r sm:px-5 lg:min-h-[11.5rem] lg:border-b-0 lg:px-6 lg:py-5 first:pl-0 last:border-r-0 last:pr-0">
+                <div className="flex h-full flex-col border-b border-[#B7827D]/35 py-5 sm:border-r sm:pr-5 lg:min-h-[11.5rem] lg:border-b-0 lg:py-5 lg:pr-7 last:border-r-0 last:pr-0">
                   <span className="text-[0.62rem] font-bold tracking-[0.24em] text-[#B7827D]">0{index + 1}</span>
                   <dt className="mt-4 font-sans text-[clamp(2.5rem,3.5vw,3.8rem)] font-normal leading-none tracking-[-0.04em] text-[#681426]">{item.value}</dt>
                   <dd className="mt-auto pt-4">
@@ -157,35 +178,39 @@ export default function ImpactPage() {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden bg-[#FAF4E9] py-8 sm:py-10 lg:py-12">
+      <section id="artisan-stories" className="relative scroll-mt-24 overflow-hidden bg-[#FAF4E9] py-9 sm:py-11 lg:py-14">
         <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full border border-[#B7827D]/25" aria-hidden="true" />
         <div className="pointer-events-none absolute -right-10 -top-10 h-64 w-64 rounded-full border border-[#B7827D]/25" aria-hidden="true" />
-        <Container className="grid items-center gap-7 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10">
-          <ScrollReveal className="order-2 lg:order-1">
-            <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.28em] text-[#681426]">The human outcome</p>
-            <h2 className="mt-3 max-w-2xl font-sans text-[clamp(2.3rem,3.6vw,3.8rem)] font-normal leading-[0.98] tracking-[-0.035em] text-[#4D101D]">
-              A skill becomes a choice.
-            </h2>
-            <p className="mt-4 max-w-xl text-sm leading-6 text-[#5B4A42] sm:text-base sm:leading-7">
-              Training is only the beginning. When craftsmanship connects with product design and access to markets, it can open routes to independent work, enterprise and greater financial agency.
-            </p>
-            <div className="mt-5 grid gap-5 border-t border-[#B7827D]/45 pt-5 sm:grid-cols-2">
+        <Container className="relative">
+          <ScrollReveal>
+            <div className="grid gap-5 border-b border-[#B7827D]/45 pb-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
               <div>
-                <p className="font-sans text-2xl font-normal text-[#681426]">Capability</p>
-                <p className="mt-2 text-sm leading-6 text-[#62534B]">Practical making, finishing and product-development skills.</p>
+                <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.28em] text-[#681426]">The hands behind the impact</p>
+                <p className="mt-3 text-xs uppercase tracking-[0.16em] text-[#8B6F62]">Draft artisan profiles</p>
               </div>
               <div>
-                <p className="font-sans text-2xl font-normal text-[#681426]">Agency</p>
-                <p className="mt-2 text-sm leading-6 text-[#62534B]">More ways to participate, earn and build work on individual terms.</p>
+                <h2 className="max-w-4xl font-sans text-[clamp(2.25rem,3.7vw,3.9rem)] font-normal leading-[0.98] tracking-[-0.035em] text-[#4D101D]">Every maker carries a story beyond the stitch.</h2>
+                <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5B4A42] sm:text-base sm:leading-7">These sample profiles preview how the voices of KatranKaari artisans can live on the site. Names, portraits and first-person interviews can replace them when the verified stories arrive.</p>
               </div>
             </div>
           </ScrollReveal>
 
-          <ScrollReveal className="order-1 lg:order-2" delay={120}>
-            <div className="relative aspect-[16/9] overflow-hidden border-[0.65rem] border-[#FAF4E9] bg-[#681426] shadow-[0_28px_60px_rgba(77,16,29,0.16)] sm:border-[0.8rem]">
-              <Image src="/katrankaari/maker.png" alt="A woman artisan presenting a textile product she created" fill className="object-cover object-center" sizes="(min-width: 1024px) 50vw, 100vw" />
-            </div>
-          </ScrollReveal>
+          <ol className="grid border-b border-[#B7827D]/45 md:grid-cols-3">
+            {artisanStories.map((story, index) => (
+              <ScrollReveal className="h-full" delay={index * 110} key={story.number}>
+                <li className="group relative flex h-full flex-col overflow-hidden border-b border-[#B7827D]/35 px-0 py-6 md:min-h-[19rem] md:border-b-0 md:border-r md:px-6 md:py-7 md:first:pl-0 md:last:border-r-0 md:last:pr-0">
+                  <div className="flex items-center justify-between">
+                    <span className="grid h-10 w-10 place-items-center rounded-full border border-[#B7827D]/55 text-xs font-extrabold tracking-[0.12em] text-[#681426] transition duration-300 group-hover:border-[#681426] group-hover:bg-[#681426] group-hover:text-[#FAF4E9]">{story.number}</span>
+                    <span className="text-[0.58rem] font-extrabold uppercase tracking-[0.2em] text-[#A26F69]">Sample story</span>
+                  </div>
+                  <h3 className="mt-7 font-sans text-[1.65rem] font-normal leading-none tracking-[-0.03em] text-[#4D101D] sm:text-[1.85rem]">{story.title}</h3>
+                  <p className="mt-4 text-sm leading-6 text-[#62534B]">{story.copy}</p>
+                  <blockquote className="mt-auto border-l border-[#B7827D] pl-4 pt-6 font-sans text-base italic leading-6 text-[#681426]">“{story.quote}”</blockquote>
+                </li>
+              </ScrollReveal>
+            ))}
+          </ol>
+          <p className="mt-4 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#9A766A]">Temporary editorial copy · replace with verified artisan interviews before publication</p>
         </Container>
       </section>
 

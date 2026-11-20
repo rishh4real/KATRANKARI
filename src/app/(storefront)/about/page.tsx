@@ -133,7 +133,7 @@ export default function AboutPage() {
             <p className="mb-3 text-[0.68rem] font-extrabold uppercase tracking-[0.26em] text-[#f4c8b6]">The hands behind every stitch</p>
             <h2 className="font-display text-4xl font-semibold leading-[0.94] tracking-[-0.03em] sm:text-5xl">Meet Our Artisans</h2>
             <p className="mt-3 text-[0.95rem] leading-6 text-[#f8e8dc]/85">A community of skilled and passionate women who turn fabric waste into thoughtfully crafted, timeless products.</p>
-            <Link href="/impact" className="mt-5 inline-flex min-h-10 items-center gap-4 rounded-button border border-[#f8e8dc]/70 px-5 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] transition hover:bg-[#fff8ed] hover:text-[#651421] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fff8ed]">
+            <Link href="/impact#artisan-stories" className="mt-5 inline-flex min-h-10 items-center gap-4 rounded-button border border-[#f8e8dc]/70 px-5 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] transition hover:bg-[#fff8ed] hover:text-[#651421] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fff8ed]">
               Their stories <span aria-hidden="true">→</span>
             </Link>
           </div>
