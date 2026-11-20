@@ -48,7 +48,7 @@ export default function ContactPage() {
             <p className="mt-3 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#E4B8B1]">Products · Collaborations · Corporate gifting</p>
           </div>
           <div className="relative h-[12rem] translate-x-3 self-end sm:h-[15rem] sm:translate-x-5 lg:h-[18rem] lg:translate-x-12 xl:translate-x-20">
-            <Image src="/katrankaari/contact-hero-connect.png" alt="Illustrated woman holding a telephone beside a stitched vintage phone" fill priority sizes="(min-width: 1024px) 62vw, 100vw" className="object-contain object-right-bottom drop-shadow-[0_20px_26px_rgba(54,4,17,0.28)]" />
+            <Image src="/katrankaari/contact-hero-connect.png" alt="Illustrated woman holding a telephone beside a stitched vintage phone" fill priority sizes="(min-width: 1024px) 62vw, 100vw" className="origin-bottom-right translate-y-2 object-contain object-right-bottom drop-shadow-[0_20px_26px_rgba(54,4,17,0.28)] sm:translate-y-3 lg:scale-[1.12]" />
           </div>
         </Container>
       </section>
