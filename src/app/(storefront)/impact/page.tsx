@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, UserRound } from "lucide-react";
 import { ImpactComparison } from "@/components/impact/ImpactComparison";
 import { Container } from "@/components/layout/Container";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -56,21 +56,24 @@ const materialSteps = [
 const artisanStories = [
   {
     number: "01",
+    artisan: "Artisan 01",
     title: "Learning the rhythm",
-    copy: "Training in cutting, stitching and finishing becomes the beginning of a skill that can travel from the centre into everyday life and home-based work.",
-    quote: "A first stitch can become a new way forward.",
+    copy: "Cutting, stitching and finishing turn a new technique into a skill she can carry into home-based work.",
+    quote: "A first stitch becomes a new way forward.",
   },
   {
     number: "02",
+    artisan: "Artisan 02",
     title: "A craft of her own",
-    copy: "With practice, unfamiliar tools become part of a confident making process—opening space to contribute ideas, refine products and take ownership of the work.",
-    quote: "Confidence grows each time a piece is completed.",
+    copy: "Each completed piece builds the confidence to suggest ideas, refine products and take greater ownership of the craft.",
+    quote: "Confidence grows with every finished piece.",
   },
   {
     number: "03",
+    artisan: "Artisan 03",
     title: "Making room to grow",
-    copy: "Flexible textile work can create another route to income while allowing women to build experience, relationships and ambitions at their own pace.",
-    quote: "The work is useful, but the possibility is larger.",
+    copy: "Flexible textile work creates another route to income and experience, grown at a pace that fits her life.",
+    quote: "The possibility grows beyond the product.",
   },
 ];
 
@@ -79,16 +82,16 @@ export default function ImpactPage() {
     <main className="overflow-hidden bg-[#FAF4E9] text-[#493D37]">
       <section id="impact-hero" className="relative overflow-hidden border-b border-[#4D101D] bg-[#681426] pb-5 pt-[88px] text-[#FAF4E9] sm:pb-6 sm:pt-[94px] lg:pb-7 lg:pt-[102px]">
         <div className="pointer-events-none absolute -left-20 top-24 h-72 w-72 rounded-full bg-[#B7827D]/25 blur-3xl" aria-hidden="true" />
-        <Container className="relative grid items-center gap-5 lg:grid-cols-[0.76fr_1.24fr] lg:gap-8">
+        <Container className="relative grid items-center gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:gap-8">
           <div className="relative z-10 max-w-xl">
             <p className="flex items-center gap-4 text-[0.68rem] font-extrabold uppercase tracking-[0.28em] text-[#E7BDB2]">
               Our impact <span className="h-px w-16 bg-[#E7BDB2]/75" aria-hidden="true" />
             </p>
-            <h1 className="mt-3 font-sans text-[clamp(2.4rem,4vw,4.2rem)] font-normal leading-[0.94] tracking-[-0.045em] text-[#FFF8ED]">
+            <h1 className="mt-3 font-sans text-[clamp(2.2rem,3.5vw,3.7rem)] font-normal leading-[0.95] tracking-[-0.04em] text-[#FFF8ED]">
               What remains
               <span className="block italic text-[#E7BDB2]">becomes possibility.</span>
             </h1>
-            <p className="mt-3 max-w-lg text-sm leading-5 text-[#F2DFD3]/88 sm:leading-6">
+            <p className="mt-3 max-w-lg text-[0.82rem] leading-5 text-[#F2DFD3]/88 sm:text-sm sm:leading-6">
               KatranKaari brings circular design and community enterprise into the same frame—giving discarded textiles a useful next chapter and women new ways to create, earn and grow.
             </p>
             <a className="group mt-4 inline-flex items-center gap-3 border-b border-[#FAF4E9]/75 pb-1.5 text-[0.68rem] font-extrabold uppercase tracking-[0.17em] text-[#FAF4E9]" href="#impact-ledger">
@@ -178,39 +181,43 @@ export default function ImpactPage() {
         </Container>
       </section>
 
-      <section id="artisan-stories" className="relative scroll-mt-24 overflow-hidden bg-[#FAF4E9] py-9 sm:py-11 lg:py-14">
+      <section id="artisan-stories" className="relative scroll-mt-24 overflow-hidden bg-[#FAF4E9] py-8 sm:py-9 lg:py-10">
         <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full border border-[#B7827D]/25" aria-hidden="true" />
         <div className="pointer-events-none absolute -right-10 -top-10 h-64 w-64 rounded-full border border-[#B7827D]/25" aria-hidden="true" />
         <Container className="relative">
           <ScrollReveal>
-            <div className="grid gap-5 border-b border-[#B7827D]/45 pb-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+            <div className="grid gap-5 lg:grid-cols-[0.58fr_1.42fr] lg:items-end lg:gap-12">
               <div>
                 <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.28em] text-[#681426]">The hands behind the impact</p>
-                <p className="mt-3 text-xs uppercase tracking-[0.16em] text-[#8B6F62]">Draft artisan profiles</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.16em] text-[#8B6F62]">Artisan stories</p>
               </div>
               <div>
-                <h2 className="max-w-4xl font-sans text-[clamp(2.25rem,3.7vw,3.9rem)] font-normal leading-[0.98] tracking-[-0.035em] text-[#4D101D]">Every maker carries a story beyond the stitch.</h2>
-                <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5B4A42] sm:text-base sm:leading-7">These sample profiles preview how the voices of KatranKaari artisans can live on the site. Names, portraits and first-person interviews can replace them when the verified stories arrive.</p>
+                <h2 className="max-w-4xl font-sans text-[clamp(2.15rem,3.4vw,3.6rem)] font-normal leading-[0.98] tracking-[-0.035em] text-[#4D101D]">Every maker carries a story beyond the stitch.</h2>
+                <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5B4A42]">Skill, independence and possibility take a different shape in every pair of hands.</p>
               </div>
             </div>
           </ScrollReveal>
 
-          <ol className="grid border-b border-[#B7827D]/45 md:grid-cols-3">
+          <ol className="mt-7 grid gap-7 md:grid-cols-3 lg:gap-12">
             {artisanStories.map((story, index) => (
               <ScrollReveal className="h-full" delay={index * 110} key={story.number}>
-                <li className="group relative flex h-full flex-col overflow-hidden border-b border-[#B7827D]/35 px-0 py-6 md:min-h-[19rem] md:border-b-0 md:border-r md:px-6 md:py-7 md:first:pl-0 md:last:border-r-0 md:last:pr-0">
-                  <div className="flex items-center justify-between">
-                    <span className="grid h-10 w-10 place-items-center rounded-full border border-[#B7827D]/55 text-xs font-extrabold tracking-[0.12em] text-[#681426] transition duration-300 group-hover:border-[#681426] group-hover:bg-[#681426] group-hover:text-[#FAF4E9]">{story.number}</span>
-                    <span className="text-[0.58rem] font-extrabold uppercase tracking-[0.2em] text-[#A26F69]">Sample story</span>
+                <li className="group relative flex h-full flex-col border-t border-[#B7827D]/55 pt-5 md:min-h-[16rem]">
+                  <div className="flex items-start justify-between gap-5">
+                    <div className="relative grid h-20 w-16 shrink-0 place-items-center overflow-hidden rounded-t-full border border-dashed border-[#B7827D]/65 bg-[radial-gradient(circle_at_50%_25%,#F1DFD0,transparent_58%),linear-gradient(145deg,#F8EEE2,#E8D4C3)] text-[#9B625F]" role="img" aria-label={`Portrait placeholder for ${story.artisan}`}>
+                      <UserRound aria-hidden="true" size={28} strokeWidth={1.25} />
+                    </div>
+                    <div className="text-right">
+                      <span className="block font-sans text-3xl font-normal leading-none text-[#B7827D] transition-colors duration-300 group-hover:text-[#681426]">{story.number}</span>
+                      <span className="mt-2 block text-[0.56rem] font-extrabold uppercase tracking-[0.2em] text-[#A26F69]">{story.artisan}</span>
+                    </div>
                   </div>
-                  <h3 className="mt-7 font-sans text-[1.65rem] font-normal leading-none tracking-[-0.03em] text-[#4D101D] sm:text-[1.85rem]">{story.title}</h3>
-                  <p className="mt-4 text-sm leading-6 text-[#62534B]">{story.copy}</p>
-                  <blockquote className="mt-auto border-l border-[#B7827D] pl-4 pt-6 font-sans text-base italic leading-6 text-[#681426]">“{story.quote}”</blockquote>
+                  <h3 className="mt-4 font-sans text-[1.65rem] font-normal leading-none tracking-[-0.03em] text-[#4D101D] sm:text-[1.8rem]">{story.title}</h3>
+                  <p className="mt-3 max-w-sm text-sm leading-6 text-[#62534B]">{story.copy}</p>
+                  <blockquote className="mt-auto pt-5 font-sans text-base italic leading-6 text-[#681426]">“{story.quote}”</blockquote>
                 </li>
               </ScrollReveal>
             ))}
           </ol>
-          <p className="mt-4 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#9A766A]">Temporary editorial copy · replace with verified artisan interviews before publication</p>
         </Container>
       </section>
 

@@ -7,7 +7,7 @@ export function ImpactComparison() {
   const [position, setPosition] = useState(50);
 
   return (
-    <figure className="group relative h-[15rem] w-full overflow-hidden rounded-[1.1rem] border border-[#D4BFAA] bg-white shadow-[0_22px_55px_rgba(77,16,29,0.16)] focus-within:ring-2 focus-within:ring-[#681426] focus-within:ring-offset-4 focus-within:ring-offset-[#681426] sm:h-[17rem] lg:h-[20rem]">
+    <figure className="group relative h-[16rem] w-full overflow-hidden rounded-[1.1rem] border border-[#D4BFAA] bg-white shadow-[0_22px_55px_rgba(77,16,29,0.16)] focus-within:ring-2 focus-within:ring-[#681426] focus-within:ring-offset-4 focus-within:ring-offset-[#681426] sm:h-[19rem] lg:h-[24rem]">
       <Image
         src="/katrankaari/patchwork-tote-clean.png"
         alt="Finished patchwork textile product held by hand"
