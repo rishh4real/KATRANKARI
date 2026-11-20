@@ -5,7 +5,6 @@ import { X } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const mainLinks = [
-  { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Shop", href: "/shop" },
   { label: "Corporate Gifting & Custom Orders", href: "/corporate-gifting" },

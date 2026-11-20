@@ -21,7 +21,6 @@ export function Header() {
   const heroId = overlayHeroIds[pathname];
   const hasOverlayHero = Boolean(heroId);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [headerHovered, setHeaderHovered] = useState(false);
   const [shopMenuOpen, setShopMenuOpen] = useState(false);
   const [pastHero, setPastHero] = useState(false);
   const [showScrolledHeader, setShowScrolledHeader] = useState(false);
@@ -56,12 +55,12 @@ export function Header() {
     return () => window.removeEventListener("scroll", updateHeader);
   }, [heroId]);
 
-  const hasLightHeader = !hasOverlayHero || shopMenuOpen || (!pastHero && headerHovered) || (pastHero && showScrolledHeader);
+  const hasLightHeader = true;
   const overlayHeaderClass = pastHero
-    ? `fixed inset-x-0 top-0 z-40 bg-background text-[#171717] shadow-[0_1px_0_rgba(0,0,0,0.08)] transition-transform duration-300 ${showScrolledHeader ? "translate-y-0" : "-translate-y-full"}`
-    : `absolute inset-x-0 top-0 z-40 transition-colors duration-300 ${headerHovered ? "bg-background text-[#171717] shadow-[0_1px_0_rgba(0,0,0,0.08)]" : "bg-transparent text-white"}`;
+    ? `fixed inset-x-0 top-0 z-40 border-b border-[#EADAC7] bg-[#FAF4E9] text-[#4D101D] shadow-[0_1px_0_rgba(77,16,29,0.1)] transition-transform duration-300 ${showScrolledHeader ? "translate-y-0" : "-translate-y-full"}`
+    : "absolute inset-x-0 top-0 z-40 border-b border-[#EADAC7] bg-[#FAF4E9] text-[#4D101D] shadow-[0_1px_0_rgba(77,16,29,0.1)]";
   return (
-    <header className={hasOverlayHero ? overlayHeaderClass : "sticky top-0 z-40 border-b border-black/15 bg-background/95 text-foreground"} onMouseEnter={() => hasOverlayHero && setHeaderHovered(true)} onMouseLeave={() => hasOverlayHero && setHeaderHovered(false)}>
+    <header className={hasOverlayHero ? overlayHeaderClass : "sticky top-0 z-40 border-b border-[#EADAC7] bg-[#FAF4E9] text-[#4D101D] shadow-[0_1px_0_rgba(77,16,29,0.1)]"}>
       <div className="flex h-[72px] w-full items-center gap-4 px-3 sm:px-5 lg:h-[92px] lg:gap-6 lg:px-6 xl:px-8">
         <Link className="inline-flex w-max flex-none flex-col items-center no-underline" href="/" aria-label="KatranKaari home">
           <strong className={hasLightHeader ? "border-2 border-foreground px-3 pb-1.5 pt-2 text-base font-black leading-none tracking-[0.04em] sm:text-[1.05rem] lg:px-4 lg:py-2.5 lg:text-[1.22rem]" : "border border-white px-3 pb-1.5 pt-2 text-sm font-black leading-none tracking-[0.06em] sm:text-base lg:px-4 lg:py-2.5 lg:text-[1.22rem]"}>KatranKaari</strong>

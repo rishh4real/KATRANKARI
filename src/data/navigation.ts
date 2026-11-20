@@ -1,5 +1,4 @@
 export const primaryNavigation = [
-  { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Shop", href: "/shop" },
   { label: "Corporate Gifting & Custom Orders", href: "/corporate-gifting" },
