@@ -36,23 +36,18 @@ export default function ContactPage() {
   return (
     <main className="overflow-hidden bg-[#FAF4E9] text-[#493D37]">
       <section className="relative isolate overflow-hidden bg-[#681426] text-[#FAF4E9]">
-        <div className="pointer-events-none absolute inset-0 opacity-30" aria-hidden="true">
-          <svg className="h-full w-full" viewBox="0 0 1440 520" preserveAspectRatio="none">
-            <path d="M-50 408 C 180 326, 320 430, 520 326 S 872 224, 1060 324 S 1310 382, 1490 244" fill="none" stroke="#D6A39C" strokeWidth="3" strokeDasharray="13 15" strokeLinecap="round" />
-          </svg>
-        </div>
-        <Container className="relative grid min-h-[31rem] gap-6 py-12 sm:py-14 lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:py-10">
+        <Container className="relative grid min-h-[23rem] gap-2 py-8 sm:py-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:py-5">
           <div className="relative z-10">
             <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.24em] text-[#EADAC7]">Contact KatranKaari</p>
-            <h1 className="mt-4 max-w-3xl font-display text-[clamp(3.5rem,6vw,6.5rem)] leading-[0.84] tracking-[-0.035em] text-[#FFF8EC]">
+            <h1 className="mt-3 max-w-3xl font-display text-[clamp(2.9rem,5vw,5rem)] leading-[0.84] tracking-[-0.035em] text-[#FFF8EC]">
               Let&apos;s make something meaningful.
             </h1>
-            <p className="mt-6 max-w-lg border-t border-[#EADAC7]/45 pt-5 text-sm leading-6 text-[#FAF4E9]/86 sm:text-base">
+            <p className="mt-4 max-w-lg border-t border-[#EADAC7]/45 pt-4 text-sm leading-6 text-[#FAF4E9]/86">
               Have a product question, a collaboration in mind or a gifting requirement? Tell us what you are planning and our team will help you take the next step.
             </p>
-            <p className="mt-4 text-[0.64rem] font-bold uppercase tracking-[0.2em] text-[#E4B8B1]">Products · Collaborations · Corporate gifting</p>
+            <p className="mt-3 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#E4B8B1]">Products · Collaborations · Corporate gifting</p>
           </div>
-          <div className="relative h-[20rem] sm:h-[25rem] lg:h-[31rem] lg:self-end">
+          <div className="relative h-[13rem] sm:h-[17rem] lg:h-[23rem] lg:self-end">
             <Image src="/katrankaari/contact-hero-connect.png" alt="Illustrated woman holding a telephone beside a stitched vintage phone" fill priority sizes="(min-width: 1024px) 58vw, 100vw" className="object-contain object-bottom drop-shadow-[0_20px_26px_rgba(54,4,17,0.28)]" />
           </div>
         </Container>
@@ -91,8 +86,8 @@ export default function ContactPage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-auto hidden pt-5 lg:block">
-              <Image src="/katrankaari/contact-sewing-machine.png" alt="Burgundy line illustration of a vintage sewing machine with leaves and thread" width={1920} height={819} className="h-auto w-full max-w-[26rem] object-contain" />
+            <div className="mt-auto hidden pt-2 lg:block">
+              <Image src="/katrankaari/contact-sewing-machine.png" alt="Burgundy line illustration of a vintage sewing machine with leaves and thread" width={1920} height={819} className="-ml-6 h-auto w-[calc(100%+1.5rem)] max-w-[22rem] object-contain" />
             </div>
           </div>
 
