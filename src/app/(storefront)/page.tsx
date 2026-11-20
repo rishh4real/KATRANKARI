@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { CollaborationCallout } from "@/components/home/CollaborationCallout";
 import { CustomerStories } from "@/components/home/CustomerStories";
-import { EducationLibraryPreview } from "@/components/home/EducationLibraryPreview";
 import { FeaturedProductsShowcase } from "@/components/home/FeaturedProductsShowcase";
 import { HeroCarousel } from "@/components/home/HeroCarousel";
 import { ProcessImpactSection } from "@/components/home/ProcessImpactSection";
@@ -53,8 +52,6 @@ export default async function HomePage() {
       <ProcessImpactSection />
 
       <FeaturedProductsShowcase />
-
-      <EducationLibraryPreview />
 
       <CustomerStories />
 

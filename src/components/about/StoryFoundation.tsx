@@ -30,7 +30,7 @@ export function StoryFoundation({ eyebrow, heading, description, items }: StoryF
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden border-b border-[#4D101D] bg-[#681426] py-12 text-[#FAF4E9] sm:py-14 lg:py-16">
+    <section className="relative overflow-hidden border-b border-[#4D101D] bg-[#681426] py-8 text-[#FAF4E9] sm:py-9 lg:py-10">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_12%,rgba(234,218,199,0.09),transparent_32%),linear-gradient(120deg,rgba(77,16,29,0.24),transparent_62%)]"
         aria-hidden="true"
@@ -50,16 +50,16 @@ export function StoryFoundation({ eyebrow, heading, description, items }: StoryF
           <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.26em] text-[#EADAC7]">
             {eyebrow}
           </p>
-          <h2 className="mt-3 font-display text-4xl font-semibold leading-[0.98] tracking-[-0.03em] text-[#FAF4E9] sm:text-5xl">
+          <h2 className="mt-2 font-display text-3xl font-semibold leading-[0.98] tracking-[-0.03em] text-[#FAF4E9] sm:text-4xl lg:text-[2.75rem]">
             {heading}
           </h2>
-          <p className="mx-auto mt-5 max-w-3xl text-sm leading-6 text-[#EADAC7]/85 sm:text-[0.95rem] sm:leading-7">
+          <p className="mx-auto mt-3 max-w-3xl text-sm leading-6 text-[#EADAC7]/85 sm:text-[0.9rem]">
             {description}
           </p>
         </motion.div>
 
         <motion.div
-          className="mx-auto mt-10 grid max-w-6xl grid-cols-1 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4"
+          className="mx-auto mt-6 grid max-w-6xl grid-cols-1 sm:grid-cols-2 lg:mt-7 lg:grid-cols-4"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.18 }}
@@ -77,7 +77,7 @@ export function StoryFoundation({ eyebrow, heading, description, items }: StoryF
             return (
               <motion.article
                 key={item.number}
-                className={`group relative px-1 py-6 sm:px-7 sm:py-4 lg:px-8 ${mobileDivider} ${tabletDivider} ${desktopDivider}`}
+                className={`group relative px-1 py-4 sm:px-6 sm:py-3 lg:px-7 ${mobileDivider} ${tabletDivider} ${desktopDivider}`}
                 variants={
                   reduceMotion
                     ? undefined
@@ -90,19 +90,19 @@ export function StoryFoundation({ eyebrow, heading, description, items }: StoryF
                     {item.number}
                   </span>
                   <span
-                    className="flex h-10 w-10 items-center justify-center text-[#EADAC7] transition duration-300 ease-out group-hover:-translate-y-1 group-hover:rotate-[-3deg] group-hover:text-[#FAF4E9]"
+                    className="flex h-11 w-11 rotate-2 items-center justify-center rounded-[0.8rem] border border-dashed border-[#EADAC7]/40 bg-[#4D101D]/25 text-[#EADAC7] transition duration-300 ease-out group-hover:-translate-y-1 group-hover:-rotate-2 group-hover:border-[#EADAC7]/70 group-hover:text-[#FAF4E9]"
                     aria-hidden="true"
                   >
                     <Icon size={28} strokeWidth={1.55} />
                   </span>
                 </div>
-                <h3 className="mt-5 font-display text-2xl font-semibold leading-none text-[#FAF4E9]">
+                <h3 className="mt-3 font-display text-xl font-semibold leading-none text-[#FAF4E9] sm:text-[1.35rem]">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-[0.62rem] font-extrabold uppercase tracking-[0.17em] text-[#EADAC7]">
                   {item.role}
                 </p>
-                <p className="mt-3 text-[0.8rem] leading-5 text-[#EADAC7]/80">{item.description}</p>
+                <p className="mt-2 text-[0.75rem] leading-[1.15rem] text-[#EADAC7]/80">{item.description}</p>
               </motion.article>
             );
           })}
