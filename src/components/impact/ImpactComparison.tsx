@@ -1,10 +1,41 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function ImpactComparison() {
   const [position, setPosition] = useState(50);
+  const [isHinting, setIsHinting] = useState(true);
+  const hasInteracted = useRef(false);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const frame = requestAnimationFrame(() => setIsHinting(false));
+      return () => cancelAnimationFrame(frame);
+    }
+
+    const moveLeft = window.setTimeout(() => {
+      if (!hasInteracted.current) setPosition(42);
+    }, 450);
+    const moveRight = window.setTimeout(() => {
+      if (!hasInteracted.current) setPosition(60);
+    }, 1150);
+    const settle = window.setTimeout(() => {
+      if (!hasInteracted.current) setPosition(50);
+      setIsHinting(false);
+    }, 1950);
+
+    return () => {
+      window.clearTimeout(moveLeft);
+      window.clearTimeout(moveRight);
+      window.clearTimeout(settle);
+    };
+  }, []);
+
+  const stopHint = () => {
+    hasInteracted.current = true;
+    setIsHinting(false);
+  };
 
   return (
     <figure className="group relative h-[16rem] w-full overflow-hidden rounded-[1.1rem] border border-[#D4BFAA] bg-white shadow-[0_22px_55px_rgba(77,16,29,0.16)] focus-within:ring-2 focus-within:ring-[#681426] focus-within:ring-offset-4 focus-within:ring-offset-[#580716] sm:h-[19rem] lg:h-[24rem]">
@@ -21,7 +52,7 @@ export function ImpactComparison() {
       </span>
 
       <div
-        className="absolute inset-0 overflow-hidden"
+        className={`absolute inset-0 overflow-hidden ${isHinting ? "transition-[clip-path] duration-700 ease-in-out" : ""}`}
         style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         aria-hidden="true"
       >
@@ -38,7 +69,7 @@ export function ImpactComparison() {
         </span>
       </div>
 
-      <div className="pointer-events-none absolute inset-y-0 z-20 w-px bg-[#FAF4E9] shadow-[0_0_0_1px_rgba(104,20,38,0.18)]" style={{ left: `${position}%` }} aria-hidden="true">
+      <div className={`pointer-events-none absolute inset-y-0 z-20 w-px bg-[#FAF4E9] shadow-[0_0_0_1px_rgba(104,20,38,0.18)] ${isHinting ? "transition-[left] duration-700 ease-in-out" : ""}`} style={{ left: `${position}%` }} aria-hidden="true">
         <span className="absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-[5px] border-[#FAF4E9] bg-[#681426] text-lg font-bold text-[#FAF4E9] shadow-[0_8px_24px_rgba(77,16,29,0.3)] transition-transform group-hover:scale-105">
           ↔
         </span>
@@ -50,7 +81,12 @@ export function ImpactComparison() {
         min="0"
         max="100"
         value={position}
-        onChange={(event) => setPosition(Number(event.target.value))}
+        onPointerDown={stopHint}
+        onKeyDown={stopHint}
+        onChange={(event) => {
+          stopHint();
+          setPosition(Number(event.target.value));
+        }}
         aria-label="Compare discarded textiles with the finished patchwork product"
         aria-valuetext={`${position}% discarded textiles visible`}
       />

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, UserRound } from "lucide-react";
 import { ImpactComparison } from "@/components/impact/ImpactComparison";
+import { ImpactStat } from "@/components/impact/ImpactStat";
 import { Container } from "@/components/layout/Container";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { createMetadata } from "@/lib/seo";
@@ -14,22 +15,24 @@ export const metadata = createMetadata(
 
 const historicalImpact = [
   {
-    value: "1 MT",
+    amount: 1,
+    suffix: " MT",
     label: "Textile waste upcycled",
     detail: "Approximately one metric tonne transformed into products during FY 2023–24.",
   },
   {
-    value: "75",
+    amount: 75,
     label: "Women trained",
     detail: "Women trained in textile upcycling and product-making over two years.",
   },
   {
-    value: "75",
+    amount: 75,
     label: "Home-based businesses",
     detail: "Trained women reported to have started independent home-based enterprises.",
   },
   {
-    value: "₹3,000",
+    amount: 3000,
+    prefix: "₹",
     label: "Additional monthly income",
     detail: "Approximate additional income reported per woman each month.",
   },
@@ -123,7 +126,9 @@ export default function ImpactPage() {
               <ScrollReveal className="h-full" delay={index * 110} key={item.label}>
                 <div className="flex h-full flex-col border-b border-[#B7827D]/35 py-5 sm:border-r sm:pr-5 lg:min-h-[11.5rem] lg:border-b-0 lg:py-5 lg:pr-7 last:border-r-0 last:pr-0">
                   <span className="text-[0.62rem] font-bold tracking-[0.24em] text-[#B7827D]">0{index + 1}</span>
-                  <dt className="mt-4 font-sans text-[clamp(2.5rem,3.5vw,3.8rem)] font-normal leading-none tracking-[-0.04em] text-[#681426]">{item.value}</dt>
+                  <dt className="mt-4 font-sans text-[clamp(2.5rem,3.5vw,3.8rem)] font-normal leading-none tracking-[-0.04em] text-[#681426]">
+                    <ImpactStat amount={item.amount} prefix={item.prefix} suffix={item.suffix} />
+                  </dt>
                   <dd className="mt-auto pt-4">
                     <strong className="block text-sm font-extrabold uppercase tracking-[0.12em] text-[#681426]">{item.label}</strong>
                     <span className="mt-1.5 block text-xs leading-5 text-[#62534B]">{item.detail}</span>
@@ -164,11 +169,14 @@ export default function ImpactPage() {
               </div>
             </ScrollReveal>
 
-            <ol className="divide-y divide-[#D7AAA5]/35 border-y border-[#D7AAA5]/35">
+            <ol className="relative divide-y divide-[#D7AAA5]/35 border-y border-[#D7AAA5]/35">
+              <svg className="pointer-events-none absolute bottom-7 left-[1.4rem] top-7 hidden w-3 sm:block" viewBox="0 0 12 360" preserveAspectRatio="none" aria-hidden="true">
+                <path className="process-thread" d="M6 0 C1 48 11 84 6 130 S1 218 6 264 S11 324 6 360" fill="none" stroke="#D7AAA5" strokeLinecap="round" strokeWidth="1.8" strokeDasharray="7 10" vectorEffect="non-scaling-stroke" />
+              </svg>
               {materialSteps.map((step, index) => (
                 <ScrollReveal delay={index * 100} key={step.number}>
-                  <li className="grid grid-cols-[3.2rem_1fr] gap-3 py-4 sm:grid-cols-[3.6rem_1fr] lg:py-5">
-                    <span className="font-sans text-xl font-normal text-[#D7AAA5] sm:text-2xl">{step.number}</span>
+                  <li className="relative z-10 grid grid-cols-[3.2rem_1fr] gap-3 py-4 sm:grid-cols-[3.6rem_1fr] lg:py-5">
+                    <span className="relative z-10 w-max bg-[#580716] py-1 font-sans text-xl font-normal text-[#D7AAA5] sm:text-2xl">{step.number}</span>
                     <div>
                       <h3 className="font-sans text-xl font-normal leading-none text-[#FFF8ED] sm:text-2xl">{step.title}</h3>
                       <p className="mt-2 max-w-md text-sm leading-5 text-[#EADAC7]/82 sm:leading-6">{step.copy}</p>
