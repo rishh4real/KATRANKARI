@@ -67,7 +67,7 @@ export default function CorporateGiftingPage() {
     <>
       <section
         id="corporate-gifting-hero"
-        className="relative isolate overflow-hidden border-b border-[#4A0613] bg-[#580716] pt-[72px] text-[#FAF4E9] lg:pt-[92px]"
+        className="relative isolate overflow-hidden border-b border-[#4A0613] bg-[#580716] text-[#FAF4E9]"
       >
         <div
           className="pointer-events-none absolute -left-36 top-28 size-[31rem] rounded-full bg-[#7B1B2B]/45 blur-3xl"

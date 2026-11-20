@@ -35,7 +35,7 @@ const contactDetails = [
 export default function ContactPage() {
   return (
     <main className="overflow-hidden bg-[#FAF4E9] text-[#493D37]">
-      <section id="contact-hero" className="relative isolate overflow-hidden bg-[#681426] pt-[72px] text-[#FAF4E9] lg:pt-[92px]">
+      <section id="contact-hero" className="relative isolate overflow-hidden bg-[#681426] text-[#FAF4E9]">
         <Container className="relative grid min-h-[20rem] gap-1 py-6 sm:py-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:pb-0 lg:pt-3">
           <div className="relative z-10">
             <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.24em] text-[#EADAC7]">Contact KatranKaari</p>

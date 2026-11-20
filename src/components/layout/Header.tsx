@@ -60,13 +60,14 @@ export function Header() {
     ? `fixed inset-x-0 top-0 z-40 border-b border-[#EADAC7] bg-[#FAF4E9] text-[#4D101D] shadow-[0_1px_0_rgba(77,16,29,0.1)] transition-transform duration-300 ${showScrolledHeader ? "translate-y-0" : "-translate-y-full"}`
     : "absolute inset-x-0 top-0 z-40 border-b border-[#EADAC7] bg-[#FAF4E9] text-[#4D101D] shadow-[0_1px_0_rgba(77,16,29,0.1)]";
   return (
+    <>
     <header className={hasOverlayHero ? overlayHeaderClass : "sticky top-0 z-40 border-b border-[#EADAC7] bg-[#FAF4E9] text-[#4D101D] shadow-[0_1px_0_rgba(77,16,29,0.1)]"}>
       <div className="flex h-[72px] w-full items-center gap-4 px-3 sm:px-5 lg:h-[92px] lg:gap-6 lg:px-6 xl:px-8">
         <Link className="inline-flex w-max flex-none flex-col items-center no-underline" href="/" aria-label="KatranKaari home">
           <strong className={hasLightHeader ? "border-2 border-foreground px-3 pb-1.5 pt-2 text-base font-black leading-none tracking-[0.04em] sm:text-[1.05rem] lg:px-4 lg:py-2.5 lg:text-[1.22rem]" : "border border-white px-3 pb-1.5 pt-2 text-sm font-black leading-none tracking-[0.06em] sm:text-base lg:px-4 lg:py-2.5 lg:text-[1.22rem]"}>KatranKaari</strong>
           <small className={`mt-1.5 w-full text-center font-display text-[0.6rem] italic leading-none sm:text-[0.66rem] lg:text-[0.7rem] ${hasLightHeader ? "text-muted" : "text-white/85"}`}>Re-imagining textile waste</small>
         </Link>
-        <div className="ml-auto hidden min-w-0 justify-end lg:flex"><DesktopNavigation pathname={pathname} inverse={!hasLightHeader} shopOpen={shopMenuOpen} onShopOpenChange={setShopMenuOpen} /></div>
+        <div className="ml-auto mr-10 hidden min-w-0 justify-end lg:flex xl:mr-20 2xl:mr-28"><DesktopNavigation pathname={pathname} inverse={!hasLightHeader} shopOpen={shopMenuOpen} onShopOpenChange={setShopMenuOpen} /></div>
         <div className="hidden items-center gap-1 lg:flex xl:ml-2 xl:gap-2">
           <Link className={`icon-button ${!hasLightHeader ? "hover:!bg-white/10" : ""}`} href="/shop#catalog-controls" aria-label="Search products"><Search aria-hidden="true" size={23} strokeWidth={1.5} /></Link>
           <Link className={`icon-button ${!hasLightHeader ? "hover:!bg-white/10" : ""}`} href="/account" aria-label="Account"><UserRound aria-hidden="true" size={23} strokeWidth={1.5} /></Link>
@@ -92,5 +93,7 @@ export function Header() {
       </div>
       <MobileNavigation open={menuOpen} pathname={pathname} onClose={closeMenu} />
     </header>
+    {hasOverlayHero ? <div className="h-[72px] lg:h-[92px]" aria-hidden="true" /> : null}
+    </>
   );
 }

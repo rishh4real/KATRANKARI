@@ -40,7 +40,7 @@ export function HeroCarousel() {
   }, [hasMultipleSlides]);
 
   return (
-    <section id="home-hero" className="relative isolate flex min-h-[34rem] items-end overflow-hidden border-b border-black/20 text-white sm:min-h-[100dvh]" aria-roledescription={hasMultipleSlides ? "carousel" : undefined} aria-label="KatranKaari featured collection">
+    <section id="home-hero" className="relative isolate flex min-h-[calc(34rem-72px)] items-end overflow-hidden border-b border-black/20 text-white sm:min-h-[calc(100dvh-72px)] lg:min-h-[calc(100dvh-92px)]" aria-roledescription={hasMultipleSlides ? "carousel" : undefined} aria-label="KatranKaari featured collection">
       {slides.map((slide, index) => (
         <Image
           key={slide.image}

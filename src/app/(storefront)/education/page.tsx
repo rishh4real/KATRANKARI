@@ -164,7 +164,7 @@ export default function EducationPage() {
     <main>
       <section
         id="education-hero"
-        className="relative isolate overflow-hidden border-b border-[#4A0613] bg-[#580716] pt-[72px] text-[#FAF4E9] lg:pt-[92px]"
+        className="relative isolate overflow-hidden border-b border-[#4A0613] bg-[#580716] text-[#FAF4E9]"
       >
         <div
           className="pointer-events-none absolute -left-48 top-16 size-[36rem] rounded-full bg-[#812237]/40 blur-3xl"

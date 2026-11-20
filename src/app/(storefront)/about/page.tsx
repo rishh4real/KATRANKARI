@@ -73,7 +73,7 @@ function ArtisanStitchPath({ className = "" }: { className?: string }) {
 export default function AboutPage() {
   return (
     <main className="overflow-hidden bg-[linear-gradient(135deg,#fff8ef_0%,#f8ecdd_100%)] text-[#2a1b19]">
-      <section id="about-hero" className="relative isolate overflow-hidden border-b border-[#4b0d17] bg-[#651421] pb-5 pt-[92px] text-[#fff8ed] shadow-[inset_0_-1px_rgba(20,0,4,0.28)] sm:pb-6 sm:pt-[96px] lg:pb-0 lg:pt-[108px]">
+      <section id="about-hero" className="relative isolate overflow-hidden border-b border-[#4b0d17] bg-[#651421] pb-5 pt-4 text-[#fff8ed] shadow-[inset_0_-1px_rgba(20,0,4,0.28)] sm:pb-6 sm:pt-5 lg:pb-0 lg:pt-6">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(255,218,191,0.1),transparent_34%),linear-gradient(120deg,rgba(43,0,8,0.22),transparent_58%)]" aria-hidden="true" />
         <div className="absolute inset-0 opacity-[0.18] mix-blend-soft-light" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.48'/%3E%3C/svg%3E")` }} aria-hidden="true" />
         <Container className="relative z-10 grid items-center gap-6 lg:grid-cols-[0.64fr_1.36fr] lg:gap-0">

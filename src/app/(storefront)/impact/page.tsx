@@ -83,7 +83,7 @@ const artisanStories = [
 export default function ImpactPage() {
   return (
     <main className="overflow-hidden bg-[#FAF4E9] text-[#493D37]">
-      <section id="impact-hero" className="relative overflow-hidden border-b border-[#4A0613] bg-[#580716] pb-5 pt-[88px] text-[#FAF4E9] sm:pb-6 sm:pt-[94px] lg:pb-7 lg:pt-[102px]">
+      <section id="impact-hero" className="relative overflow-hidden border-b border-[#4A0613] bg-[#580716] pb-5 pt-4 text-[#FAF4E9] sm:pb-6 sm:pt-5 lg:pb-7 lg:pt-6">
         <div className="pointer-events-none absolute -left-20 top-24 h-72 w-72 rounded-full bg-[#B7827D]/25 blur-3xl" aria-hidden="true" />
         <Container className="relative grid items-center gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:gap-8">
           <div className="relative z-10 max-w-xl">
