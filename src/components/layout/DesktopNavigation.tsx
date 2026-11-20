@@ -73,7 +73,7 @@ export function DesktopNavigation({ pathname, inverse = false, shopOpen, onShopO
                 <Image src="/katrankaari/editorial-bag.png" alt="KatranKaari patterned bag" fill sizes="(min-width: 1280px) 19vw, 23vw" className="object-cover transition duration-500 group-hover/card:scale-105" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent p-5 text-white">
                   <span className="block text-[10px] font-bold uppercase tracking-[0.1em]">Featured collection</span>
-                  <span className="mt-1 block font-serif text-2xl">Bags & Totes</span>
+                  <span className="mt-1 block font-display text-2xl">Bags & Totes</span>
                 </div>
               </Link>
             </div>

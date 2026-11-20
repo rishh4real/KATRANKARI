@@ -30,7 +30,7 @@
   --color-border: var(--color-border);
   --color-error: var(--color-error);
   --font-sans: var(--font-manrope);
-  --font-display: var(--font-cormorant);
+  --font-display: var(--font-manrope);
   --radius-input: var(--radius-input);
   --radius-button: var(--radius-button);
   --radius-card: var(--radius-card);
