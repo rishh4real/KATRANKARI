@@ -15,6 +15,7 @@ export function Header() {
     "/about": "about-hero",
     "/contact": "contact-hero",
     "/corporate-gifting": "corporate-gifting-hero",
+    "/education": "education-hero",
     "/impact": "impact-hero",
   };
   const heroId = overlayHeroIds[pathname];

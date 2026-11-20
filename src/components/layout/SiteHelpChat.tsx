@@ -26,7 +26,7 @@ function answerQuestion(question: string): Omit<ChatMessage, "role"> {
     return { body: "Hello! What would you like to know about KatranKaari?" };
   }
   if (/(material|made from|textile waste|upcycl|sustainab|fabric)/.test(text)) {
-    return { body: "KatranKaari is built around thoughtfully designed, functional products made from upcycled textile waste. Explore our process, facts and material stories for the fuller picture.", href: "/education", label: "Explore textile waste insights" };
+    return { body: "KatranKaari is built around thoughtfully designed, functional products made from upcycled textile waste. Explore current India and global evidence, material flows and circular actions for the fuller picture.", href: "/education", label: "Explore textile waste insights" };
   }
   if (/(corporate|bulk|custom|gift|gifting)/.test(text)) {
     return { body: "We have a dedicated route for corporate gifting and custom-order enquiries. Tell us about your brief, quantity and timing there.", href: "/corporate-gifting", label: "Explore corporate gifting" };
@@ -44,7 +44,7 @@ function answerQuestion(question: string): Omit<ChatMessage, "role"> {
     return { body: "You can browse the current product and collection preview in the shop. Prices and availability are development values until the Shopify catalogue is connected.", href: "/shop", label: "Visit the shop" };
   }
   if (/(education|report|learn|landfill|women|impact)/.test(text)) {
-    return { body: "Our insights area shares developing facts, reports and material stories about textile waste in India, circularity and the people behind the work.", href: "/education", label: "Visit textile waste insights" };
+    return { body: "Our insights page explains textile waste in India and worldwide, why recovery is difficult and how circular design keeps material value in motion.", href: "/education", label: "Visit textile waste insights" };
   }
   if (/(contact|email|phone|address|instagram)/.test(text)) {
     return { body: `You can reach KatranKaari at ${siteConfig.contact.email}, call ${siteConfig.contact.phoneDisplay}, or use the contact form.`, href: "/contact", label: "Open contact page" };

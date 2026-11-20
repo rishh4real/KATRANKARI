@@ -77,15 +77,6 @@ export default function CorporateGiftingPage() {
           className="pointer-events-none absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_78%_22%,rgba(234,218,199,0.12),transparent_29%),radial-gradient(circle_at_14%_78%,rgba(183,130,125,0.18),transparent_24%)]"
           aria-hidden="true"
         />
-        <div
-          className="pointer-events-none absolute right-[5%] top-[20%] hidden lg:block"
-          aria-hidden="true"
-        >
-          <span className="corporate-swatch corporate-swatch-1 absolute right-0 top-0 size-12 rotate-12 rounded-sm bg-[#EADAC7]/20 shadow-[inset_0_0_0_1px_rgba(250,244,233,0.18)]" />
-          <span className="corporate-swatch corporate-swatch-2 absolute right-14 top-14 size-9 -rotate-12 rounded-sm bg-[#B7827D]/30 shadow-[inset_0_0_0_1px_rgba(250,244,233,0.16)]" />
-          <span className="corporate-swatch corporate-swatch-3 absolute right-1 top-24 size-7 rotate-[24deg] rounded-sm bg-[#FAF4E9]/16 shadow-[inset_0_0_0_1px_rgba(250,244,233,0.16)]" />
-        </div>
-
         <Container className="relative grid min-h-[29rem] gap-4 pt-6 sm:min-h-[32rem] sm:pt-7 lg:min-h-[31rem] lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:pt-0">
           <div className="hero-content-reveal relative z-10 pb-1 lg:pb-8">
             <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.28em] text-[#D7AAA5]">
