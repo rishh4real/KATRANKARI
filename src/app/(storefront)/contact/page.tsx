@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Container } from "@/components/layout/Container";
 import { siteConfig } from "@/config/site";
@@ -13,28 +14,21 @@ export const metadata = createMetadata(
 
 const contactDetails = [
   {
-    label: "Call or WhatsApp",
-    value: siteConfig.contact.phoneDisplay,
-    href: siteConfig.contact.phoneHref,
-    icon: Phone,
-  },
-  {
-    label: "Write to us",
+    label: "Email Us",
     value: siteConfig.contact.email,
     href: `mailto:${siteConfig.contact.email}`,
     icon: Mail,
   },
   {
-    label: "Visit our roots",
-    value: siteConfig.contact.address,
-    icon: MapPin,
+    label: "Call Us",
+    value: siteConfig.contact.phoneDisplay,
+    href: siteConfig.contact.phoneHref,
+    icon: Phone,
   },
   {
-    label: "Follow the journey",
-    value: `@${siteConfig.social.instagramHandle}`,
-    href: siteConfig.social.instagramUrl,
-    icon: Instagram,
-    external: true,
+    label: "Our Studio",
+    value: siteConfig.contact.address,
+    icon: MapPin,
   },
 ];
 
@@ -47,70 +41,66 @@ export default function ContactPage() {
             <path d="M-50 408 C 180 326, 320 430, 520 326 S 872 224, 1060 324 S 1310 382, 1490 244" fill="none" stroke="#D6A39C" strokeWidth="3" strokeDasharray="13 15" strokeLinecap="round" />
           </svg>
         </div>
-        <Container className="relative grid gap-10 py-14 sm:py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:py-20">
-          <div>
+        <Container className="relative grid min-h-[31rem] gap-6 py-12 sm:py-14 lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:py-10">
+          <div className="relative z-10">
             <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.24em] text-[#EADAC7]">Contact KatranKaari</p>
-            <h1 className="mt-4 max-w-4xl font-display text-[clamp(3.5rem,7.5vw,7rem)] leading-[0.82] tracking-[-0.035em] text-[#FFF8EC]">
+            <h1 className="mt-4 max-w-3xl font-display text-[clamp(3.5rem,6vw,6.5rem)] leading-[0.84] tracking-[-0.035em] text-[#FFF8EC]">
               Let&apos;s make something meaningful.
             </h1>
-          </div>
-          <div className="max-w-xl border-t border-[#EADAC7]/45 pt-6 lg:justify-self-end">
-            <p className="text-base leading-7 text-[#FAF4E9]/86 sm:text-lg">
+            <p className="mt-6 max-w-lg border-t border-[#EADAC7]/45 pt-5 text-sm leading-6 text-[#FAF4E9]/86 sm:text-base">
               Have a product question, a collaboration in mind or a gifting requirement? Tell us what you are planning and our team will help you take the next step.
             </p>
-            <p className="mt-5 text-[0.67rem] font-bold uppercase tracking-[0.2em] text-[#E4B8B1]">Products · Collaborations · Corporate gifting</p>
+            <p className="mt-4 text-[0.64rem] font-bold uppercase tracking-[0.2em] text-[#E4B8B1]">Products · Collaborations · Corporate gifting</p>
+          </div>
+          <div className="relative h-[20rem] sm:h-[25rem] lg:h-[31rem] lg:self-end">
+            <Image src="/katrankaari/contact-hero-connect.png" alt="Illustrated woman holding a telephone beside a stitched vintage phone" fill priority sizes="(min-width: 1024px) 58vw, 100vw" className="object-contain object-bottom drop-shadow-[0_20px_26px_rgba(54,4,17,0.28)]" />
           </div>
         </Container>
       </section>
 
       <section className="border-b border-[#D7C2AC]">
-        <Container className="grid gap-12 py-14 sm:py-16 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16 lg:py-20 xl:gap-24">
-          <div>
-            <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.22em] text-[#8A2536]">Reach us directly</p>
-            <h2 className="mt-3 max-w-md font-display text-4xl leading-none text-[#681426] sm:text-5xl">We would love to hear from you.</h2>
-            <p className="mt-5 max-w-md text-sm leading-7 text-[#665750] sm:text-base">
-              Choose the channel that works for you. We are based in Jamnagar and respond to enquiries during regular working hours.
-            </p>
-
-            <ul className="mt-9 border-b border-[#CDB8A4]">
-              {contactDetails.map(({ label, value, href, icon: Icon, external }) => (
+        <Container className="grid gap-10 py-10 sm:py-12 lg:grid-cols-[0.72fr_1.5fr] lg:gap-12 lg:py-14 xl:gap-16">
+          <div className="flex flex-col">
+            <ul className="border-b border-[#D8C3AF]">
+              {contactDetails.map(({ label, value, href, icon: Icon }) => (
                 <li className="border-t border-[#CDB8A4]" key={label}>
                   {href ? (
                     <a
-                      className="group flex min-h-20 items-center gap-4 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#681426]"
+                      className="group flex min-h-[5.15rem] items-center gap-5 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#681426]"
                       href={href}
-                      target={external ? "_blank" : undefined}
-                      rel={external ? "noreferrer" : undefined}
                     >
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#B7827D] text-[#681426] transition-colors group-hover:bg-[#681426] group-hover:text-[#FAF4E9]">
-                        <Icon aria-hidden="true" size={19} strokeWidth={1.6} />
+                      <span className="flex w-12 shrink-0 items-center justify-center text-[#681426] transition-transform duration-300 group-hover:-translate-y-0.5">
+                        <Icon aria-hidden="true" size={35} strokeWidth={1.7} />
                       </span>
                       <span className="min-w-0">
-                        <span className="block text-[0.62rem] font-extrabold uppercase tracking-[0.18em] text-[#8A6F66]">{label}</span>
-                        <span className="mt-1 block break-words text-sm font-semibold text-[#493D37] transition-colors group-hover:text-[#681426] sm:text-base">{value}</span>
+                        <span className="block text-base font-extrabold text-[#681426] sm:text-lg">{label}</span>
+                        <span className="mt-0.5 block break-words text-sm text-[#493D37] transition-colors group-hover:text-[#681426] sm:text-base">{value}</span>
                       </span>
                     </a>
                   ) : (
-                    <div className="flex min-h-20 items-center gap-4 py-4">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#B7827D] text-[#681426]">
-                        <Icon aria-hidden="true" size={19} strokeWidth={1.6} />
+                    <div className="flex min-h-[5.15rem] items-center gap-5 py-3">
+                      <span className="flex w-12 shrink-0 items-center justify-center text-[#681426]">
+                        <Icon aria-hidden="true" size={35} strokeWidth={1.7} />
                       </span>
                       <span>
-                        <span className="block text-[0.62rem] font-extrabold uppercase tracking-[0.18em] text-[#8A6F66]">{label}</span>
-                        <span className="mt-1 block text-sm font-semibold text-[#493D37] sm:text-base">{value}</span>
+                        <span className="block text-base font-extrabold text-[#681426] sm:text-lg">{label}</span>
+                        <span className="mt-0.5 block text-sm text-[#493D37] sm:text-base">{value}</span>
                       </span>
                     </div>
                   )}
                 </li>
               ))}
             </ul>
+            <div className="mt-auto hidden pt-5 lg:block">
+              <Image src="/katrankaari/contact-sewing-machine.png" alt="Burgundy line illustration of a vintage sewing machine with leaves and thread" width={1920} height={819} className="h-auto w-full max-w-[26rem] object-contain" />
+            </div>
           </div>
 
           <ContactForm />
         </Container>
       </section>
 
-      <section className="bg-[#4D101D] text-[#FAF4E9]">
+      <section className="border-b-2 border-dashed border-[#C69288]/75 bg-[#580716] text-[#FAF4E9]">
         <Container className="flex flex-col gap-5 py-9 sm:flex-row sm:items-center sm:justify-between lg:py-11">
           <div>
             <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.2em] text-[#D7AAA5]">Planning a larger order?</p>

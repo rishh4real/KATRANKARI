@@ -1,15 +1,14 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { Send } from "lucide-react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
+import { ChevronDown, Send } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { siteConfig } from "@/config/site";
 import { validateContactForm } from "@/lib/forms";
-import { FormField } from "./FormField";
 
-const initial = { name: "", email: "", message: "" };
+const initial = { name: "", email: "", phone: "", reason: "", message: "" };
 
 export function ContactForm() {
   const [values, setValues] = useState(initial);
@@ -26,46 +25,66 @@ export function ContactForm() {
       return;
     }
 
-    const subject = encodeURIComponent(`Website enquiry from ${values.name}`);
-    const body = encodeURIComponent(`Name: ${values.name}\nEmail: ${values.email}\n\nMessage:\n${values.message}`);
+    const subject = encodeURIComponent(`${values.reason || "Website enquiry"} from ${values.name}`);
+    const body = encodeURIComponent(
+      `Name: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone || "Not provided"}\nEnquiry: ${values.reason || "General"}\n\nMessage:\n${values.message}`,
+    );
     setStatus("Opening your email app with a prepared message…");
     window.location.href = `mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`;
   };
 
-  const field = (name: keyof typeof values) => ({
-    value: values[name],
-    onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setValues((current) => ({ ...current, [name]: event.target.value }));
+  const update = (name: keyof typeof values) => (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
+    setValues((current) => ({ ...current, [name]: event.target.value }));
+    if (name === "name" || name === "email" || name === "message") {
       if (errors[name]) setErrors((current) => ({ ...current, [name]: undefined }));
-    },
-  });
+    }
+  };
 
-  const inputClass = "rounded-none border-[#CDB8A4] bg-[#FFF9F0] px-4 text-[#493D37] placeholder:text-[#8A776F] focus:border-[#681426] focus:ring-[#B7827D]/25";
+  const inputClass = "min-h-[3.45rem] rounded-[0.65rem] border-[#D5BCA9] bg-[#FFF9F0]/65 px-4 text-[#493D37] placeholder:text-[#6F5D56] focus:border-[#681426] focus:ring-[#B7827D]/25";
+  const errorClass = "mt-1.5 text-xs text-error";
 
   return (
-    <form noValidate onSubmit={submit} className="border border-[#CDB8A4] bg-[#EADAC7]/42 p-6 sm:p-8 lg:p-10">
-      <div className="border-b border-[#CDB8A4] pb-7">
-        <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.22em] text-[#8A2536]">Send an enquiry</p>
-        <h2 className="mt-3 font-display text-4xl leading-none text-[#681426] sm:text-5xl">Tell us what you have in mind.</h2>
-        <p className="mt-4 max-w-xl text-sm leading-6 text-[#665750]">Complete the form and we will prepare an email in your device&apos;s mail app, ready for you to review and send.</p>
+    <form noValidate onSubmit={submit} className="lg:border-l lg:border-[#CDB8A4] lg:pl-12 xl:pl-16">
+      <h2 className="font-display text-4xl font-semibold leading-none text-[#681426] sm:text-5xl">Send Us a Message</h2>
+
+      <div className="mt-6 grid gap-x-5 gap-y-4 sm:grid-cols-2">
+        <div>
+          <label className="sr-only" htmlFor="contact-name">Your name</label>
+          <Input id="contact-name" autoComplete="name" placeholder="Your Name *" className={inputClass} value={values.name} onChange={update("name")} aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "contact-name-error" : undefined} />
+          {errors.name ? <p id="contact-name-error" className={errorClass} role="alert">{errors.name}</p> : null}
+        </div>
+        <div>
+          <label className="sr-only" htmlFor="contact-email">Your email</label>
+          <Input id="contact-email" type="email" autoComplete="email" placeholder="Your Email *" className={inputClass} value={values.email} onChange={update("email")} aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "contact-email-error" : undefined} />
+          {errors.email ? <p id="contact-email-error" className={errorClass} role="alert">{errors.email}</p> : null}
+        </div>
+        <div>
+          <label className="sr-only" htmlFor="contact-phone">Phone number</label>
+          <Input id="contact-phone" type="tel" autoComplete="tel" placeholder="Phone Number" className={inputClass} value={values.phone} onChange={update("phone")} />
+        </div>
+        <div className="relative">
+          <label className="sr-only" htmlFor="contact-reason">I am reaching out for</label>
+          <select id="contact-reason" className={`${inputClass} w-full appearance-none pr-11 outline-none`} value={values.reason} onChange={update("reason")}>
+            <option value="">I&apos;m reaching out for…</option>
+            <option value="Product enquiry">Product enquiry</option>
+            <option value="Corporate gifting">Corporate gifting</option>
+            <option value="Collaboration">Collaboration</option>
+            <option value="General enquiry">General enquiry</option>
+          </select>
+          <ChevronDown className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#681426]" aria-hidden="true" size={18} />
+        </div>
+        <div className="sm:col-span-2">
+          <label className="sr-only" htmlFor="contact-message">Your message</label>
+          <Textarea id="contact-message" placeholder="Your Message *" className={`${inputClass} min-h-[8.75rem] py-4`} value={values.message} onChange={update("message")} aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "contact-message-error" : undefined} />
+          {errors.message ? <p id="contact-message-error" className={errorClass} role="alert">{errors.message}</p> : null}
+        </div>
       </div>
 
-      <div className="mt-7 grid gap-5 sm:grid-cols-2">
-        <FormField label="Your name" htmlFor="contact-name" error={errors.name}>
-          <Input id="contact-name" autoComplete="name" placeholder="Full name" className={inputClass} aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? "contact-name-error" : undefined} {...field("name")} />
-        </FormField>
-        <FormField label="Email address" htmlFor="contact-email" error={errors.email}>
-          <Input id="contact-email" type="email" autoComplete="email" placeholder="you@example.com" className={inputClass} aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? "contact-email-error" : undefined} {...field("email")} />
-        </FormField>
-      </div>
-      <div className="mt-5">
-        <FormField label="How can we help?" htmlFor="contact-message" error={errors.message}>
-          <Textarea id="contact-message" placeholder="Share a few details about your enquiry…" className={`${inputClass} min-h-40`} aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? "contact-message-error" : undefined} {...field("message")} />
-        </FormField>
-      </div>
-      <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <Button type="submit" className="rounded-none !border-[#681426] !bg-[#681426] px-6 !text-[#FAF4E9] hover:!border-[#4D101D] hover:!bg-[#4D101D]">
-          Prepare email <Send aria-hidden="true" size={16} />
+      <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <Button type="submit" className="min-h-[3.35rem] rounded-[0.65rem] !border-[#681426] !bg-[#681426] px-8 !text-[#FAF4E9] hover:!border-[#4D101D] hover:!bg-[#4D101D]">
+          Send Message <Send aria-hidden="true" size={16} />
         </Button>
         <p role="status" aria-live="polite" className="text-sm text-[#7C433F]">{status}</p>
       </div>
