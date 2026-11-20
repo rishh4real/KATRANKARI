@@ -40,10 +40,10 @@ const foundationItems: FoundationItem[] = [
 ];
 
 const journeyMilestones: JourneyMilestone[] = [
-  { number: "01", title: "The Foundation", description: "Project Swachh Halar introduces a community-driven approach to responsible waste management." },
-  { number: "02", title: "The Beginning", description: "The textile upcycling incubation centre in Jamnagar introduces vocational training and upcycling opportunities for local women." },
-  { number: "03", title: "Creating Opportunities", description: "Women develop new skills and explore independent livelihood opportunities through textile craftsmanship." },
-  { number: "04", title: "The KatranKaari Identity", description: "Discarded textiles are transformed into thoughtfully crafted, functional everyday products." },
+  { number: "01", title: "The Foundation", description: "Project Swachh Halar introduces a community-driven approach to responsible waste management.", icon: "foundation" },
+  { number: "02", title: "The Beginning", description: "The textile upcycling incubation centre in Jamnagar introduces vocational training and upcycling opportunities for local women.", icon: "beginning" },
+  { number: "03", title: "Creating Opportunities", description: "Women develop new skills and explore independent livelihood opportunities through textile craftsmanship.", icon: "opportunity" },
+  { number: "04", title: "The KatranKaari Identity", description: "Discarded textiles are transformed into thoughtfully crafted, functional everyday products.", icon: "identity" },
 ];
 
 function StitchPath({ className = "" }: { className?: string }) {
