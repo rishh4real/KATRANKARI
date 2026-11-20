@@ -161,24 +161,21 @@ export default function ImpactPage() {
 
           <div className="mt-6 grid gap-6 lg:grid-cols-[1.16fr_0.84fr] lg:gap-10">
             <ScrollReveal>
-              <div className="relative aspect-[16/8] overflow-hidden bg-[#EADAC7]">
-                <Image src="/katrankaari/impact-stitching-closeup.webp" alt="A close view of an artisan guiding layered fabric beneath a sewing-machine needle" fill className="object-cover object-center" sizes="(min-width: 1024px) 60vw, 100vw" />
+              <div className="group relative aspect-[16/8] overflow-hidden bg-[#EADAC7]">
+                <Image src="/katrankaari/impact-stitching-closeup.webp" alt="A close view of an artisan guiding layered fabric beneath a sewing-machine needle" fill className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025] motion-reduce:transition-none" sizes="(min-width: 1024px) 60vw, 100vw" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#2E0911]/80 to-transparent px-5 pb-5 pt-20 text-[#FFF8ED] sm:px-7 sm:pb-7">
                   <p className="max-w-xl font-sans text-xl font-normal leading-tight sm:text-2xl">Craft turns irregular scraps into something dependable, useful and worth keeping.</p>
                 </div>
               </div>
             </ScrollReveal>
 
-            <ol className="relative divide-y divide-[#D7AAA5]/35 border-y border-[#D7AAA5]/35">
-              <svg className="pointer-events-none absolute bottom-7 left-[1.4rem] top-7 hidden w-3 sm:block" viewBox="0 0 12 360" preserveAspectRatio="none" aria-hidden="true">
-                <path className="process-thread" d="M6 0 C1 48 11 84 6 130 S1 218 6 264 S11 324 6 360" fill="none" stroke="#D7AAA5" strokeLinecap="round" strokeWidth="1.8" strokeDasharray="7 10" vectorEffect="non-scaling-stroke" />
-              </svg>
+            <ol className="divide-y divide-[#D7AAA5]/35 border-y border-[#D7AAA5]/35">
               {materialSteps.map((step, index) => (
                 <ScrollReveal delay={index * 100} key={step.number}>
-                  <li className="relative z-10 grid grid-cols-[3.2rem_1fr] gap-3 py-4 sm:grid-cols-[3.6rem_1fr] lg:py-5">
-                    <span className="relative z-10 w-max bg-[#580716] py-1 font-sans text-xl font-normal text-[#D7AAA5] sm:text-2xl">{step.number}</span>
+                  <li className="group grid grid-cols-[3.2rem_1fr] gap-3 px-1 py-4 transition-colors duration-300 hover:bg-[#FAF4E9]/[0.055] sm:grid-cols-[3.8rem_1fr] sm:px-2 lg:py-5">
+                    <span className="grid h-10 w-10 place-items-center rounded-full border border-[#D7AAA5]/50 font-sans text-sm font-medium text-[#D7AAA5] transition duration-300 group-hover:border-[#FAF4E9] group-hover:bg-[#FAF4E9] group-hover:text-[#580716] sm:h-11 sm:w-11">{step.number}</span>
                     <div>
-                      <h3 className="font-sans text-xl font-normal leading-none text-[#FFF8ED] sm:text-2xl">{step.title}</h3>
+                      <h3 className="font-sans text-xl font-normal leading-none text-[#FFF8ED] transition-transform duration-300 group-hover:translate-x-1 sm:text-2xl">{step.title}</h3>
                       <p className="mt-2 max-w-md text-sm leading-5 text-[#EADAC7]/82 sm:leading-6">{step.copy}</p>
                     </div>
                   </li>
