@@ -63,7 +63,7 @@ export function StoryTimeline({ eyebrow, heading, milestones }: StoryTimelinePro
 
         <div className="relative mx-auto mt-8 max-w-6xl sm:mt-10">
           <svg
-            className="pointer-events-none absolute left-[8%] top-0 z-0 hidden h-16 w-[84%] lg:block"
+            className="pointer-events-none absolute left-[12.5%] top-0 z-0 hidden h-16 w-[75%] lg:block"
             viewBox="0 0 1000 64"
             preserveAspectRatio="none"
             aria-hidden="true"
@@ -122,7 +122,7 @@ export function StoryTimeline({ eyebrow, heading, milestones }: StoryTimelinePro
                   }}
                 >
                   <div
-                    className={`group relative flex h-16 w-16 items-center justify-center rounded-[1.15rem] border border-[#4D101D] bg-[#681426] text-[#FAF4E9] shadow-[0_9px_20px_rgba(77,16,29,0.14)] transition duration-300 hover:-translate-y-1 hover:rotate-0 ${markerRotation[index]}`}
+                    className={`group relative flex h-16 w-16 items-center justify-center rounded-[1.15rem] border border-[#4D101D] bg-[#681426] text-[#FAF4E9] shadow-[0_9px_20px_rgba(77,16,29,0.14)] transition duration-300 hover:-translate-y-1 hover:rotate-0 lg:mx-auto ${markerRotation[index]}`}
                   >
                     <span className="absolute inset-1.5 rounded-[0.8rem] border border-dashed border-[#EADAC7]/45" aria-hidden="true" />
                     <Icon className="relative z-10" size={26} strokeWidth={1.55} aria-hidden="true" />
