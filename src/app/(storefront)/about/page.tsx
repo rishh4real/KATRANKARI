@@ -150,7 +150,7 @@ export default function AboutPage() {
             </figure>
           </div>
         </Container>
-        <ArtisanStitchPath className="pointer-events-none absolute inset-0 z-20 h-full w-full text-[#f3bda5]/45" />
+        <ArtisanStitchPath className="pointer-events-none absolute inset-0 z-[5] h-full w-full text-[#f3bda5]/45" />
       </section>
       </ScrollReveal>
 
