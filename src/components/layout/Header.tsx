@@ -10,9 +10,13 @@ import { MobileNavigation } from "./MobileNavigation";
 
 export function Header() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
-  const hasOverlayHero = isHome || pathname === "/about";
-  const heroId = isHome ? "home-hero" : "about-hero";
+  const overlayHeroIds: Record<string, string> = {
+    "/": "home-hero",
+    "/about": "about-hero",
+    "/contact": "contact-hero",
+  };
+  const heroId = overlayHeroIds[pathname];
+  const hasOverlayHero = Boolean(heroId);
   const [menuOpen, setMenuOpen] = useState(false);
   const [headerHovered, setHeaderHovered] = useState(false);
   const [shopMenuOpen, setShopMenuOpen] = useState(false);
@@ -22,7 +26,7 @@ export function Header() {
   const { cart, ready } = useCart();
 
   useEffect(() => {
-    if (!hasOverlayHero) return;
+    if (!heroId) return;
 
     let previousScrollY = window.scrollY;
     let upwardScrollDistance = 0;
@@ -47,7 +51,7 @@ export function Header() {
     updateHeader();
     window.addEventListener("scroll", updateHeader, { passive: true });
     return () => window.removeEventListener("scroll", updateHeader);
-  }, [hasOverlayHero, heroId]);
+  }, [heroId]);
 
   const hasLightHeader = !hasOverlayHero || shopMenuOpen || (!pastHero && headerHovered) || (pastHero && showScrolledHeader);
   const overlayHeaderClass = pastHero

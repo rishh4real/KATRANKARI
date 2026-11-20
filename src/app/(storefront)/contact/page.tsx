@@ -35,11 +35,11 @@ const contactDetails = [
 export default function ContactPage() {
   return (
     <main className="overflow-hidden bg-[#FAF4E9] text-[#493D37]">
-      <section className="relative isolate overflow-hidden bg-[#681426] text-[#FAF4E9]">
-        <Container className="relative grid min-h-[23rem] gap-2 py-8 sm:py-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:py-5">
+      <section id="contact-hero" className="relative isolate overflow-hidden bg-[#681426] pt-[72px] text-[#FAF4E9] lg:pt-[92px]">
+        <Container className="relative grid min-h-[20rem] gap-1 py-6 sm:py-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:pb-0 lg:pt-3">
           <div className="relative z-10">
             <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.24em] text-[#EADAC7]">Contact KatranKaari</p>
-            <h1 className="mt-3 max-w-3xl font-display text-[clamp(2.9rem,5vw,5rem)] leading-[0.84] tracking-[-0.035em] text-[#FFF8EC]">
+            <h1 className="mt-3 max-w-3xl font-display text-[clamp(2.9rem,5vw,5rem)] font-semibold leading-[0.84] tracking-[-0.035em] text-[#FFF8EC]">
               Let&apos;s make something meaningful.
             </h1>
             <p className="mt-4 max-w-lg border-t border-[#EADAC7]/45 pt-4 text-sm leading-6 text-[#FAF4E9]/86">
@@ -47,8 +47,8 @@ export default function ContactPage() {
             </p>
             <p className="mt-3 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#E4B8B1]">Products · Collaborations · Corporate gifting</p>
           </div>
-          <div className="relative h-[13rem] sm:h-[17rem] lg:h-[23rem] lg:self-end">
-            <Image src="/katrankaari/contact-hero-connect.png" alt="Illustrated woman holding a telephone beside a stitched vintage phone" fill priority sizes="(min-width: 1024px) 58vw, 100vw" className="object-contain object-bottom drop-shadow-[0_20px_26px_rgba(54,4,17,0.28)]" />
+          <div className="relative h-[12rem] translate-x-3 self-end sm:h-[15rem] sm:translate-x-5 lg:h-[18rem] lg:translate-x-12 xl:translate-x-20">
+            <Image src="/katrankaari/contact-hero-connect.png" alt="Illustrated woman holding a telephone beside a stitched vintage phone" fill priority sizes="(min-width: 1024px) 62vw, 100vw" className="object-contain object-right-bottom drop-shadow-[0_20px_26px_rgba(54,4,17,0.28)]" />
           </div>
         </Container>
       </section>
@@ -87,7 +87,7 @@ export default function ContactPage() {
               ))}
             </ul>
             <div className="mt-auto hidden pt-2 lg:block">
-              <Image src="/katrankaari/contact-sewing-machine.png" alt="Burgundy line illustration of a vintage sewing machine with leaves and thread" width={1920} height={819} className="-ml-6 h-auto w-[calc(100%+1.5rem)] max-w-[22rem] object-contain" />
+              <Image src="/katrankaari/contact-sewing-machine.png" alt="Burgundy line illustration of a vintage sewing machine with leaves and thread" width={1920} height={819} className="-ml-10 h-auto w-[calc(100%+2.5rem)] max-w-[22rem] object-contain" />
             </div>
           </div>
 
@@ -99,7 +99,7 @@ export default function ContactPage() {
         <Container className="flex flex-col gap-5 py-9 sm:flex-row sm:items-center sm:justify-between lg:py-11">
           <div>
             <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.2em] text-[#D7AAA5]">Planning a larger order?</p>
-            <h2 className="mt-1.5 font-display text-3xl leading-none sm:text-4xl">Explore corporate gifting and custom possibilities.</h2>
+            <h2 className="mt-1.5 font-display text-3xl font-semibold leading-none sm:text-4xl">Explore corporate gifting and custom possibilities.</h2>
           </div>
           <Link className="inline-flex min-h-12 w-max items-center border border-[#EADAC7] px-5 text-[0.7rem] font-extrabold uppercase tracking-[0.15em] transition-colors hover:bg-[#FAF4E9] hover:text-[#681426] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FAF4E9]" href="/corporate-gifting">
             Corporate gifting <span className="ml-3 text-base" aria-hidden="true">→</span>
