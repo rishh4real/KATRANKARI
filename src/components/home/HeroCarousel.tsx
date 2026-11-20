@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Container } from "@/components/layout/Container";
 
 export function HeroCarousel() {
   return (
@@ -17,8 +16,8 @@ export function HeroCarousel() {
         className="object-cover object-center"
         sizes="100vw"
       />
-      <Container className="relative z-10 flex min-h-[calc(34rem-72px)] w-full items-end pb-8 sm:min-h-[calc(100dvh-72px)] sm:pb-16 lg:min-h-[calc(100dvh-92px)] lg:pb-20">
-        <div className="hero-content-reveal max-w-4xl text-white">
+      <div className="relative z-10 flex min-h-[calc(34rem-72px)] w-full items-end px-0 pb-5 sm:min-h-[calc(100dvh-72px)] sm:px-0 sm:pb-8 lg:min-h-[calc(100dvh-92px)] lg:px-0 lg:pb-8 xl:px-0">
+        <div className="hero-content-reveal max-w-4xl pl-4 text-white sm:pl-6 lg:pl-8">
           <h1 className="max-w-[19rem] font-sans text-[clamp(2rem,9vw,4.35rem)] font-medium leading-[1.04] sm:max-w-4xl">
             Made From What Remains.
           </h1>
@@ -29,7 +28,7 @@ export function HeroCarousel() {
             Shop All
           </Link>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
