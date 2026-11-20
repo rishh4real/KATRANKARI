@@ -23,6 +23,7 @@ const navigation = [
   { label: "Corporate Gifting", href: "/corporate-gifting" },
   { label: "Our Story", href: "/about" },
   { label: "Impact", href: "/impact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function navigationClass(inverse: boolean, active: boolean) {
