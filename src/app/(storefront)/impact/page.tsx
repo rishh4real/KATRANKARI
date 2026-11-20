@@ -80,7 +80,7 @@ const artisanStories = [
 export default function ImpactPage() {
   return (
     <main className="overflow-hidden bg-[#FAF4E9] text-[#493D37]">
-      <section id="impact-hero" className="relative overflow-hidden border-b border-[#4D101D] bg-[#681426] pb-5 pt-[88px] text-[#FAF4E9] sm:pb-6 sm:pt-[94px] lg:pb-7 lg:pt-[102px]">
+      <section id="impact-hero" className="relative overflow-hidden border-b border-[#4A0613] bg-[#580716] pb-5 pt-[88px] text-[#FAF4E9] sm:pb-6 sm:pt-[94px] lg:pb-7 lg:pt-[102px]">
         <div className="pointer-events-none absolute -left-20 top-24 h-72 w-72 rounded-full bg-[#B7827D]/25 blur-3xl" aria-hidden="true" />
         <Container className="relative grid items-center gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:gap-8">
           <div className="relative z-10 max-w-xl">
@@ -221,13 +221,13 @@ export default function ImpactPage() {
         </Container>
       </section>
 
-      <section className="bg-[#4D101D] py-7 text-[#FAF4E9] sm:py-9">
+      <section className="border-y border-[#C69288]/30 bg-[#580716] py-7 text-[#FAF4E9] sm:py-9">
         <Container className="grid items-center gap-7 sm:grid-cols-[1fr_auto]">
           <div>
             <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.25em] text-[#D7AAA5]">Keep the material moving</p>
             <h2 className="mt-2 max-w-4xl font-sans text-[clamp(2rem,3vw,3.2rem)] font-normal leading-[1]">Choose a product with another chapter already inside it.</h2>
           </div>
-          <Link className="group inline-flex min-h-12 w-max items-center gap-3 border border-[#FAF4E9]/70 px-6 py-3 text-xs font-extrabold uppercase tracking-[0.15em] transition hover:bg-[#FAF4E9] hover:text-[#4D101D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FAF4E9]" href="/shop">
+          <Link className="group inline-flex min-h-12 w-max items-center gap-3 border border-[#FAF4E9]/70 px-6 py-3 text-xs font-extrabold uppercase tracking-[0.15em] transition hover:bg-[#FAF4E9] hover:text-[#580716] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FAF4E9]" href="/shop">
             Explore products <ArrowUpRight aria-hidden="true" size={18} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>
         </Container>
