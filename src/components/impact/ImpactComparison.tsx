@@ -14,21 +14,34 @@ export function ImpactComparison() {
       return () => cancelAnimationFrame(frame);
     }
 
-    const moveLeft = window.setTimeout(() => {
-      if (!hasInteracted.current) setPosition(42);
-    }, 450);
-    const moveRight = window.setTimeout(() => {
-      if (!hasInteracted.current) setPosition(60);
-    }, 1150);
-    const settle = window.setTimeout(() => {
-      if (!hasInteracted.current) setPosition(50);
-      setIsHinting(false);
-    }, 1950);
+    const cycleTimers: number[] = [];
+
+    const runPreview = () => {
+      if (hasInteracted.current) return;
+
+      setIsHinting(true);
+      setPosition(42);
+
+      cycleTimers.push(
+        window.setTimeout(() => {
+          if (!hasInteracted.current) setPosition(60);
+        }, 800),
+        window.setTimeout(() => {
+          if (!hasInteracted.current) setPosition(50);
+        }, 1600),
+        window.setTimeout(() => {
+          if (!hasInteracted.current) setIsHinting(false);
+        }, 2300),
+      );
+    };
+
+    const initialPreview = window.setTimeout(runPreview, 450);
+    const previewInterval = window.setInterval(runPreview, 4000);
 
     return () => {
-      window.clearTimeout(moveLeft);
-      window.clearTimeout(moveRight);
-      window.clearTimeout(settle);
+      window.clearTimeout(initialPreview);
+      window.clearInterval(previewInterval);
+      cycleTimers.forEach((timer) => window.clearTimeout(timer));
     };
   }, []);
 
