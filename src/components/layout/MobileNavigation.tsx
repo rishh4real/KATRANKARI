@@ -10,7 +10,6 @@ const mainLinks = [
   { label: "Shop", href: "/shop" },
   { label: "Corporate Gifting & Custom Orders", href: "/corporate-gifting" },
   { label: "Our Impact", href: "/impact" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export function MobileNavigation({ open, pathname, onClose }: { open: boolean; pathname: string; onClose: () => void }) {
