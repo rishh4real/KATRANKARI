@@ -283,3 +283,49 @@ a {
 .collaboration-sticker-3 {
   animation-delay: 1.6s;
 }
+
+@keyframes corporate-gift-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -0.42rem, 0);
+  }
+}
+
+@keyframes corporate-swatch-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(var(--swatch-rotation, 10deg));
+  }
+
+  50% {
+    transform: translate3d(0.2rem, -0.45rem, 0) rotate(calc(var(--swatch-rotation, 10deg) + 5deg));
+  }
+}
+
+.corporate-gift-float {
+  animation: corporate-gift-float 6.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.corporate-swatch {
+  animation: corporate-swatch-float 5.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.corporate-swatch-1 {
+  --swatch-rotation: 12deg;
+}
+
+.corporate-swatch-2 {
+  --swatch-rotation: -12deg;
+  animation-delay: 700ms;
+}
+
+.corporate-swatch-3 {
+  --swatch-rotation: 24deg;
+  animation-delay: 1.4s;
+}
