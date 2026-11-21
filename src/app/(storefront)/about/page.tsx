@@ -57,7 +57,7 @@ function StitchPath({ className = "" }: { className?: string }) {
 function HeroStitchPath({ className = "" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 1600 350" fill="none" preserveAspectRatio="none" aria-hidden="true">
-      <path className="process-thread" d="M0 339C188 338 260 299 420 300C585 301 648 278 715 228C765 191 798 165 844 149C909 126 969 108 1035 122C1132 162 1204 119 1286 76C1380 27 1500 51 1600 105" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="11 16" vectorEffect="non-scaling-stroke" />
+      <path d="M0 339C188 338 260 299 420 300C585 301 648 278 715 228C765 191 798 165 844 149C909 126 969 108 1035 122C1132 162 1204 119 1286 76C1380 27 1500 51 1600 105" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="11 16" vectorEffect="non-scaling-stroke" />
     </svg>
   );
 }
