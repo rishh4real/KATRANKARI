@@ -26,10 +26,12 @@ export function CategoryCarousel({ categories }: CategoryCarouselProps) {
 
   const goTo = useCallback(
     (index: number) => {
-      const nextIndex = (index + categories.length) % categories.length;
+      const nextIndex = Math.min(categories.length - 1, Math.max(0, index));
       const track = trackRef.current;
 
-      setDirection(index < current ? "previous" : "next");
+      if (nextIndex === current) return;
+
+      setDirection(nextIndex < current ? "previous" : "next");
 
       if (track) {
         const slide = track.children.item(nextIndex) as HTMLElement | null;
@@ -105,7 +107,8 @@ export function CategoryCarousel({ categories }: CategoryCarouselProps) {
             <button
               type="button"
               onClick={() => goTo(current - 1)}
-              className={`grid h-11 place-items-center text-[#251017] transition-[width,color] duration-300 hover:text-[#681426] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#681426] ${
+              disabled={current === 0}
+              className={`grid h-11 place-items-center text-[#251017] transition-[width,color,opacity] duration-300 hover:text-[#681426] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#681426] disabled:cursor-not-allowed disabled:opacity-25 ${
                 direction === "previous" ? "w-14" : "w-11"
               }`}
               aria-label="Previous category"
@@ -122,7 +125,8 @@ export function CategoryCarousel({ categories }: CategoryCarouselProps) {
             <button
               type="button"
               onClick={() => goTo(current + 1)}
-              className={`grid h-11 place-items-center text-[#251017] transition-[width,color] duration-300 hover:text-[#681426] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#681426] ${
+              disabled={current === categories.length - 1}
+              className={`grid h-11 place-items-center text-[#251017] transition-[width,color,opacity] duration-300 hover:text-[#681426] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#681426] disabled:cursor-not-allowed disabled:opacity-25 ${
                 direction === "next" ? "w-14" : "w-11"
               }`}
               aria-label="Next category"
