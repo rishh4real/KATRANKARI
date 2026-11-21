@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { X } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 
 const mainLinks = [
-  { label: "About Us", href: "/about" },
   { label: "Shop", href: "/shop" },
-  { label: "Corporate Gifting & Custom Orders", href: "/corporate-gifting" },
+  { label: "Corporate Gifting", href: "/corporate-gifting" },
+  { label: "About Us", href: "/about" },
   { label: "Our Impact", href: "/impact" },
 ];
 
@@ -39,9 +40,9 @@ export function MobileNavigation({ open, pathname, onClose }: { open: boolean; p
   }, [open, onClose]);
 
   if (!open) return null;
-  return (
-    <div className="fixed inset-0 z-50 bg-black/60 lg:hidden" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
-      <div ref={panelRef} role="dialog" aria-modal="true" aria-label="Mobile navigation" className="ml-auto flex h-full w-[min(82vw,27rem)] flex-col overflow-y-auto bg-[#050505] px-7 py-6 text-white shadow-[-28px_0_46px_rgba(0,0,0,.38)]">
+  return createPortal(
+    <div className="fixed inset-0 z-[120] bg-black/60 lg:hidden" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
+      <div ref={panelRef} role="dialog" aria-modal="true" aria-label="Mobile navigation" className="ml-auto flex h-dvh w-full flex-col overflow-y-auto bg-[#050505] px-5 py-5 text-white shadow-[-28px_0_46px_rgba(0,0,0,.38)] sm:w-[min(82vw,27rem)] sm:px-7 sm:py-6">
         <div className="flex items-start justify-between gap-5">
           <Link className="inline-flex flex-col items-start text-white" href="/" onClick={onClose}><strong className="border-2 border-black bg-white px-2.5 pb-1.5 pt-2 text-base font-black leading-none tracking-[0.04em] text-black">KatranKaari</strong><small className="mt-1 font-display text-[0.64rem] italic text-white/75">Re-imagining textile waste</small></Link>
           <button className="inline-flex h-12 w-12 items-center justify-center text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white" type="button" aria-label="Close menu" onClick={onClose}><X aria-hidden="true" size={34} strokeWidth={1.5} /></button>
@@ -62,6 +63,7 @@ export function MobileNavigation({ open, pathname, onClose }: { open: boolean; p
           <Link className="inline-flex min-h-10 items-center border border-white/50 px-3" href="/faq" onClick={onClose}>FAQs</Link>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
