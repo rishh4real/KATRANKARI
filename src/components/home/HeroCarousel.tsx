@@ -51,7 +51,9 @@ export function HeroCarousel() {
   return (
     <section
       id="home-hero"
-      className="relative isolate min-h-[28rem] overflow-hidden border-b border-black/20 bg-[#681426] sm:min-h-[calc(100dvh-72px)] lg:min-h-[calc(100dvh-92px)]"
+      className={`relative isolate overflow-hidden border-b border-black/20 transition-[aspect-ratio] duration-500 sm:aspect-auto sm:min-h-[calc(100dvh-72px)] lg:min-h-[calc(100dvh-92px)] ${
+        current === 0 ? "aspect-[3338/1818]" : "aspect-[1024/509]"
+      }`}
       aria-label="KatranKaari hero carousel"
     >
       {/* Slides */}
@@ -68,14 +70,14 @@ export function HeroCarousel() {
             alt={slide.alt}
             fill
             priority={i === 0}
-            className="object-contain object-center sm:object-cover"
+            className="object-cover object-center"
             sizes="100vw"
           />
         </div>
       ))}
 
       {/* Content overlay */}
-      <div className="relative z-10 flex min-h-[28rem] w-full items-end px-0 pb-4 sm:min-h-[calc(100dvh-72px)] sm:px-0 sm:pb-8 lg:min-h-[calc(100dvh-92px)] lg:px-0 lg:pb-8 xl:px-0">
+      <div className="relative z-10 hidden w-full items-end px-0 sm:flex sm:min-h-[calc(100dvh-72px)] sm:pb-8 lg:min-h-[calc(100dvh-92px)] lg:px-0 lg:pb-8 xl:px-0">
         <div className="hero-content-reveal max-w-4xl pl-4 text-white sm:pl-6 lg:pl-8">
           {SLIDES.map((slide, i) => (
             <h1
