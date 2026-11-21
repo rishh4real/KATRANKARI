@@ -106,41 +106,45 @@ export default function ImpactPage() {
         </Container>
       </section>
 
-      <section id="impact-ledger" className="relative scroll-mt-24 overflow-hidden bg-[#FAF4E9] py-8 text-[#493D37] sm:py-10 lg:py-11">
+      <section id="impact-ledger" className="relative scroll-mt-24 overflow-hidden bg-[#FAF4E9] py-5 text-[#493D37] sm:py-10 lg:py-11">
         <div className="pointer-events-none absolute inset-0 opacity-[0.08] mix-blend-multiply" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")` }} aria-hidden="true" />
         <Container className="relative">
           <ScrollReveal>
-            <div className="grid gap-4 border-b border-[#B7827D]/45 pb-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+            <div className="grid gap-2 border-b border-[#B7827D]/45 pb-3 sm:gap-4 sm:pb-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
               <div>
-                <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.28em] text-[#681426]">Historical impact ledger</p>
-                <p className="mt-3 text-xs uppercase tracking-[0.16em] text-[#8B6F62]">Project Swachh Halar · Jamnagar</p>
+                <p className="text-[0.55rem] font-extrabold uppercase tracking-[0.2em] text-[#681426] sm:text-[0.68rem] sm:tracking-[0.28em]">Historical impact ledger</p>
+                <p className="mt-1.5 text-[0.58rem] uppercase tracking-[0.12em] text-[#8B6F62] sm:mt-3 sm:text-xs sm:tracking-[0.16em]">Project Swachh Halar · Jamnagar</p>
               </div>
-              <h2 className="max-w-4xl font-sans text-[clamp(2.1rem,3.4vw,3.5rem)] font-normal leading-[1.02] tracking-[-0.035em] text-[#4D101D]">
+              <h2 className="max-w-4xl font-sans text-[1.65rem] font-normal leading-[1.02] tracking-[-0.035em] text-[#4D101D] sm:text-[clamp(2.1rem,3.4vw,3.5rem)]">
                 Evidence of materials and livelihoods moving forward.
               </h2>
             </div>
           </ScrollReveal>
 
-          <dl className="grid gap-x-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-7">
-            {historicalImpact.map((item, index) => (
+          <dl className="grid grid-cols-2 gap-x-0 sm:gap-x-5 lg:grid-cols-4 lg:gap-x-7">
+            {historicalImpact.map((item, index) => {
+              const mobileColumn = index % 2 === 0 ? "border-r border-[#B7827D]/35 pr-3" : "pl-3";
+
+              return (
               <ScrollReveal className="h-full" delay={index * 110} key={item.label}>
-                <div className="flex h-full flex-col border-b border-[#B7827D]/35 py-5 sm:border-r sm:pr-5 lg:min-h-[11.5rem] lg:border-b-0 lg:py-5 lg:pr-7 last:border-r-0 last:pr-0">
-                  <span className="text-[0.62rem] font-bold tracking-[0.24em] text-[#B7827D]">0{index + 1}</span>
-                  <dt className="mt-4 font-sans text-[clamp(2.5rem,3.5vw,3.8rem)] font-normal leading-none tracking-[-0.04em] text-[#681426]">
+                <div className={`flex h-full min-h-[10rem] flex-col border-b border-[#B7827D]/35 py-3 sm:min-h-0 sm:border-r sm:px-0 sm:py-5 sm:pr-5 lg:min-h-[11.5rem] lg:border-b-0 lg:py-5 lg:pr-7 last:border-r-0 last:pr-0 ${mobileColumn}`}>
+                  <span className="text-[0.5rem] font-bold tracking-[0.18em] text-[#B7827D] sm:text-[0.62rem] sm:tracking-[0.24em]">0{index + 1}</span>
+                  <dt className="mt-2 font-sans text-[2rem] font-normal leading-none tracking-[-0.04em] text-[#681426] sm:mt-4 sm:text-[clamp(2.5rem,3.5vw,3.8rem)]">
                     <ImpactStat amount={item.amount} prefix={item.prefix} suffix={item.suffix} />
                   </dt>
-                  <dd className="mt-auto pt-4">
-                    <strong className="block text-sm font-extrabold uppercase tracking-[0.12em] text-[#681426]">{item.label}</strong>
-                    <span className="mt-1.5 block text-xs leading-5 text-[#62534B]">{item.detail}</span>
+                  <dd className="mt-auto pt-3 sm:pt-4">
+                    <strong className="block text-[0.58rem] font-extrabold uppercase leading-[1.25] tracking-[0.08em] text-[#681426] sm:text-sm sm:tracking-[0.12em]">{item.label}</strong>
+                    <span className="mt-1 block text-[0.57rem] leading-[0.85rem] text-[#62534B] sm:mt-1.5 sm:text-xs sm:leading-5">{item.detail}</span>
                   </dd>
                 </div>
               </ScrollReveal>
-            ))}
+              );
+            })}
           </dl>
 
-          <div className="mt-4 flex flex-col gap-3 border-t border-[#B7827D]/45 pt-4 text-[0.68rem] leading-5 text-[#715C52] sm:flex-row sm:items-start sm:justify-between">
+          <div className="mt-3 flex flex-col gap-2 border-t border-[#B7827D]/45 pt-3 text-[0.58rem] leading-4 text-[#715C52] sm:mt-4 sm:flex-row sm:items-start sm:justify-between sm:gap-3 sm:pt-4 sm:text-[0.68rem] sm:leading-5">
             <p className="max-w-2xl">Figures describe the wider Project Swachh Halar incubation centre that gave rise to KatranKaari. Reporting periods vary by source.</p>
-            <div className="flex flex-wrap gap-x-5 gap-y-2 font-bold uppercase tracking-[0.1em]">
+            <div className="flex flex-wrap gap-x-3 gap-y-1.5 font-bold uppercase tracking-[0.08em] sm:gap-x-5 sm:gap-y-2 sm:tracking-[0.1em]">
               <a className="transition-colors hover:text-[#681426]" href="https://www.nayaraenergy.com/storage/annual-reports/August2024/fBCWmGRSDtx4cToBy915.pdf" target="_blank" rel="noreferrer">Annual report 2023–24 ↗</a>
               <a className="transition-colors hover:text-[#681426]" href="https://www.outlookindia.com/csr/csr-2023/nayara" target="_blank" rel="noreferrer">Project feature ↗</a>
             </div>

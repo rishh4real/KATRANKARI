@@ -217,31 +217,6 @@ export default function EducationPage() {
             </div>
           </div>
         </Container>
-        <nav
-          className="relative border-t border-[#B7827D]/45"
-          aria-label="Textile waste insight sections"
-        >
-          <Container className="grid divide-y divide-[#B7827D]/35 text-[0.62rem] font-extrabold uppercase tracking-[0.15em] text-[#EADAC7] sm:grid-cols-4 sm:divide-x sm:divide-y-0">
-            <a
-              className="py-3 transition-colors hover:text-white sm:text-center"
-              href="#understand"
-            >
-              The basics
-            </a>
-            <a className="py-3 transition-colors hover:text-white sm:text-center" href="#india">
-              India
-            </a>
-            <a className="py-3 transition-colors hover:text-white sm:text-center" href="#global">
-              The world
-            </a>
-            <a
-              className="py-3 transition-colors hover:text-white sm:text-center"
-              href="#circularity"
-            >
-              What changes
-            </a>
-          </Container>
-        </nav>
       </section>
 
       <section id="understand" className="scroll-mt-20 bg-[#FAF4E9] text-[#493D37]">

@@ -36,19 +36,19 @@ export default function ContactPage() {
   return (
     <main className="overflow-hidden bg-[#FAF4E9] text-[#493D37]">
       <section id="contact-hero" className="relative isolate overflow-hidden bg-[#681426] text-[#FAF4E9]">
-        <Container className="relative grid min-h-[20rem] gap-1 py-6 sm:py-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:pb-0 lg:pt-3">
+        <Container className="relative grid min-h-[13.75rem] grid-cols-[0.92fr_1.08fr] items-center gap-0 py-0 sm:min-h-[20rem] sm:gap-1 sm:py-8 lg:grid-cols-[0.82fr_1.18fr] lg:pb-0 lg:pt-3">
           <div className="relative z-10">
-            <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.24em] text-[#EADAC7]">Contact KatranKaari</p>
-            <h1 className="mt-3 max-w-3xl font-display text-[clamp(2.9rem,5vw,5rem)] font-semibold leading-[0.84] tracking-[-0.035em] text-[#FFF8EC]">
+            <p className="text-[0.5rem] font-extrabold uppercase tracking-[0.18em] text-[#EADAC7] sm:text-[0.7rem] sm:tracking-[0.24em]">Contact KatranKaari</p>
+            <h1 className="mt-2 max-w-3xl font-display text-[clamp(1.8rem,7.8vw,2.2rem)] font-semibold leading-[0.88] tracking-[-0.035em] text-[#FFF8EC] sm:mt-3 sm:text-[clamp(2.9rem,5vw,5rem)] sm:leading-[0.84]">
               Let&apos;s make something meaningful.
             </h1>
-            <p className="mt-4 max-w-lg border-t border-[#EADAC7]/45 pt-4 text-sm leading-6 text-[#FAF4E9]/86">
+            <p className="mt-4 hidden max-w-lg border-t border-[#EADAC7]/45 pt-4 text-sm leading-6 text-[#FAF4E9]/86 sm:block">
               Have a product question, a collaboration in mind or a gifting requirement? Tell us what you are planning and our team will help you take the next step.
             </p>
-            <p className="mt-3 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#E4B8B1]">Products · Collaborations · Corporate gifting</p>
+            <p className="mt-3 hidden text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#E4B8B1] sm:block">Products · Collaborations · Corporate gifting</p>
           </div>
-          <div className="relative h-[12rem] translate-x-3 self-end sm:h-[15rem] sm:translate-x-5 lg:h-[18rem] lg:translate-x-12 xl:translate-x-20">
-            <Image src="/katrankaari/contact-hero-connect.png" alt="Illustrated woman holding a telephone beside a stitched vintage phone" fill priority sizes="(min-width: 1024px) 62vw, 100vw" className="origin-bottom-right translate-y-2 object-contain object-right-bottom drop-shadow-[0_20px_26px_rgba(54,4,17,0.28)] sm:translate-y-3 lg:translate-y-4 lg:scale-[1.18]" />
+          <div className="relative h-[13.75rem] translate-x-2 self-end sm:h-[15rem] sm:translate-x-5 lg:h-[18rem] lg:translate-x-12 xl:translate-x-20">
+            <Image src="/katrankaari/contact-hero-connect.png" alt="Illustrated woman holding a telephone beside a stitched vintage phone" fill priority sizes="(min-width: 1024px) 62vw, 55vw" className="origin-bottom-right translate-y-2 object-contain object-right-bottom drop-shadow-[0_20px_26px_rgba(54,4,17,0.28)] sm:translate-y-3 lg:translate-y-4 lg:scale-[1.18]" />
           </div>
         </Container>
       </section>
