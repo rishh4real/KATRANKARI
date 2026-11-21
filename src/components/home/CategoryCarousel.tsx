@@ -22,6 +22,7 @@ type CategoryCarouselProps = {
 export function CategoryCarousel({ categories }: CategoryCarouselProps) {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState<"previous" | "next">("next");
+  const [expanded, setExpanded] = useState<number | null>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
   const goTo = useCallback(
@@ -32,6 +33,7 @@ export function CategoryCarousel({ categories }: CategoryCarouselProps) {
       if (nextIndex === current) return;
 
       setDirection(nextIndex < current ? "previous" : "next");
+      setExpanded(null);
 
       if (track) {
         const slide = track.children.item(nextIndex) as HTMLElement | null;
@@ -59,6 +61,7 @@ export function CategoryCarousel({ categories }: CategoryCarouselProps) {
 
     if (nextIndex !== current) {
       setDirection(nextIndex < current ? "previous" : "next");
+      setExpanded(null);
       setCurrent(nextIndex);
     }
   };
@@ -73,11 +76,13 @@ export function CategoryCarousel({ categories }: CategoryCarouselProps) {
           aria-label="Shop by category"
         >
           {categories.map((category, index) => (
-            <Link
+            <button
+              type="button"
               className={`group relative min-h-[31rem] basis-[calc(100%_-_2rem)] shrink-0 snap-start overflow-hidden ${category.panelClassName}`}
-              href={category.href}
               key={category.title}
-              aria-label={`${category.title}, slide ${index + 1} of ${categories.length}`}
+              aria-label={`${expanded === index ? "Hide" : "Show"} ${category.title} details, slide ${index + 1} of ${categories.length}`}
+              aria-expanded={expanded === index}
+              onClick={() => setExpanded((openIndex) => (openIndex === index ? null : index))}
             >
               <Image
                 src={category.image}
@@ -86,16 +91,16 @@ export function CategoryCarousel({ categories }: CategoryCarouselProps) {
                 sizes="100vw"
                 className={`transition duration-500 motion-reduce:transition-none ${category.imageClassName}`}
               />
-              <span className="absolute inset-0 bg-black/35" aria-hidden="true" />
+              <span className={`absolute inset-0 transition-colors duration-300 ${expanded === index ? "bg-black/40" : "bg-black/25"}`} aria-hidden="true" />
               <span className="absolute inset-0 grid place-items-center px-7 text-center text-white">
                 <span className="space-y-2 text-lg leading-snug">
-                  <span className="mb-4 block font-display text-[2.15rem] font-semibold leading-none">{category.title}</span>
-                  {category.items.map((item) => (
+                  <span className={`block font-display text-[2.15rem] font-semibold leading-none ${expanded === index ? "mb-4" : ""}`}>{category.title}</span>
+                  {expanded === index && category.items.map((item) => (
                     <span className="block" key={item}>{item}</span>
                   ))}
                 </span>
               </span>
-            </Link>
+            </button>
           ))}
         </div>
 
