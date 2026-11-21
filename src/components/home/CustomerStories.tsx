@@ -47,35 +47,35 @@ const stories = [
 export function CustomerStories() {
   return (
     <section className="border-b border-[#E0D5CD] bg-[#FBF8F4]" aria-labelledby="customer-stories-title">
-      <Container className="py-10 sm:py-12 lg:py-14">
+      <Container className="py-8 sm:py-12 lg:py-14">
         <div className="mx-auto max-w-3xl text-center">
           <div className="flex items-center justify-center gap-3 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[#741228]">
             <span className="w-10 border-t border-dashed border-[#9C5260]" aria-hidden="true" />
             <span>Customer stories</span>
             <span className="w-10 border-t border-dashed border-[#9C5260]" aria-hidden="true" />
           </div>
-          <h2 id="customer-stories-title" className="mt-3 font-display text-[clamp(2rem,3.6vw,3.4rem)] leading-[1] text-[#641023]">
+          <h2 id="customer-stories-title" className="mt-2 font-display text-[clamp(1.75rem,3.6vw,3.4rem)] leading-[1] text-[#641023] sm:mt-3">
             Made with care. Loved with purpose.
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#5D5552] sm:text-base">
+          <p className="mx-auto mt-2 max-w-2xl text-xs leading-5 text-[#5D5552] sm:mt-3 sm:text-base sm:leading-6">
             Thoughtful creations and everyday stories from the people who choose KatranKaari.
           </p>
         </div>
 
-        <div className="mt-7 overflow-hidden" aria-label="Customer reviews">
+        <div className="mt-5 overflow-hidden sm:mt-7" aria-label="Customer reviews">
           <div className="review-story-marquee flex w-max gap-3 pr-3 hover:[animation-play-state:paused] motion-reduce:translate-x-0 motion-reduce:animate-none md:gap-4 md:pr-4">
             {[...stories, ...stories].map((story, index) => (
-            <article className="relative flex min-h-[12rem] w-[19rem] flex-col border border-[#DCC9C3] bg-white p-5 sm:w-[21rem]" key={`${story.name}-${index}`}>
+            <article className="relative flex min-h-[10rem] w-[17rem] flex-col border border-[#DCC9C3] bg-white p-4 sm:min-h-[12rem] sm:w-[21rem] sm:p-5" key={`${story.name}-${index}`}>
               <div className="flex items-center gap-3 text-[#86152C]">
                 <Quote aria-hidden="true" size={27} strokeWidth={2.1} />
                 <span className="flex gap-0.5" aria-label="Five out of five stars">
                   {Array.from({ length: 5 }, (_, index) => <Star aria-hidden="true" className="fill-[#D89922] text-[#D89922]" key={index} size={15} />)}
                 </span>
               </div>
-              <blockquote className="mt-4 font-display text-[1.25rem] leading-[1.15] text-[#2B1A1E] sm:text-[1.35rem]">
+              <blockquote className="mt-3 font-display text-[1.05rem] leading-[1.15] text-[#2B1A1E] sm:mt-4 sm:text-[1.35rem]">
                 “{story.quote}”
               </blockquote>
-              <div className="mt-auto flex items-center gap-3 border-t border-dashed border-[#D8C3BD] pt-4">
+              <div className="mt-auto flex items-center gap-3 border-t border-dashed border-[#D8C3BD] pt-3 sm:pt-4">
                 <span className="grid size-8 place-items-center rounded-full bg-[#741228] text-xs font-semibold text-[#FBF8F4]" aria-hidden="true">
                   {story.name.charAt(0)}
                 </span>
