@@ -2,74 +2,64 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const SLIDES = [
   {
-    src: "/katrankaari/hero-weekender-clean.png",
-    alt: "KatranKaari patterned textile weekender bag against a burgundy fabric backdrop",
+    src: "/katrankaari/hero-weekender-premium.webp",
+    alt: "KatranKaari floral textile weekender bag against a rich burgundy fabric backdrop",
     heading: "Made From What Remains.",
   },
   {
-    src: "/katrankaari/hero-tote-bags-floral.png",
-    alt: "KatranKaari floral patchwork tote bags on a burgundy backdrop",
+    src: "/katrankaari/hero-totes-premium.webp",
+    alt: "Two KatranKaari quilted floral tote bags against a rich burgundy fabric backdrop",
     heading: "Craft That Carries a Story.",
   },
-];
+  {
+    src: "/katrankaari/hero-tote-interior-premium.webp",
+    alt: "Open KatranKaari floral tote revealing its burgundy lining and inner zipped pocket",
+    heading: "Crafted Down to Every Detail.",
+  },
+] as const;
 
-const INTERVAL_MS = 3500;
+const SLIDE_DURATION_MS = 5000;
 
 export function HeroCarousel() {
   const [current, setCurrent] = useState(0);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const goTo = useCallback((index: number) => {
-    setCurrent(index);
-  }, []);
-
-  const next = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % SLIDES.length);
-  }, []);
-
-  const resetTimer = useCallback(() => {
-    if (timerRef.current) clearInterval(timerRef.current);
-    timerRef.current = setInterval(next, INTERVAL_MS);
-  }, [next]);
+  const previousSlide = () => setCurrent((slide) => (slide - 1 + SLIDES.length) % SLIDES.length);
+  const nextSlide = () => setCurrent((slide) => (slide + 1) % SLIDES.length);
 
   useEffect(() => {
-    timerRef.current = setInterval(next, INTERVAL_MS);
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [next]);
+    const timer = window.setInterval(() => {
+      setCurrent((slide) => (slide + 1) % SLIDES.length);
+    }, SLIDE_DURATION_MS);
 
-  const handleDotClick = (index: number) => {
-    goTo(index);
-    resetTimer();
-  };
+    return () => window.clearInterval(timer);
+  }, []);
 
   return (
     <section
       id="home-hero"
-      className={`relative isolate overflow-hidden border-b border-black/20 transition-[aspect-ratio] duration-500 sm:aspect-auto sm:min-h-[calc(100dvh-72px)] lg:min-h-[calc(100dvh-92px)] ${
-        current === 0 ? "aspect-[3338/1818]" : "aspect-[1024/509]"
-      }`}
-      aria-label="KatranKaari hero carousel"
+      className="relative isolate aspect-[2712/1518] overflow-hidden border-b border-black/20 bg-[#5b0016] sm:aspect-auto sm:min-h-dvh"
+      aria-label="KatranKaari featured collection carousel"
     >
-      {/* Slides */}
-      {SLIDES.map((slide, i) => (
+      {SLIDES.map((slide, index) => (
         <div
           key={slide.src}
-          aria-hidden={i !== current}
-          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-            i === current ? "opacity-100" : "opacity-0"
+          aria-hidden={index !== current}
+          className={`absolute inset-0 transition-opacity duration-700 ease-out ${
+            index === current ? "opacity-100" : "opacity-0"
           }`}
         >
           <Image
             src={slide.src}
             alt={slide.alt}
             fill
-            priority={i === 0}
+            preload={index === 0}
+            loading={index === 0 ? undefined : "eager"}
+            fetchPriority={index === 0 ? undefined : "low"}
+            quality={95}
             className="object-cover object-center"
             sizes="100vw"
           />
@@ -77,13 +67,13 @@ export function HeroCarousel() {
       ))}
 
       {/* Content overlay */}
-      <div className="relative z-10 hidden w-full items-end px-0 sm:flex sm:min-h-[calc(100dvh-72px)] sm:pb-8 lg:min-h-[calc(100dvh-92px)] lg:px-0 lg:pb-8 xl:px-0">
+      <div className="relative z-10 hidden w-full items-end px-0 sm:flex sm:min-h-dvh sm:pb-8 lg:px-0 lg:pb-8 xl:px-0">
         <div className="hero-content-reveal max-w-4xl pl-4 text-white sm:pl-6 lg:pl-8">
-          {SLIDES.map((slide, i) => (
+          {SLIDES.map((slide, index) => (
             <h1
               key={slide.src}
               className={`max-w-[19rem] font-sans text-[clamp(2rem,9vw,4.35rem)] font-medium leading-[1.04] transition-opacity duration-500 sm:max-w-4xl ${
-                i === current ? "opacity-100" : "pointer-events-none absolute opacity-0"
+                index === current ? "opacity-100" : "pointer-events-none absolute opacity-0"
               }`}
             >
               {slide.heading}
@@ -97,22 +87,41 @@ export function HeroCarousel() {
             Shop All
           </Link>
 
-          {/* Dot indicators */}
-          <div className="mt-5 flex items-center gap-2 sm:mt-6" role="tablist" aria-label="Slide indicators">
-            {SLIDES.map((_, i) => (
+          <div className="mt-5 flex items-center gap-2 sm:mt-6" role="tablist" aria-label="Choose hero image">
+            {SLIDES.map((slide, index) => (
               <button
-                key={i}
+                key={slide.src}
+                type="button"
                 role="tab"
-                aria-selected={i === current}
-                aria-label={`Go to slide ${i + 1}`}
-                onClick={() => handleDotClick(i)}
+                aria-selected={index === current}
+                aria-label={`Show hero image ${index + 1}`}
+                onClick={() => setCurrent(index)}
                 className={`h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:ring-offset-black ${
-                  i === current ? "w-6 bg-white" : "w-1.5 bg-white/50 hover:bg-white/75"
+                  index === current ? "w-6 bg-white" : "w-1.5 bg-white/50 hover:bg-white/75"
                 }`}
               />
             ))}
           </div>
         </div>
+      </div>
+
+      <div className="absolute bottom-3 right-24 z-20 flex items-center gap-3 text-white sm:bottom-6 sm:right-32 lg:bottom-8">
+        <button
+          type="button"
+          className="inline-flex h-10 w-12 items-center justify-center bg-transparent transition-transform hover:-translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          aria-label="Show previous hero image"
+          onClick={previousSlide}
+        >
+          <ArrowLeft aria-hidden="true" size={34} strokeWidth={1.4} />
+        </button>
+        <button
+          type="button"
+          className="inline-flex h-10 w-12 items-center justify-center bg-transparent transition-transform hover:translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          aria-label="Show next hero image"
+          onClick={nextSlide}
+        >
+          <ArrowRight aria-hidden="true" size={34} strokeWidth={1.4} />
+        </button>
       </div>
     </section>
   );
