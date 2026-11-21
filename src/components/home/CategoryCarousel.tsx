@@ -21,6 +21,7 @@ type CategoryCarouselProps = {
 
 export function CategoryCarousel({ categories }: CategoryCarouselProps) {
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState<"previous" | "next">("next");
   const trackRef = useRef<HTMLDivElement>(null);
 
   const goTo = useCallback(
@@ -28,20 +29,36 @@ export function CategoryCarousel({ categories }: CategoryCarouselProps) {
       const nextIndex = (index + categories.length) % categories.length;
       const track = trackRef.current;
 
+      setDirection(index < current ? "previous" : "next");
+
       if (track) {
-        track.scrollTo({ left: track.clientWidth * nextIndex, behavior: "smooth" });
+        const slide = track.children.item(nextIndex) as HTMLElement | null;
+        if (slide) {
+          track.scrollTo({ left: slide.offsetLeft - 16, behavior: "smooth" });
+        }
       }
 
       setCurrent(nextIndex);
     },
-    [categories.length],
+    [categories.length, current],
   );
 
   const updateCurrentSlide = () => {
     const track = trackRef.current;
-    if (!track || track.clientWidth === 0) return;
+    if (!track) return;
 
-    setCurrent(Math.min(categories.length - 1, Math.round(track.scrollLeft / track.clientWidth)));
+    const slides = Array.from(track.children) as HTMLElement[];
+    const targetLeft = track.scrollLeft + 16;
+    const nextIndex = slides.reduce((closestIndex, slide, index) => {
+      const closestDistance = Math.abs(slides[closestIndex].offsetLeft - targetLeft);
+      const slideDistance = Math.abs(slide.offsetLeft - targetLeft);
+      return slideDistance < closestDistance ? index : closestIndex;
+    }, 0);
+
+    if (nextIndex !== current) {
+      setDirection(nextIndex < current ? "previous" : "next");
+      setCurrent(nextIndex);
+    }
   };
 
   return (
@@ -49,13 +66,13 @@ export function CategoryCarousel({ categories }: CategoryCarouselProps) {
       <div className="border-y border-[#251017] bg-[#FAF4E9] md:hidden">
         <div
           ref={trackRef}
-          className="flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain scroll-smooth pl-4 pr-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           onScroll={updateCurrentSlide}
           aria-label="Shop by category"
         >
           {categories.map((category, index) => (
             <Link
-              className={`group relative min-h-[31rem] w-full shrink-0 snap-center overflow-hidden ${category.panelClassName}`}
+              className={`group relative min-h-[31rem] basis-[calc(100%_-_2rem)] shrink-0 snap-start overflow-hidden ${category.panelClassName}`}
               href={category.href}
               key={category.title}
               aria-label={`${category.title}, slide ${index + 1} of ${categories.length}`}
@@ -67,11 +84,13 @@ export function CategoryCarousel({ categories }: CategoryCarouselProps) {
                 sizes="100vw"
                 className={`transition duration-500 motion-reduce:transition-none ${category.imageClassName}`}
               />
-              <span className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/5" aria-hidden="true" />
-              <span className="absolute inset-x-0 bottom-0 p-6 text-white">
-                <span className="block font-display text-[2.15rem] font-semibold leading-none">{category.title}</span>
-                <span className="mt-2 block text-xs font-semibold uppercase tracking-[0.16em] text-white/85">
-                  Explore collection
+              <span className="absolute inset-0 bg-black/35" aria-hidden="true" />
+              <span className="absolute inset-0 grid place-items-center px-7 text-center text-white">
+                <span className="space-y-2 text-lg leading-snug">
+                  <span className="mb-4 block font-display text-[2.15rem] font-semibold leading-none">{category.title}</span>
+                  {category.items.map((item) => (
+                    <span className="block" key={item}>{item}</span>
+                  ))}
                 </span>
               </span>
             </Link>
@@ -86,18 +105,36 @@ export function CategoryCarousel({ categories }: CategoryCarouselProps) {
             <button
               type="button"
               onClick={() => goTo(current - 1)}
-              className="grid size-11 place-items-center border border-[#251017]/25 transition-colors hover:bg-[#681426] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#681426]"
+              className={`grid h-11 place-items-center text-[#251017] transition-[width,color] duration-300 hover:text-[#681426] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#681426] ${
+                direction === "previous" ? "w-14" : "w-11"
+              }`}
               aria-label="Previous category"
             >
-              <span aria-hidden="true" className="text-2xl leading-none">←</span>
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 40 20"
+                fill="none"
+                className={`h-5 transition-[width] duration-300 ${direction === "previous" ? "w-12" : "w-8"}`}
+              >
+                <path d="M38 10H3M10 3L3 10L10 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </button>
             <button
               type="button"
               onClick={() => goTo(current + 1)}
-              className="grid size-11 place-items-center border border-[#251017]/25 transition-colors hover:bg-[#681426] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#681426]"
+              className={`grid h-11 place-items-center text-[#251017] transition-[width,color] duration-300 hover:text-[#681426] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#681426] ${
+                direction === "next" ? "w-14" : "w-11"
+              }`}
               aria-label="Next category"
             >
-              <span aria-hidden="true" className="text-2xl leading-none">→</span>
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 40 20"
+                fill="none"
+                className={`h-5 transition-[width] duration-300 ${direction === "next" ? "w-12" : "w-8"}`}
+              >
+                <path d="M2 10H37M30 3L37 10L30 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </button>
           </div>
         </div>
