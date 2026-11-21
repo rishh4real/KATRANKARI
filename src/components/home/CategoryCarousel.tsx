@@ -103,10 +103,10 @@ export function CategoryCarousel({ categories }: CategoryCarouselProps) {
         </div>
       </div>
 
-      <div className="hidden border border-[#251017] md:grid md:grid-cols-2 lg:grid-cols-4">
+      <div className="hidden bg-[#251017] p-px md:grid md:grid-cols-2 md:gap-px lg:grid-cols-4">
         {categories.map((category) => (
           <Link
-            className={`group relative min-h-[24rem] overflow-hidden border-r border-[#251017] even:border-r-0 lg:min-h-[27rem] lg:border-r lg:last:border-r-0 ${category.panelClassName}`}
+            className={`group relative min-h-[24rem] overflow-hidden lg:min-h-[27rem] ${category.panelClassName}`}
             href={category.href}
             key={category.title}
           >
