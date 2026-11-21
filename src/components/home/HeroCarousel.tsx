@@ -41,7 +41,7 @@ export function HeroCarousel() {
   return (
     <section
       id="home-hero"
-      className="relative isolate aspect-[2712/1518] overflow-hidden border-b border-black/20 bg-[#5b0016] sm:aspect-auto sm:min-h-dvh"
+      className="relative isolate aspect-square overflow-hidden border-b border-black/20 bg-[#5b0016] sm:aspect-auto sm:min-h-dvh"
       aria-label="KatranKaari featured collection carousel"
     >
       {SLIDES.map((slide, index) => (
