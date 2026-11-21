@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const SLIDES = [
@@ -67,12 +67,12 @@ export function HeroCarousel() {
       ))}
 
       {/* Content overlay */}
-      <div className="relative z-10 hidden w-full items-end px-0 sm:flex sm:min-h-dvh sm:pb-8 lg:px-0 lg:pb-8 xl:px-0">
-        <div className="hero-content-reveal max-w-4xl pl-4 text-white sm:pl-6 lg:pl-8">
+      <div className="relative z-10 flex h-full w-full items-end px-0 pb-3 sm:min-h-dvh sm:pb-8 lg:px-0 lg:pb-8 xl:px-0">
+        <div className="hero-content-reveal max-w-4xl pl-14 text-white sm:pl-6 lg:pl-8">
           {SLIDES.map((slide, index) => (
             <h1
               key={slide.src}
-              className={`max-w-[19rem] font-sans text-[clamp(2rem,9vw,4.35rem)] font-medium leading-[1.04] transition-opacity duration-500 sm:max-w-4xl ${
+              className={`max-w-[16rem] font-sans text-[clamp(1.35rem,6.3vw,2.1rem)] font-medium leading-[1.04] transition-opacity duration-500 sm:max-w-4xl sm:text-[clamp(2rem,9vw,4.35rem)] ${
                 index === current ? "opacity-100" : "pointer-events-none absolute opacity-0"
               }`}
             >
@@ -81,13 +81,13 @@ export function HeroCarousel() {
           ))}
 
           <Link
-            className="mt-5 inline-flex min-h-11 items-center justify-center rounded-button border border-white bg-white px-6 py-2.5 text-xs font-bold uppercase tracking-[0.04em] text-foreground transition-colors hover:border-white/80 hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:mt-6"
+            className="mt-2 inline-flex min-h-9 items-center justify-center rounded-button border border-white bg-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.04em] text-foreground transition-colors hover:border-white/80 hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:mt-6 sm:min-h-11 sm:px-6 sm:py-2.5 sm:text-xs"
             href="/shop"
           >
             Shop All
           </Link>
 
-          <div className="mt-5 flex items-center gap-2 sm:mt-6" role="tablist" aria-label="Choose hero image">
+          <div className="mt-2 flex items-center gap-2 sm:mt-6" role="tablist" aria-label="Choose hero image">
             {SLIDES.map((slide, index) => (
               <button
                 key={slide.src}
@@ -105,24 +105,22 @@ export function HeroCarousel() {
         </div>
       </div>
 
-      <div className="absolute bottom-3 right-24 z-20 flex items-center gap-3 text-white sm:bottom-6 sm:right-32 lg:bottom-8">
-        <button
-          type="button"
-          className="inline-flex h-10 w-12 items-center justify-center bg-transparent transition-transform hover:-translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-          aria-label="Show previous hero image"
-          onClick={previousSlide}
-        >
-          <ArrowLeft aria-hidden="true" size={34} strokeWidth={1.4} />
-        </button>
-        <button
-          type="button"
-          className="inline-flex h-10 w-12 items-center justify-center bg-transparent transition-transform hover:translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-          aria-label="Show next hero image"
-          onClick={nextSlide}
-        >
-          <ArrowRight aria-hidden="true" size={34} strokeWidth={1.4} />
-        </button>
-      </div>
+      <button
+        type="button"
+        className="absolute left-1 top-1/2 z-20 inline-flex h-12 w-10 -translate-y-1/2 items-center justify-center bg-transparent text-white/75 transition hover:-translate-x-0.5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:left-4 sm:h-14 sm:w-12"
+        aria-label="Show previous hero image"
+        onClick={previousSlide}
+      >
+        <ChevronLeft aria-hidden="true" className="h-7 w-7 sm:h-9 sm:w-9" strokeWidth={1.5} />
+      </button>
+      <button
+        type="button"
+        className="absolute right-1 top-1/2 z-20 inline-flex h-12 w-10 -translate-y-1/2 items-center justify-center bg-transparent text-white/75 transition hover:translate-x-0.5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-4 sm:h-14 sm:w-12"
+        aria-label="Show next hero image"
+        onClick={nextSlide}
+      >
+        <ChevronRight aria-hidden="true" className="h-7 w-7 sm:h-9 sm:w-9" strokeWidth={1.5} />
+      </button>
     </section>
   );
 }
