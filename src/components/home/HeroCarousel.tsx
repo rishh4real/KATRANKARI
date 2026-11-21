@@ -14,12 +14,12 @@ const SLIDES = [
   {
     src: "/katrankaari/hero-totes-premium.webp",
     alt: "Two KatranKaari quilted floral tote bags against a rich burgundy fabric backdrop",
-    heading: "Craft That Carries a Story.",
+    heading: "Made From What Remains.",
   },
   {
     src: "/katrankaari/hero-tote-interior-premium.webp",
     alt: "Open KatranKaari floral tote revealing its burgundy lining and inner zipped pocket",
-    heading: "Crafted Down to Every Detail.",
+    heading: "Made From What Remains.",
   },
 ] as const;
 
