@@ -69,7 +69,6 @@ export function StoryTimeline({ eyebrow, heading, milestones }: StoryTimelinePro
             aria-hidden="true"
           >
             <motion.path
-              className="process-thread"
               d="M0 32 C95 4 158 60 250 32 S408 4 500 32 S658 60 750 32 S905 4 1000 32"
               fill="none"
               stroke="#B7827D"
@@ -91,7 +90,6 @@ export function StoryTimeline({ eyebrow, heading, milestones }: StoryTimelinePro
             aria-hidden="true"
           >
             <motion.path
-              className="process-thread"
               d="M32 0 C10 72 54 132 32 205 S10 335 32 410 S54 540 32 640"
               fill="none"
               stroke="#B7827D"

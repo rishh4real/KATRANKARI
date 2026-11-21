@@ -59,7 +59,7 @@ export function StoryFoundation({ eyebrow, heading, description, items }: StoryF
         </motion.div>
 
         <motion.div
-          className="relative mx-auto mt-4 grid max-w-6xl grid-cols-4 sm:mt-6 sm:grid-cols-2 lg:mt-7 lg:grid-cols-4"
+          className="mx-auto mt-4 grid max-w-6xl grid-cols-4 sm:mt-6 sm:grid-cols-2 lg:mt-7 lg:grid-cols-4"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.18 }}
@@ -68,9 +68,6 @@ export function StoryFoundation({ eyebrow, heading, description, items }: StoryF
             visible: { transition: { staggerChildren: reduceMotion ? 0 : 0.12 } },
           }}
         >
-          <svg className="pointer-events-none absolute left-[12.5%] top-3 z-0 h-8 w-[75%] sm:hidden" viewBox="0 0 1000 64" preserveAspectRatio="none" aria-hidden="true">
-            <path className="process-thread" d="M0 32 C95 4 158 60 250 32 S408 4 500 32 S658 60 750 32 S905 4 1000 32" fill="none" stroke="#EADAC7" strokeWidth="2" strokeLinecap="round" strokeDasharray="7 11" />
-          </svg>
           {items.map((item, index) => {
             const Icon = icons[item.icon];
             const mobileDivider = index === 0 ? "" : "border-l border-[#EADAC7]/25 sm:border-l-0";
@@ -80,7 +77,7 @@ export function StoryFoundation({ eyebrow, heading, description, items }: StoryF
             return (
               <motion.article
                 key={item.number}
-                className={`group relative z-10 px-1.5 py-1 text-center sm:px-6 sm:py-3 sm:text-left lg:px-7 ${mobileDivider} ${tabletDivider} ${desktopDivider}`}
+                className={`group relative px-1.5 py-1 text-center sm:px-6 sm:py-3 sm:text-left lg:px-7 ${mobileDivider} ${tabletDivider} ${desktopDivider}`}
                 variants={
                   reduceMotion
                     ? undefined
