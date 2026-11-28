@@ -56,12 +56,11 @@ export function Header() {
     return () => window.removeEventListener("scroll", updateHeader);
   }, [heroId]);
 
-  const hasLightHeader = !isHome || pastHero;
+  // Keep the same cream navigation treatment on every route, including home.
+  const hasLightHeader = true;
   const overlayHeaderClass = pastHero
     ? `fixed inset-x-0 top-0 z-40 border-b border-[#EADAC7] bg-[#FAF4E9] text-[#4D101D] shadow-[0_1px_0_rgba(77,16,29,0.1)] transition-transform duration-300 ${showScrolledHeader ? "translate-y-0" : "-translate-y-full"}`
-    : isHome
-      ? "absolute inset-x-0 top-0 z-40 bg-transparent text-white"
-      : "absolute inset-x-0 top-0 z-40 border-b border-[#EADAC7] bg-[#FAF4E9] text-[#4D101D] shadow-[0_1px_0_rgba(77,16,29,0.1)]";
+    : "absolute inset-x-0 top-0 z-40 border-b border-[#EADAC7] bg-[#FAF4E9] text-[#4D101D] shadow-[0_1px_0_rgba(77,16,29,0.1)]";
   return (
     <>
     <header className={hasOverlayHero ? overlayHeaderClass : "sticky top-0 z-40 border-b border-[#EADAC7] bg-[#FAF4E9] text-[#4D101D] shadow-[0_1px_0_rgba(77,16,29,0.1)]"}>

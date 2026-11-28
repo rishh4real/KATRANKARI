@@ -60,7 +60,7 @@ export function HeroCarousel() {
             loading={index === 0 ? undefined : "eager"}
             fetchPriority={index === 0 ? undefined : "low"}
             quality={95}
-            className="object-cover object-center"
+            className={`object-cover ${index === 0 ? "object-top" : "object-center"}`}
             sizes="100vw"
           />
         </div>
