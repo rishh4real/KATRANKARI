@@ -41,14 +41,14 @@ export function HeroCarousel() {
   return (
     <section
       id="home-hero"
-      className="relative isolate aspect-square overflow-hidden border-b border-black/20 bg-[#5b0016] sm:aspect-auto sm:min-h-dvh"
+      className="relative isolate h-[100svh] min-h-[34rem] overflow-hidden border-b border-black/20 bg-[#5b0016] sm:h-dvh sm:min-h-[38rem]"
       aria-label="KatranKaari featured collection carousel"
     >
       {SLIDES.map((slide, index) => (
         <div
           key={slide.src}
           aria-hidden={index !== current}
-          className={`absolute inset-0 transition-opacity duration-700 ease-out ${
+          className={`absolute inset-x-0 bottom-0 top-[72px] transition-opacity duration-700 ease-out lg:top-[92px] ${
             index === current ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -67,7 +67,7 @@ export function HeroCarousel() {
       ))}
 
       {/* Content overlay */}
-      <div className="relative z-10 flex h-full w-full items-end px-0 pb-3 sm:min-h-dvh sm:pb-8 lg:px-0 lg:pb-8 xl:px-0">
+      <div className="relative z-10 flex h-full w-full items-end px-0 pb-5 pt-[72px] sm:pb-8 lg:px-0 lg:pb-8 lg:pt-[92px] xl:px-0">
         <div className="hero-content-reveal max-w-4xl pl-14 text-white sm:pl-6 lg:pl-8">
           {SLIDES.map((slide, index) => (
             <h1
@@ -107,7 +107,7 @@ export function HeroCarousel() {
 
       <button
         type="button"
-        className="absolute left-1 top-1/2 z-20 inline-flex h-12 w-10 -translate-y-1/2 items-center justify-center bg-transparent text-white/75 transition hover:-translate-x-0.5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:left-4 sm:h-14 sm:w-12"
+        className="absolute left-1 top-[calc(50%+36px)] z-20 inline-flex h-12 w-10 -translate-y-1/2 items-center justify-center bg-transparent text-white/75 transition hover:-translate-x-0.5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:left-4 sm:h-14 sm:w-12 lg:top-[calc(50%+46px)]"
         aria-label="Show previous hero image"
         onClick={previousSlide}
       >
@@ -115,7 +115,7 @@ export function HeroCarousel() {
       </button>
       <button
         type="button"
-        className="absolute right-1 top-1/2 z-20 inline-flex h-12 w-10 -translate-y-1/2 items-center justify-center bg-transparent text-white/75 transition hover:translate-x-0.5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-4 sm:h-14 sm:w-12"
+        className="absolute right-1 top-[calc(50%+36px)] z-20 inline-flex h-12 w-10 -translate-y-1/2 items-center justify-center bg-transparent text-white/75 transition hover:translate-x-0.5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-4 sm:h-14 sm:w-12 lg:top-[calc(50%+46px)]"
         aria-label="Show next hero image"
         onClick={nextSlide}
       >
